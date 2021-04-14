@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background: url("../webapp/images/fono1.jpeg"); width: 100%; height: 100vh;
+
+    }
+    .container{
+        margin-top: 90px;
+        width: 600px;
+        height: 400px;
+    }
+
+</style>
+<body>
+    <form method="post" action="/signup.do">
+        <div class="container">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        <h1 style="color: #1a1e21">Sign up</h1>
+            <div class="form-group">
+                <label for="user-name-label">First name</label>
+                <input type="text" class= "form-control" name="firstname" id="user-name-label" placeholder="Enter first name"/>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class= "form-control" id="lastname" name="lastname" placeholder="Enter last name"/>
+            </div>
+            <div class="form-group">
+                 <label for="mail">Email address</label>
+                 <input type="email" class= "form-control" id="mail" name="email" placeholder="name@mail.com"/>
+            </div>
+            <div class="form-group">
+                 <label for="password">Password</label>
+                 <input type="password" class= "form-control" id="password" name="password" placeholder="Create password"/>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
+        </div>
+        </div>
+    </form>
+</body>
+</html>

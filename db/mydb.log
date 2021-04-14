@@ -1,0 +1,59 @@
+/*C10*/SET SCHEMA PUBLIC
+set schema PUBLIC
+create table COURSE\u000a(\u000a\u0009COURSE_ID bigint,\u000a\u0009COURSE_NAME varchar(255),\u000a\u0009TAGS varchar(255),\u000a\u0009DESCRIPTION varchar(255),\u000a\u0009IS_ACTIVE boolean\u000a)
+create unique index COURSE_COURSE_ID_UINDEX\u000a\u0009on COURSE (COURSE_ID)
+alter table COURSE\u000a\u0009add constraint COURSE_PK\u000a\u0009\u0009primary key (COURSE_ID)
+/*C11*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+alter table PUBLIC.COURSE add column courseID bigint not null
+create table User_Course (users_id bigint not null, courses_courseID bigint not null)
+alter table User_Course add constraint FKm18l1j9cooa22gk4lvn55jucl foreign key (courses_courseID) references Course
+alter table User_Course add constraint FK1co7huqk0dq623e6cdhffp2v1 foreign key (users_id) references User
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C10*/DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+create table Course_User (Course_courseID bigint not null, users_id bigint not null)
+alter table PUBLIC.USER_COURSE add column User_id bigint not null
+alter table Course_User add constraint FK567uvtneij0567osqti6jq9aa foreign key (users_id) references User
+alter table Course_User add constraint FK5riy6yhfjwedmgsgl3jtbtxjn foreign key (Course_courseID) references Course
+alter table User_Course add constraint FKcsd4shnui2g4vm8dufhucd8kt foreign key (User_id) references User
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+/*C23*/SET SCHEMA PUBLIC
+set schema PUBLIC
+alter table COURSE alter column COURSE_ID set null
+/*C24*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/alter table COURSE drop column COURSEID
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/drop index COURSE_COURSE_ID_UINDEX
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+alter table PUBLIC.COURSE add column courseID bigint not null
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+DISCONNECT
