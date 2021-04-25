@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<style>
+    body, .main-content-wrapper {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    body {
+        font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-size: 15px;
+        line-height: 1.43;
+        color: #29303b;
+        background-color: #fff;
+        margin: 0;
+    }
+    {
+        box-sizing: border-box;
+    }
+</style>
+<body>
+<form name ='modify' method="get" action="/service/seeProfile.do">
+    <label for="id_name">First name</label>
+    <input type="text" name="name" required="" placeholder="First Name" id="id_name" maxlength="64" class="textinput textInput form-control">
+
+</form>
+<script type="text/javascript">
+    document.forms['modify']['name'].value = ;
+</script>
+
+<form method="post" action="/service/seeProfile.do">
+
+
+</form>
+
+</body>
+</html>

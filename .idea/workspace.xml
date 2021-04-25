@@ -9,36 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fa773a0-bd9f-4995-acda-f1293b69c444" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/71e25634-1134-4b46-b45c-779f8aee0b2f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/71e25634-1134-4b46-b45c-779f8aee0b2f/storage_v2/_src_/database/PUBLIC.aaZQjQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/71e25634-1134-4b46-b45c-779f8aee0b2f/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/71e25634-1134-4b46-b45c-779f8aee0b2f/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/SYSTEM_LOBS.JJWSJg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/class4.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/class4.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.script" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/entity/Courses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/entity/Courses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/UserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/UserList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createCourse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9fa773a0-bd9f-4995-acda-f1293b69c444" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +218,7 @@
       <workItem from="1618970272641" duration="33000" />
       <workItem from="1619005312842" duration="8340000" />
       <workItem from="1619190548911" duration="7661000" />
-      <workItem from="1619373590888" duration="1816000" />
+      <workItem from="1619373590888" duration="2026000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1618368906061</created>
