@@ -1,60 +1,33 @@
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="/css/musiquorum-stylesheet1.css">
-      <title>Musiquorum</title>
-  </head>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Seguimiento Alumnos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: #0b5ed7 !important;
+    }
+    .container{
+        margin-top: 90px;
+        width: 600px;
+        height: 400px;
+    }
 
-  <style>
-      body {
-          background-image: linear-gradient(cornflowerblue, slateblue);
-      }
-
-      button {
-
-          background-color: white;
-          color: cornflowerblue;
-          padding: 15px 32px;
-          text-align: center;
-          display: inline-block;
-          font-size: 20px;
-          font-family: "Century Gothic";
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          margin: 5px;
-      }
-
-      button:hover {
-          background-color: cornflowerblue; /* Green */
-          color: white;
-          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-      }
-
-      button:active {
-          background-color: cornflowerblue;
-          box-shadow: 0 5px #666;
-          transform: translateY(4px);
-      }
-
-      h1{
-          color:white;
-          font-family: 'Century Gothic';
-          font-size: 75px;
-          text-align: center
-      }
-  </style>
-
-  <body>
-    <div align="center">
-        <h1 > Musiquorum </h1>
-        <img src="../webapp/images/character-violin-transparent.png" style="width:212px;height:400px; padding-bottom: 40px" align="center">
-        <nav>
-            <button onclick="/login.html">Iniciar Sesión </button>
-            <button onclick="/signup.html">Registrase </button>
-        </nav>
-
+</style>
+<body>
+<div>
+    <div>
+        <div class="container">
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">
+                <h1 style="color: #1a1e21">Welcome!</h1>
+                <nav>
+                    <a href="/login.html">Iniciar Sesión</a>
+                    <a href="/signup.html">Registrase</a>
+                </nav>
+            </div>
+        </div>
     </div>
-  </body>
+</div>
+</body>
 </html>

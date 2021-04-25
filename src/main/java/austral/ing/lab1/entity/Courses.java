@@ -1,8 +1,6 @@
 package austral.ing.lab1.entity;
 
 import austral.ing.lab1.model.Course;
-import austral.ing.lab1.model.User;
-
 import javax.persistence.EntityTransaction;
 
 import java.util.List;

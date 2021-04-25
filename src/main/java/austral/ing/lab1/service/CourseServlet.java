@@ -1,7 +1,7 @@
 package austral.ing.lab1.service;
 
+import austral.ing.lab1.entity.Courses;
 import austral.ing.lab1.model.Course;
-import austral.ing.lab1.model.User;
 import com.google.gson.Gson;
 
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,7 @@ import java.util.List;
 public class CourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        final List<Course> courses = austral.ing.lab1.entity.Courses.listAll();
+        final List<Course> courses = Courses.listAll();
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

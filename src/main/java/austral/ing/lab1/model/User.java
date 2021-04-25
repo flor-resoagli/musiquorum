@@ -38,11 +38,13 @@ public class User {
   @Column(name = "PASSWORD")
   private String password;
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<Address> addresses = new ArrayList<>();
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private List<Course> courses = new ArrayList<>();
+
+
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  private List<Address> addresses = new ArrayList<>();
 
 
   public String getFirstName() {

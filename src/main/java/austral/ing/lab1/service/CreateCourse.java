@@ -1,9 +1,7 @@
 package austral.ing.lab1.service;
 
 import austral.ing.lab1.entity.Courses;
-import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Course;
-import austral.ing.lab1.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,13 +19,12 @@ public class CreateCourse  extends HttpServlet{
             final Course course = new Course();
 
             course.setName(req.getParameter("name"));
-            course.setTags(req.getParameter("tags"));
             course.setDescription(req.getParameter("description"));
             course.setActive(true);
-
+            course.setProfessor(req.getRemoteUser());
             Courses.persist(course);
 
-            final RequestDispatcher view = req.getRequestDispatcher("createCourse.html");
+            final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
 
             view.forward(req, resp);
         }

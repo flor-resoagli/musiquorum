@@ -2,19 +2,12 @@ package austral.ing.lab1.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "COURSE")
 public class Course {
 
     @Id
@@ -24,19 +17,30 @@ public class Course {
     @Column(name = "COURSE_NAME")
     private String name;
 
-    @Column(name = "TAGS")
-    private String tags;
-    //private List<String> tags;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "TAGS")
+    private String tags;
+
+    @Column(name = "PROFESSOR")
+    private String professor;
+
+
+
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
+//
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Tag> tag = new ArrayList<>();
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<User> users = new ArrayList<>();
+    @ManyToMany(mappedBy = "courses")
+    private List<User> users = new ArrayList<>();
+//
+//      @OneToMany
+//      private List<Class> classes = new ArrayList<>();
 
 
     public Long getCourseID() {
@@ -45,10 +49,6 @@ public class Course {
 
     public String getName() {
         return name;
-    }
-
-    public String getTags() {
-        return tags;
     }
 
     public String getDescription() {
@@ -71,10 +71,6 @@ public class Course {
         this.name = name;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -85,5 +81,13 @@ public class Course {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(String professor) {
+        this.professor = professor;
     }
 }

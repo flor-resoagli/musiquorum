@@ -3,92 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Log in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <style>
+    body{
+        background-color: #0b5ed7;
 
-    body {
-        background-image: linear-gradient(cornflowerblue, slateblue);
     }
-
-    button {
-
-        background-color: white;
-        color: cornflowerblue;
-        padding: 15px 32px;
-        text-align: center;
-        display: inline-block;
-        font-size: 20px;
-        font-family: "Century Gothic";
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        margin: 5px;
+    h1 {
+        margin-top: 110px;
+        margin-left: 200px;
     }
-
-    button:hover {
-        background-color: cornflowerblue; /* Green */
-        color: white;
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-
-    button:active {
-        background-color: cornflowerblue;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-
-    h1{
-        color:white;
-        font-family: 'Century Gothic';
-        font-size: 75px;
-        text-align: center
-    }
-
-    container{
+    .container{
         margin-top: 90px;
         align-content: center;
         width: 600px;
         height: 400px;
     }
 
-    form{
-
-    }
-
-    label{
-        color: white;
-        font-size: 20px;
-        font-family: "Century Gothic";
-
-    }
-
-    input{
-
-    }
-
 </style>
-<body align="center">
-    <div>
-
-    <h1> Log in </h1>
-
-    <form method="post" action="j_security_check">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" name="j_username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<body>
+<form method="post" action="j_security_check">
+    <div class="container">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded" >
+            <h1 style="color:#1a1e21">Log in</h1>
+            <div class="container" style="max-width: 500px">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" name="j_username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="j_password" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/signup.html">Registrase</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name="j_password" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div>
-        <button type="submit" class="btn btn-primary">Submit </button>
-        <button onclick="/signup.html">Registrase </button>
-        </div>
-    </form>
-    <div>
-        <img src="../webapp/images/character-musicnote-transparent.png" style="width:200px;height:350px; padding-bottom: 20px" align="center">
-    </div>
-    </div>
+    </div>>
+</form>
 </body>
 </html>

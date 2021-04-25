@@ -11,6 +11,10 @@
         <class>austral.ing.lab1.model.User</class>
         <class>austral.ing.lab1.model.Address</class>
         <class>austral.ing.lab1.model.Course</class>
+        <class>austral.ing.lab1.model.Class</class>
+        <class>austral.ing.lab1.model.Material</class>
+        <class>austral.ing.lab1.model.Tag</class>
+
 
 
         <properties>
