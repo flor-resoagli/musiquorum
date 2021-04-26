@@ -15,7 +15,9 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/seeProfile.do")
+import static austral.ing.lab1.util.LangUtils.notEmpty;
+
+@WebServlet("/secure/seeProfile")
 public class Profile extends HttpServlet {
 
     @Override
@@ -25,11 +27,27 @@ public class Profile extends HttpServlet {
 
         User user = persistedUser.get(); //internamente ya checkea que este presente o tira excepcion
 
-        req.setAttribute("user", user);
+        final PrintWriter out = resp.getWriter();
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/profile.html");
-        view.forward(req, resp);
-        //devuelve el mismo formato que
+        out.println("<html>");
+        out.println("  <head>");
+        out.println("    <title>Perfil</title>");
+        out.println("  </head>");
+        out.println("  <body>");
+        out.println("    <h1>Perfil</h1>");
+        out.println("    <ul>");
+        out.println("      <li> Nombre: " +  notEmpty(user.getFirstName(), "None") + "</li>");
+        out.println("      <li> Apellido: " +  notEmpty(user.getLastName(), "None") + "</li>");
+        out.println("      <li> Email: " +  notEmpty(user.getEmail(), "None") + "</li>");
+        out.println("      <li> Contrasela: " +  notEmpty(user.getPassword(), "None") + "</li>");
+        out.println("    </ul>");
+        out.println("  </body>");
+        out.println("</html>");
+//
+//        out.flush();
+//
+//        final RequestDispatcher view = req.getRequestDispatcher("profile.jsp");
+//        view.forward(req, resp);
     }
 
 //    @Override
@@ -46,24 +64,6 @@ public class Profile extends HttpServlet {
 //        out.flush();
 //    }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Busco el mail user usando el mail
-        final Optional<User> persistedUser = Users.findByEmail(req.getRemoteUser());
 
-        User user = persistedUser.get(); //internamente ya checkea que este presente o tira excepcion
-
-        user.setFirstName(req.getParameter("firstname"));
-        user.setLastName(req.getParameter("lastname"));
-        user.setPassword(req.getParameter("password"));
-        user.setActive(true);
-
-        Users.persist(user);
-
-        //probablemente deberia volver al perfil en vez de al home pero todavia no esta implementado
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
-
-        view.forward(req, resp);
-    }
 
 }
