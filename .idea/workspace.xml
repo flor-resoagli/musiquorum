@@ -10,12 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa773a0-bd9f-4995-acda-f1293b69c444" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/character-musicnote-transparent2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/SYSTEM_LOBS.JJWSJg.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createClass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/createCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseCreation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +70,15 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1pt8Z8fxngrPD6yeoYPBxxjZIhC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="hsqldb" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -86,21 +101,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\flopy\Projects\musiquorum\src\main\webapp\secure" />
       <recent name="$PROJECT_DIR$/src/main/webapp/secure" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.44">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="musiquorum [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -117,11 +122,12 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.44" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.44" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8082/" />
+    <configuration name="Tomcat 9.0.44" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat  9.0.44" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -264,154 +270,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="304" y="184" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619007442747">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="304" y="184" width="1071" height="796" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1619007442747" />
-    <state x="653" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1619363522863">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="653" y="245" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1619363522863" />
-    <state x="562" y="225" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1618686647473">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="562" y="225" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1680.1050@0.0.1680.1050" timestamp="1618686647473" />
-    <state x="312" y="453" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1619361904334">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="312" y="453" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1619361904334" />
-    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1619377834915">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="578" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1619377834915" />
-    <state x="424" y="97" key="CommitChangelistDialog2" timestamp="1618368905850">
-      <screen x="0" y="25" width="1680" height="947" />
-    </state>
-    <state x="424" y="97" key="CommitChangelistDialog2/0.25.1680.947@0.25.1680.947" timestamp="1618368905850" />
-    <state width="955" height="317" key="GridCell.Tab.0.bottom" timestamp="1619391239754">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239754" />
-    <state width="955" height="317" key="GridCell.Tab.0.bottom/0.25.1680.949@0.25.1680.949" timestamp="1619384025058" />
-    <state width="958" height="172" key="GridCell.Tab.0.bottom/0.25.1680.951@0.25.1680.951" timestamp="1619023901600" />
-    <state width="955" height="317" key="GridCell.Tab.0.center" timestamp="1619391239751">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239751" />
-    <state width="955" height="317" key="GridCell.Tab.0.center/0.25.1680.949@0.25.1680.949" timestamp="1619384025051" />
-    <state width="958" height="172" key="GridCell.Tab.0.center/0.25.1680.951@0.25.1680.951" timestamp="1619023901585" />
-    <state width="955" height="317" key="GridCell.Tab.0.left" timestamp="1619391239749">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239749" />
-    <state width="955" height="326" key="GridCell.Tab.0.left/0.0.1680.1050@0.25.1680.949" timestamp="1619375809472" />
-    <state width="955" height="317" key="GridCell.Tab.0.left/0.25.1680.949@0.25.1680.949" timestamp="1619384025047" />
-    <state width="958" height="172" key="GridCell.Tab.0.left/0.25.1680.951@0.25.1680.951" timestamp="1619023901583" />
-    <state width="955" height="317" key="GridCell.Tab.0.right" timestamp="1619391239753">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239753" />
-    <state width="955" height="317" key="GridCell.Tab.0.right/0.25.1680.949@0.25.1680.949" timestamp="1619384025056" />
-    <state width="958" height="172" key="GridCell.Tab.0.right/0.25.1680.951@0.25.1680.951" timestamp="1619023901587" />
-    <state width="955" height="317" key="GridCell.Tab.1.bottom" timestamp="1619391239606">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239606" />
-    <state width="955" height="317" key="GridCell.Tab.1.bottom/0.25.1680.949@0.25.1680.949" timestamp="1619381187549" />
-    <state width="958" height="172" key="GridCell.Tab.1.bottom/0.25.1680.951@0.25.1680.951" timestamp="1619023901182" />
-    <state width="955" height="317" key="GridCell.Tab.1.center" timestamp="1619391239605">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239605" />
-    <state width="955" height="317" key="GridCell.Tab.1.center/0.25.1680.949@0.25.1680.949" timestamp="1619381187547" />
-    <state width="958" height="172" key="GridCell.Tab.1.center/0.25.1680.951@0.25.1680.951" timestamp="1619023901180" />
-    <state width="955" height="317" key="GridCell.Tab.1.left" timestamp="1619391239605">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239605" />
-    <state width="955" height="317" key="GridCell.Tab.1.left/0.25.1680.949@0.25.1680.949" timestamp="1619381187547" />
-    <state width="958" height="172" key="GridCell.Tab.1.left/0.25.1680.951@0.25.1680.951" timestamp="1619023901179" />
-    <state width="955" height="317" key="GridCell.Tab.1.right" timestamp="1619391239606">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239606" />
-    <state width="955" height="317" key="GridCell.Tab.1.right/0.25.1680.949@0.25.1680.949" timestamp="1619381187548" />
-    <state width="958" height="172" key="GridCell.Tab.1.right/0.25.1680.951@0.25.1680.951" timestamp="1619023901181" />
-    <state width="955" height="317" key="GridCell.Tab.2.bottom" timestamp="1619391239602">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239602" />
-    <state width="955" height="317" key="GridCell.Tab.2.bottom/0.25.1680.949@0.25.1680.949" timestamp="1619381187551" />
-    <state width="958" height="172" key="GridCell.Tab.2.bottom/0.25.1680.951@0.25.1680.951" timestamp="1619023901185" />
-    <state width="955" height="317" key="GridCell.Tab.2.center" timestamp="1619391239601">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239601" />
-    <state width="955" height="317" key="GridCell.Tab.2.center/0.25.1680.949@0.25.1680.949" timestamp="1619381187550" />
-    <state width="958" height="172" key="GridCell.Tab.2.center/0.25.1680.951@0.25.1680.951" timestamp="1619023901183" />
-    <state width="955" height="317" key="GridCell.Tab.2.left" timestamp="1619391239600">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239600" />
-    <state width="955" height="317" key="GridCell.Tab.2.left/0.25.1680.949@0.25.1680.949" timestamp="1619381187549" />
-    <state width="958" height="172" key="GridCell.Tab.2.left/0.25.1680.951@0.25.1680.951" timestamp="1619023901182" />
-    <state width="955" height="317" key="GridCell.Tab.2.right" timestamp="1619391239601">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="955" height="317" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1619391239601" />
-    <state width="955" height="317" key="GridCell.Tab.2.right/0.25.1680.949@0.25.1680.949" timestamp="1619381187551" />
-    <state width="958" height="172" key="GridCell.Tab.2.right/0.25.1680.951@0.25.1680.951" timestamp="1619023901184" />
-    <state width="957" height="395" key="GridCell.Tab.3.bottom" timestamp="1619296002756">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.3.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1619296002756" />
-    <state width="957" height="395" key="GridCell.Tab.3.center" timestamp="1619296002755">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.3.center/0.0.1680.1050@0.0.1680.1050" timestamp="1619296002755" />
-    <state width="957" height="395" key="GridCell.Tab.3.left" timestamp="1619296002754">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.3.left/0.0.1680.1050@0.0.1680.1050" timestamp="1619296002754" />
-    <state width="957" height="395" key="GridCell.Tab.3.right" timestamp="1619296002755">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1619296002755" />
-    <state width="957" height="395" key="GridCell.Tab.4.bottom" timestamp="1619296004557">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.4.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1619296004557" />
-    <state width="957" height="395" key="GridCell.Tab.4.center" timestamp="1619296004556">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.4.center/0.0.1680.1050@0.0.1680.1050" timestamp="1619296004556" />
-    <state width="957" height="395" key="GridCell.Tab.4.left" timestamp="1619296004555">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.4.left/0.0.1680.1050@0.0.1680.1050" timestamp="1619296004555" />
-    <state width="957" height="395" key="GridCell.Tab.4.right" timestamp="1619296004556">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="957" height="395" key="GridCell.Tab.4.right/0.0.1680.1050@0.0.1680.1050" timestamp="1619296004556" />
-    <state x="731" y="416" width="342" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1618799526551">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="731" y="416" width="342" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1680.1050@0.0.1680.1050" timestamp="1618799526551" />
-    <state x="718" y="416" width="329" height="217" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1618773639518">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="718" y="416" width="329" height="217" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1618773639518" />
-    <state x="670" y="310" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1619374647551">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="670" y="310" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1619374647551" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1619365026365">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1619365026365" />
   </component>
 </project>

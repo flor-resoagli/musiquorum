@@ -3,44 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <title>Log in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <style>
     body{
-        background-color: #0b5ed7;
+        background-color: white;
+        font-family: 'Century Gothic';
+    }
+
+    button {
+
+        background-color: white;
+        color: cornflowerblue;
+        padding: 10px 10px;
+        text-align: center;
+        display: inline-block;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    h1{
+
+        color: black;
+        padding-top: 70px;
+        font-size: 30px;
+    }
+
+    label{
+        color: white;
+        font-size: 20px;
+        padding-bottom: 10px;
 
     }
-    h1 {
-        margin-top: 110px;
-        margin-left: 200px;
-    }
-    .container{
-        margin-top: 90px;
-        align-content: center;
-        width: 600px;
-        height: 400px;
+
+    p{
+        font-size: 30px;
     }
 
 </style>
 <body>
-<form method="post" action="j_security_check">
-    <div class="container">
-        <div class="shadow-sm p-3 mb-5 bg-white rounded" >
-            <h1 style="color:#1a1e21">Log in</h1>
-            <div class="container" style="max-width: 500px">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="j_username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="j_password" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/signup.html">Registrase</a>
+
+
+<div class="jumbotron-fluid"
+     style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >
+    <h2> Musiquorum </h2>
+</div>
+
+
+<div class="row">
+
+    <div class="col-sm-6" style="padding-left: 70px">
+
+        <h1> Log in </h1>
+
+        <form method="post" action="j_security_check">
+
+            <div class="form-group">
+
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+                <input type="email" class="form-control" name="j_username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+
             </div>
-        </div>
-    </div>>
-</form>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="j_password" id="exampleInputPassword1" placeholder="Password" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+                <label>
+                    <input type="checkbox" onclick="passwordVisibility()">
+                </label> Show Password
+
+            </div>
+
+            <div>
+
+                <button class="btn btn-primary" style="font-size: 20px; padding: 10px 10px;" type="submit">Submit </button>
+                <button class="btn-light" onclick="document.location = 'signup.html'">Sign Up </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="col-sm-6" align="center">
+        <img src="images/character-musicnote-transparent.png"
+             style="width:310px;height:420px;
+             padding-bottom: 20px; padding-top: 0px" align="center">
+    </div>
+
+
+
+</div>
+
+
 </body>
+
+<script>
+
+    function passwordVisibility(){
+        const x = document.getElementById("exampleInputPassword1");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+
+</script>
+
 </html>

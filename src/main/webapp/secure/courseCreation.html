@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Creation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+<style>
+    body {
+        background-color: white;
+        font-family: 'Century Gothic';
+    }
+
+    button {
+
+        background-color: white;
+        color: cornflowerblue;
+        padding: 5px 5px;
+        text-align: center;
+        display: inline-block;
+        font-size: 17px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    button:hover {
+        background-color: cornflowerblue; /* Green */
+        color: white;
+    }
+
+    button:active {
+        background-color: cornflowerblue;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    h1{
+        color: black;
+        padding-top: 30px;
+        font-size: 35px;
+        padding-bottom: 20px;
+
+    }
+
+    label{
+        color: #2c3034;
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 12px;
+    }
+</style>
+
+
+<body>
+
+<div class="jumbotron-fluid"
+     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
+    <h2> Musiquorum </h2>
+</div>
+
+<form method="post" action="/service/createCourse.do">
+    <div class="container">
+
+
+        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+
+            <h1>Create a new course!</h1>
+
+            <div class="form-group">
+                <label for="course-name">Course Name</label>
+                <input type="text" name="name" class = "form-control" id= "course-name" placeholder="Name" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="formFields_8">Description</label>
+                <textarea id="formFields_8" rows="5" ></textarea>
+            </div>
+
+            <button type="Create course" class="btn btn-success btn-block">Submit</button>
+            <button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
+
+        </div>
+    </div>
+</form>
+</body>
+</html>
+
