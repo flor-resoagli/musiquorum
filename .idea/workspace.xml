@@ -10,22 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa773a0-bd9f-4995-acda-f1293b69c444" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/character-musicnote-transparent2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/default-pfp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/img_avatar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/Profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2444f9bb-f6c7-4b87-bb7f-1f58af1f9db1/storage_v2/_src_/database/PUBLIC.aaZQjQ/schema/SYSTEM_LOBS.JJWSJg.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mydb.lck" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createClass.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/createCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseCreation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mydb.script" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/musiquorum-stylesheet1.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/signup.html" afterDir="false" />
     </list>
@@ -97,7 +97,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -106,6 +106,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.44">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="musiquorum [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -243,6 +254,7 @@
       <workItem from="1619005312842" duration="8340000" />
       <workItem from="1619190548911" duration="7661000" />
       <workItem from="1619373590888" duration="9934000" />
+      <workItem from="1619557427028" duration="12641000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1618368906061</created>

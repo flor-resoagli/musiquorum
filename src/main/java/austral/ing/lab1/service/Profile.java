@@ -17,7 +17,7 @@ import java.util.Optional;
 
 import static austral.ing.lab1.util.LangUtils.notEmpty;
 
-@WebServlet("/secure/seeProfile")
+@WebServlet("/seeProfile.do")
 public class Profile extends HttpServlet {
 
     @Override
@@ -29,20 +29,38 @@ public class Profile extends HttpServlet {
 
         final PrintWriter out = resp.getWriter();
 
+//        RequestDispatcher rd = req.getRequestDispatcher("/secure/home.html");
+//        rd.include(req, resp);
+
         out.println("<html>");
         out.println("  <head>");
         out.println("    <title>Perfil</title>");
+        out.println("    <meta charset=\"UTF-8\">");
+        out.println("    <meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\" />");
+        out.println("    <meta http-equiv=\"Pragma\" content=\"no-cache\" />");
+        out.println("    <meta http-equiv=\"Expires\" content=\"0\" />");
+        out.println("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\">");
+        out.println("    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>");
+        out.println("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>");
+        out.println("    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>");
         out.println("  </head>");
+        out.println("  <style>");
+        out.println("       body{");
+        out.println("           font-family: 'Century Gothic';");
+        out.println("       }");
+        out.println("  </style>");
         out.println("  <body>");
-        out.println("    <h1>Perfil</h1>");
-        out.println("    <ul>");
-        out.println("      <li> Nombre: " +  notEmpty(user.getFirstName(), "None") + "</li>");
-        out.println("      <li> Apellido: " +  notEmpty(user.getLastName(), "None") + "</li>");
-        out.println("      <li> Email: " +  notEmpty(user.getEmail(), "None") + "</li>");
-        out.println("      <li> Contrasela: " +  notEmpty(user.getPassword(), "None") + "</li>");
-        out.println("    </ul>");
+        out.println("       <div class=\"card\" style=\"width:400px\" align= \"center\">");
+        out.println("               <img class=\"card-img-top\" src=\"../images/img_avatar1.png\" style=\"width:100%\" alt=\"Profile Picture\">");
+        out.println("               <div class=\"card-body\">");
+        out.println("                   <h4 class=\"card-title\"> <b>" + notEmpty(user.getFirstName(), "None") + notEmpty(user.getLastName(), "None") +  "</b> </h4>");
+        out.println("                   <p class=\"card-text\" style=\"font-size:15px\"> **User Bio** </p>");
+        out.println("                   <p> <b> Email: </b>" +  notEmpty(user.getEmail(), "None") + "</p>");
+        out.println("       </div");
         out.println("  </body>");
         out.println("</html>");
+
+
 //
 //        out.flush();
 //
