@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:useBean id="courses" scope="request" type="java.util.List"/>
 
 <html>
 <head>
@@ -20,6 +19,7 @@
 <ul>
     <c:forEach var="course" items="${courses}">
         <li>${course.name}, ${course.description}</li>
+        <a href="${pageContext.request.contextPath}/secure/courses/${course.courseID}">Ver cursos</a>
     </c:forEach>
 </ul>
 </body>

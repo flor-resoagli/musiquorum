@@ -17,13 +17,13 @@ public class CourseList extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         final List<Course> courses = Courses.listAll();
 
         req.setAttribute("courses", courses);
 
-        final RequestDispatcher view = req.getRequestDispatcher("courseList.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/courseList.jsp");
         view.forward(req, resp);
     }
 }
