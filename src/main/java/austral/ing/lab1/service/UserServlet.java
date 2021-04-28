@@ -1,8 +1,11 @@
 package austral.ing.lab1.service;
 
+import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.User;
 import com.google.gson.Gson;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Optional;
 
-@WebServlet("/secure/user")
+@WebServlet("/secure/user.do")
 public class UserServlet extends HttpServlet {
 
 
@@ -27,6 +31,22 @@ public class UserServlet extends HttpServlet {
     PrintWriter out = resp.getWriter();
     out.print(json);
     out.flush();
+  }
+  //modifyProfile
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    final Optional<User> persistedUser = Users.findByEmail(req.getRemoteUser());
+    User user = persistedUser.get();
+
+    user.setFirstName(req.getParameter("firstname"));
+    user.setLastName(req.getParameter("lastname"));
+    user.setPassword(req.getParameter("password"));
+
+
+    Users.persist(user);
+    final RequestDispatcher view = req.getRequestDispatcher("home.html");
+
+    view.forward(req, resp);
   }
 
 

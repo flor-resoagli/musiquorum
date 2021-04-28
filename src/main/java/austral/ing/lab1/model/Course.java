@@ -12,7 +12,7 @@ public class Course {
 
     @Id
     @GeneratedValue
-    private Long courseID;
+    private int courseID;
 
     @Column(name = "COURSE_NAME")
     private String name;
@@ -22,7 +22,7 @@ public class Course {
     private String description;
 
     @Column(name = "TAGS")
-    private String tags;
+    private String tag;
 
     @Column(name = "PROFESSOR")
     private String professor;
@@ -34,7 +34,7 @@ public class Course {
 
 //
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Tag> tag = new ArrayList<>();
+    private List<Tag> tags = new ArrayList<>();
 
     @ManyToMany(mappedBy = "courses")
     private List<User> users = new ArrayList<>();
@@ -43,7 +43,7 @@ public class Course {
 //      private List<Class> classes = new ArrayList<>();
 
 
-    public Long getCourseID() {
+    public int getCourseID() {
         return courseID;
     }
 
@@ -63,7 +63,7 @@ public class Course {
         return users;
     }
 
-    public void setCourseID(Long courseID) {
+    public void setCourseID(int courseID) {
         this.courseID = courseID;
     }
 
@@ -90,4 +90,20 @@ public class Course {
     public void setProfessor(String professor) {
         this.professor = professor;
     }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    //    public List<Tag> getTags() {
+//        return tags;
+//    }
+//
+//    public void addTag(Tag tag) {
+//        this.tags.add(tag);
+//    }
+//
+//    public void removeTag(Tag tag) {
+//        this.tags.remove(tag);
+//    }
 }

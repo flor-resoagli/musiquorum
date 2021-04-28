@@ -1,40 +1,72 @@
-/*C8*/SET SCHEMA PUBLIC
-INSERT INTO USER VALUES(7,'ff@ff.com','ff',TRUE,'ff','ff')
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C3*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C4*/SET SCHEMA PUBLIC
+create table Address (id bigint not null, primary key (id))
+create table CLASS (className varchar(255) not null, CLASS_DURATION integer, primary key (className))
+create table COURSE (courseID bigint not null, DESCRIPTION varchar(255), IS_ACTIVE boolean, COURSE_NAME varchar(255), PROFESSOR varchar(255), TAGS varchar(255), primary key (courseID))
+create table COURSE_Tag (Course_courseID bigint not null, tags_name varchar(255) not null)
+create table Material (materialCode varchar(255) not null, primary key (materialCode))
+create table Tag (name varchar(255) not null, primary key (name))
+create table User (id bigint not null, EMAIL varchar(255), FIRST_NAME varchar(255), IS_ACTIVE boolean, LAST_NAME varchar(255), PASSWORD varchar(255), primary key (id))
+create table User_Address (users_id bigint not null, addresses_id bigint not null)
+create table User_COURSE (users_id bigint not null, courses_courseID bigint not null)
+create sequence hibernate_sequence start with 1 increment by 1
+alter table COURSE_Tag add constraint FKhrc8jenqea8x95tk4bc2cg1yd foreign key (tags_name) references Tag
+alter table COURSE_Tag add constraint FK5lkwcg16a6l50lt8lsdiau52c foreign key (Course_courseID) references COURSE
+alter table User_Address add constraint FK99mvwgxako4npuni7qj8ji0gy foreign key (addresses_id) references Address
+alter table User_Address add constraint FKfiie5434h91u12cb45sa7y3xc foreign key (users_id) references User
+alter table User_COURSE add constraint FKox6r2eevf1crtl9vgbo5v8e4l foreign key (courses_courseID) references COURSE
+alter table User_COURSE add constraint FKledf36xh2jpdsb0h983v2j8ly foreign key (users_id) references User
+INSERT INTO USER VALUES(1,'ic@gmail.com','Isabela',TRUE,'Ceriani','123')
+COMMIT
+DELETE FROM USER WHERE ID=1
+INSERT INTO USER VALUES(1,'ic@gmail.com','Nombre cambiado',TRUE,'apellido cambiado','123')
 COMMIT
 DISCONNECT
-/*C9*/SET SCHEMA PUBLIC
+/*C5*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C6*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C7*/SET SCHEMA PUBLIC
+INSERT INTO COURSE VALUES(1,'descripcion',TRUE,'Curso de musica clasica','ic@gmail.com','Clasica')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+/*C8*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C7*/INSERT INTO COURSE VALUES(2,'descripcion',TRUE,'Curso de musica clasica','ic@gmail.com','Clasica')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
 DISCONNECT
 /*C10*/SET SCHEMA PUBLIC
-DISCONNECT
+DELETE FROM COURSE WHERE COURSEID=2
+INSERT INTO COURSE VALUES(2,'Cambiado',TRUE,'Curso cambiado','ic@gmail.com','Clasica')
+COMMIT
 /*C11*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C12*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C13*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C10*/DISCONNECT
 /*C14*/SET SCHEMA PUBLIC
-DISCONNECT
+DELETE FROM COURSE WHERE COURSEID=2
+INSERT INTO COURSE VALUES(2,'Cambiado',TRUE,'Cambiado','ic@gmail.com','Cambiado')
+COMMIT
 /*C15*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C14*/DISCONNECT
 /*C16*/SET SCHEMA PUBLIC
-DISCONNECT
+DELETE FROM COURSE WHERE COURSEID=1
+INSERT INTO COURSE VALUES(1,'cambiado',TRUE,'Curso de musica clasica','ic@gmail.com','clasica')
+COMMIT
 /*C17*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C18*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C19*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C20*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C21*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C22*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C23*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C24*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C25*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C26*/SET SCHEMA PUBLIC
 DISCONNECT

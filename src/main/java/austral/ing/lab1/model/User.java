@@ -94,4 +94,12 @@ public class User {
   public String getPassword() {
     return password;
   }
+
+  public List<Course> getCourses() {
+    return courses;
+  }
+
+  public List<Address> getAddresses() {
+    return addresses;
+  }
 }

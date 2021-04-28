@@ -1,5 +1,6 @@
 package austral.ing.lab1.entity;
 
+import austral.ing.lab1.model.Course;
 import austral.ing.lab1.model.User;
 import austral.ing.lab1.util.LangUtils;
 
@@ -28,6 +29,7 @@ public class Users {
       .findFirst()
     );
   }
+
 
   public static List<User> listAll() {
     return tx(() ->
