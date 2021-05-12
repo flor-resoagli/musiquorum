@@ -38,9 +38,15 @@ public class UserServlet extends HttpServlet {
     final Optional<User> persistedUser = Users.findByEmail(req.getRemoteUser());
     User user = persistedUser.get();
 
-    user.setFirstName(req.getParameter("firstname"));
-    user.setLastName(req.getParameter("lastname"));
-    user.setPassword(req.getParameter("password"));
+    if(!req.getParameter("firstname").isEmpty()) {
+      user.setFirstName(req.getParameter("firstname"));
+    }
+    if(!req.getParameter("lastname").isEmpty()) {
+      user.setLastName(req.getParameter("lastname"));
+    }
+    if(!req.getParameter("password").isEmpty()) {
+      user.setPassword(req.getParameter("password"));
+    }
 
 
     Users.persist(user);

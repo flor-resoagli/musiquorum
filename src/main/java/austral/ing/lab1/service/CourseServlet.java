@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @WebServlet("/secure/course.do")
 public class CourseServlet extends HttpServlet {
@@ -36,7 +37,9 @@ public class CourseServlet extends HttpServlet {
     //modifyCourse
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(req.getParameter("id")));
+
         Course course = persistedCourse.get();
         course.setName(req.getParameter("name"));
         course.setTag(req.getParameter("tags"));
