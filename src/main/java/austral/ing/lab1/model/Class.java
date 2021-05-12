@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class Class {
 
     @Column(name = "CLASS_DURATION")
     private int duration;
+
+    @Column(name = "MATERIAL")
+    private Blob material;
 
     //un curso tiene muchas clases --> muchas clases perteneces a un mismo curso
 //    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

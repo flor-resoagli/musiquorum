@@ -19,7 +19,11 @@
 <ul>
     <c:forEach var="course" items="${courses}">
         <li>${course.name}, ${course.description}</li>
-        <a href="${pageContext.request.contextPath}/secure/courses/${course.courseID}">Ver cursos</a>
+        <a href="${pageContext.request.contextPath}/secure/courses/${course.courseID}">Ver curso</a>
+<%--        <a href="/secure/modifyCourse.html"> Change Course</a>--%>
+<%--        <a href="${pageContext.request.contextPath}/secure/classesList.jsp">Ver clases de curso</a>--%>
+
+
     </c:forEach>
 </ul>
 </body>
