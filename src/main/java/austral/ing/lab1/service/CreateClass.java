@@ -19,11 +19,11 @@ public class CreateClass extends HttpServlet {
         final Class myClass = new Class();
 
         myClass.setClassName(req.getParameter("name"));
-        myClass.setDuration(0);
+
 
         Classes.persist(myClass);
 
-        final RequestDispatcher view = req.getRequestDispatcher("createClass.html");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/courseProfile.jsp");
 
         view.forward(req, resp);
     }
