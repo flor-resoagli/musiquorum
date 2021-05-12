@@ -12,9 +12,9 @@
 <form method="get" action="/secure/courses/*">
     <div class="container">
         <h1><li>${course.name}</li></h1>
-        <a href="/secure/modifyCourse.html"> Change Course</a>
+        <a href="${pageContext.request.contextPath}/secure/editCourse.do?courseID=${course.courseID}"> Edit </a>
         <a href="${pageContext.request.contextPath}/secure/classes-list">View classes</a>
-        <a href="/secure/createClass.html"> Create New Class</a>
+        <a href="/secure/createClass"> Create New Class</a>
     </div>
 </form>
 </body>

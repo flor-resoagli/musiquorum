@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -46,6 +47,7 @@
     p{
         font-size: 15px;
     }
+
 </style>
 
 <body>
@@ -62,14 +64,13 @@
             <c:forEach var="course" items="${courses}">
                 <div style="padding-bottom: 20px" >
                 <div class="card" style="width:400px; border-color: cornflowerblue">
-                    <div class="card-header" style="background-color: cornflowerblue; color: #ffffff">
+                    <div class="card-header" id="card-header", style="background-color: cornflowerblue; color: white">
                         <h5> ${course.name} </h5>
                     </div>
                     <div class="card-body" style="background-color: #ffffff">
                         <p> ${course.description} </p>
 
                         <a href="${pageContext.request.contextPath}/secure/courses/${course.courseID}" class="btn btn-primary">Ver</a>
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/secure/modifyCourse.html?courseId=${course.courseID}">Editar</a>
                     </div>
                 </div>
                 </div>
@@ -78,6 +79,20 @@
 
     </div>
 </body>
+
+<script>
+    /*
+                        var id = parseInt(courseid);
+                        var color;
+                        var num = id%4;
+                        if(num === 0) {color = "#519358";}
+                        else if(num === 0.25) {color = "#e5c959";}
+                        else if(num === 0.5) {color = "#c95a5d";}
+                        else {color = "#6f86ba"}
+
+                        document.getElementById("card-header").style.setProperty("background-color", color);
+                        */
+</script>
 
 
 </html>

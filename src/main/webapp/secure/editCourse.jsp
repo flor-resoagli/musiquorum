@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<jsp:useBean id="course" scope="request" type="austral.ing.lab1.model.Course"/>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Modify Course</title>
@@ -68,23 +71,17 @@
 </div>
 
 
-<form method="post" action="/secure/courseEdit/*">
+<form method="post"  action="/secure/editCourse.do?courseID=${course.courseID}" >
 
     <div class="container">
 
-
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
 
-            <h1>Search your course</h1>
-
-            <!--<div class="form-group">
-                 <label for="id">Course ID</label>
-                <input type="hidden" name="id" class = "form-control" id= "course-id" onload="setId()">
-            </div>-->
+            <h1>Edit your course</h1>
 
             <div class="form-group">
-                <label for="course-name">New Name</label>
-                <input type="text" name="name" class = "form-control" id= "course-name" placeholder="Name" />
+                <label for="name">New Name</label>
+                <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" />
 
             </div>
 
@@ -100,17 +97,12 @@
             </div>
 
             <button type="submit" class="btn btn-success btn-block" >Submit</button>
-<!--            <button type="Search" class="btn btn-success btn-block">Submit</button>-->
-
-
-
 
         </div>
     </div>
 </form>
 
-            <button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
+<button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
 </body>
-
 
 </html>
