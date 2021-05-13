@@ -25,11 +25,11 @@ public class Courses {
     }
 
     //devuelve una lista con todos los cursos en los que el usuario del parametro es profesor
-    public static Optional<Course> findProfessorCourse(String email, String courseName){
+    public static Optional<Course> findProfessorCourse(String email, int courseId){
         return tx(() -> LangUtils.<Course>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Course u WHERE u.professor LIKE :email AND u.name like :courseName")
+                .createQuery("SELECT u FROM Course u WHERE u.professor LIKE :email AND u.courseID = :courseId")
                 .setParameter("email", email)
-                .setParameter("courseName", courseName).getResultList()).stream()
+                .setParameter("courseId", courseId).getResultList()).stream()
                 .findFirst()
         );
     }
@@ -60,7 +60,5 @@ public class Courses {
             throw e;
         }
     }
-
-
 
 }

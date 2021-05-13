@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/secure/course-list")
+@WebServlet("/secure/listCourses")
 public class CourseList extends HttpServlet {
 
 

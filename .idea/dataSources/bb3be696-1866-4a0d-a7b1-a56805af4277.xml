@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="jdbc:hsqldb:hsql://localhost/xdb;shutdown=true">
-  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.19">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.20">
     <root id="1">
       <ServerVersion>2.4.0</ServerVersion>
     </root>
@@ -26,12 +26,12 @@
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="16" parent="6" name="SYS_IDX_SYS_PK_10126_10127">
+    <index id="16" parent="6" name="SYS_IDX_SYS_PK_10092_10093">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="17" parent="6" name="SYS_PK_10126">
+    <key id="17" parent="6" name="SYS_PK_10092">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
@@ -45,12 +45,12 @@
       <Position>2</Position>
       <DataType>INTEGER|4s</DataType>
     </column>
-    <index id="20" parent="7" name="SYS_IDX_SYS_PK_10130_10131">
+    <index id="20" parent="7" name="SYS_IDX_SYS_PK_10096_10097">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CLASSNAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="21" parent="7" name="SYS_PK_10130">
+    <key id="21" parent="7" name="SYS_PK_10096">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CLASSNAME</ColNames>
       <Primary>1</Primary>
@@ -80,12 +80,12 @@
       <Position>6</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <index id="28" parent="8" name="SYS_IDX_SYS_PK_10134_10135">
+    <index id="28" parent="8" name="SYS_IDX_SYS_PK_10100_10101">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COURSEID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="29" parent="8" name="SYS_PK_10134">
+    <key id="29" parent="8" name="SYS_PK_10100">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COURSEID</ColNames>
       <Primary>1</Primary>
@@ -100,24 +100,24 @@
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="32" parent="9" name="SYS_IDX_FK5LKWCG16A6L50LT8LSDIAU52C_10169">
+    <index id="32" parent="9" name="SYS_IDX_FK5LKWCG16A6L50LT8LSDIAU52C_10108">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COURSE_COURSEID</ColNames>
     </index>
-    <index id="33" parent="9" name="SYS_IDX_FKHRC8JENQEA8X95TK4BC2CG1YD_10165">
+    <index id="33" parent="9" name="SYS_IDX_FKHRC8JENQEA8X95TK4BC2CG1YD_10141">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>TAGS_NAME</ColNames>
     </index>
     <foreign-key id="34" parent="9" name="FK5LKWCG16A6L50LT8LSDIAU52C">
       <ColNames>COURSE_COURSEID</ColNames>
       <RefTableName>COURSE</RefTableName>
-      <RefKeyName>SYS_PK_10134</RefKeyName>
+      <RefKeyName>SYS_PK_10100</RefKeyName>
       <RefColNames>COURSEID</RefColNames>
     </foreign-key>
     <foreign-key id="35" parent="9" name="FKHRC8JENQEA8X95TK4BC2CG1YD">
       <ColNames>TAGS_NAME</ColNames>
       <RefTableName>TAG</RefTableName>
-      <RefKeyName>SYS_PK_10147</RefKeyName>
+      <RefKeyName>SYS_PK_10115</RefKeyName>
       <RefColNames>NAME</RefColNames>
     </foreign-key>
     <column id="36" parent="10" name="MATERIALCODE">
@@ -125,12 +125,12 @@
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="37" parent="10" name="SYS_IDX_SYS_PK_10143_10144">
+    <index id="37" parent="10" name="SYS_IDX_SYS_PK_10111_10112">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MATERIALCODE</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="10" name="SYS_PK_10143">
+    <key id="38" parent="10" name="SYS_PK_10111">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MATERIALCODE</ColNames>
       <Primary>1</Primary>
@@ -140,12 +140,12 @@
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="40" parent="11" name="SYS_IDX_SYS_PK_10147_10148">
+    <index id="40" parent="11" name="SYS_IDX_SYS_PK_10115_10116">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="11" name="SYS_PK_10147">
+    <key id="41" parent="11" name="SYS_PK_10115">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NAME</ColNames>
       <Primary>1</Primary>
@@ -175,12 +175,12 @@
       <Position>6</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <index id="48" parent="12" name="SYS_IDX_SYS_PK_10151_10152">
+    <index id="48" parent="12" name="SYS_IDX_SYS_PK_10119_10120">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="49" parent="12" name="SYS_PK_10151">
+    <key id="49" parent="12" name="SYS_PK_10119">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
@@ -195,24 +195,24 @@
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="52" parent="13" name="SYS_IDX_FKFIIE5434H91U12CB45SA7Y3XC_10177">
+    <index id="52" parent="13" name="SYS_IDX_FKFIIE5434H91U12CB45SA7Y3XC_10129">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERS_ID</ColNames>
     </index>
-    <index id="53" parent="13" name="SYS_IDX_FK99MVWGXAKO4NPUNI7QJ8JI0GY_10173">
+    <index id="53" parent="13" name="SYS_IDX_FK99MVWGXAKO4NPUNI7QJ8JI0GY_10127">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ADDRESSES_ID</ColNames>
     </index>
     <foreign-key id="54" parent="13" name="FKFIIE5434H91U12CB45SA7Y3XC">
       <ColNames>USERS_ID</ColNames>
       <RefTableName>USER</RefTableName>
-      <RefKeyName>SYS_PK_10151</RefKeyName>
+      <RefKeyName>SYS_PK_10119</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
     <foreign-key id="55" parent="13" name="FK99MVWGXAKO4NPUNI7QJ8JI0GY">
       <ColNames>ADDRESSES_ID</ColNames>
       <RefTableName>ADDRESS</RefTableName>
-      <RefKeyName>SYS_PK_10126</RefKeyName>
+      <RefKeyName>SYS_PK_10092</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
     <column id="56" parent="14" name="USERS_ID">
@@ -225,24 +225,24 @@
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="58" parent="14" name="SYS_IDX_FKLEDF36XH2JPDSB0H983V2J8LY_10185">
+    <index id="58" parent="14" name="SYS_IDX_FKLEDF36XH2JPDSB0H983V2J8LY_10138">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERS_ID</ColNames>
     </index>
-    <index id="59" parent="14" name="SYS_IDX_FKOX6R2EEVF1CRTL9VGBO5V8E4L_10181">
+    <index id="59" parent="14" name="SYS_IDX_FKOX6R2EEVF1CRTL9VGBO5V8E4L_10136">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COURSES_COURSEID</ColNames>
     </index>
     <foreign-key id="60" parent="14" name="FKLEDF36XH2JPDSB0H983V2J8LY">
       <ColNames>USERS_ID</ColNames>
       <RefTableName>USER</RefTableName>
-      <RefKeyName>SYS_PK_10151</RefKeyName>
+      <RefKeyName>SYS_PK_10119</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
     <foreign-key id="61" parent="14" name="FKOX6R2EEVF1CRTL9VGBO5V8E4L">
       <ColNames>COURSES_COURSEID</ColNames>
       <RefTableName>COURSE</RefTableName>
-      <RefKeyName>SYS_PK_10134</RefKeyName>
+      <RefKeyName>SYS_PK_10100</RefKeyName>
       <RefColNames>COURSEID</RefColNames>
     </foreign-key>
   </database-model>

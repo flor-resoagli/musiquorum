@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<jsp:useBean id="course" scope="request" type="austral.ing.lab1.model.Course"/>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Course Creation</title>
+    <title>Modify Course</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -60,49 +63,46 @@
 </style>
 
 
-<body>
+<body onload="setId()">
 
 <div class="jumbotron-fluid"
      style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <i class='fas fa-home' style="color: white;font-size:30px "></i> <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'"> Musiquorum </button>
+    <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="/createCourse.do">
-    <div class="container">
 
+<form method="post"  action="/secure/editCourse.do?courseID=${course.courseID}" >
+
+    <div class="container">
 
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
 
-            <h1>Create a new course!</h1>
+            <h1>Edit your course</h1>
 
             <div class="form-group">
-                <label for="course-name">Course Name</label>
-                <input type="text" name="name" class = "form-control" id= "course-name" placeholder="Name" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <label for="name">New Name</label>
+                <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" />
+
             </div>
 
             <div class="form-group">
-                <label for="tags">Tags</label>
-                <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <label for="tags">New tags</label>
+                <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter tags" />
+
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="Description" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-
+                <input type="text" class="form-control" id="description" name="description" placeholder="Description" />
             </div>
 
-            <button type="Create course" class="btn btn-success btn-block">Submit</button>
-            <button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
+            <button type="submit" class="btn btn-success btn-block" >Submit</button>
 
         </div>
     </div>
 </form>
-</body>
-</html>
 
+<button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
+</body>
+
+</html>

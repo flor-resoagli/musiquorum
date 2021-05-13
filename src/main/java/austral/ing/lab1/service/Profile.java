@@ -53,7 +53,7 @@ public class Profile extends HttpServlet {
         out.println("       <div class=\"card\" style=\"width:400px\" align= \"center\">");
         out.println("               <img class=\"card-img-top\" src=\"../images/img_avatar1.png\" style=\"width:100%\" alt=\"Profile Picture\">");
         out.println("               <div class=\"card-body\">");
-        out.println("                   <h4 class=\"card-title\"> <b>" + notEmpty(user.getFirstName(), "None") + notEmpty(user.getLastName(), "None") +  "</b> </h4>");
+        out.println("                   <h4 class=\"card-title\"> <b>" + notEmpty(user.getFirstName(), "None") + " " + notEmpty(user.getLastName(), "None") +  "</b> </h4>");
         out.println("                   <p class=\"card-text\" style=\"font-size:15px\"> **User Bio** </p>");
         out.println("                   <p> <b> Email: </b>" +  notEmpty(user.getEmail(), "None") + "</p>");
         out.println("       </div");

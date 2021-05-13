@@ -16,35 +16,50 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
-@WebServlet("/secure/course.do")
+@WebServlet("/secure/editCourse.do")
 public class CourseServlet extends HttpServlet {
+
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         final List<Course> courses = Courses.listAll();
 
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
+        String courseID = req.getParameter("courseID");
 
-        final Gson gson = new Gson();
-        String json = gson.toJson(courses);
-        PrintWriter out = resp.getWriter();
-        out.print(json);
-        out.flush();
+        Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(courseID));
+        Course course = persistedCourse.get();
+
+        req.setAttribute("course", course);
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/editCourse.jsp");
+
+        view.forward(req, resp);
     }
+
 
     //modifyCourse
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(req.getParameter("id")));
-        Course course = persistedCourse.get();
-        course.setName(req.getParameter("name"));
-        course.setTag(req.getParameter("tags"));
-        course.setDescription(req.getParameter("description"));
+        String courseID = req.getParameter("courseID");
 
+        Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(courseID));
+        Course course = persistedCourse.get();
+
+
+
+        if(!req.getParameter("name").isEmpty()) {
+            course.setName(req.getParameter("name"));
+        }
+
+        course.setTag(req.getParameter("tags"));
+
+        if(!req.getParameter("description").isEmpty()) {
+            course.setDescription(req.getParameter("description"));
+        }
 
         Courses.persist(course);
-        final RequestDispatcher view = req.getRequestDispatcher("home.html");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
 
         view.forward(req, resp);
     }
