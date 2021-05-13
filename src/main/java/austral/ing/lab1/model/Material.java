@@ -1,18 +1,26 @@
 package austral.ing.lab1.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import austral.ing.lab1.entity.Materials;
+
+import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 public class Material {
 
-    //atributo temporario para que tome la entidad
     @Id
     @GeneratedValue
-    private String materialCode;
+    private int materialID;
 
+    @Column(name = "DATA")
+    private Blob data;
 
+    public Material(Blob data) {
+        this.data = data;
+    }
 
+    public void persist(){
+        Materials materials = new Materials();
+        materials.persist(this);
+    }
 }
