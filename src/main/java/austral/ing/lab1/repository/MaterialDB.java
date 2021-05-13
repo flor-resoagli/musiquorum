@@ -1,25 +1,25 @@
 package austral.ing.lab1.repository;
 
-import austral.ing.lab1.model.User;
+import austral.ing.lab1.model.Material;
+import austral.ing.lab1.model.Tag;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import java.util.Collections;
-import java.util.List;
+import javax.persistence.ManyToOne;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class ClassDB {
+public class MaterialDB {
 
     private final EntityManager entityManager;
 
-    public ClassDB(EntityManager entityManager) {
+    public MaterialDB(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public Optional<Class> findById(String className){
+    public Optional<Material> findById(int id){
         return tx(() ->
-                Optional.of(entityManager.find(Class.class, className))
+                Optional.of(entityManager.find(Material.class, id))
         );
     }
 
@@ -55,22 +55,19 @@ public class ClassDB {
     }
 
 
-    public Class persist(Class myClass) {
+    public Material persist(Material material) {
         final EntityTransaction tx = entityManager.getTransaction();
 
         try {
             tx.begin();
 
-            entityManager.persist(myClass);
+            entityManager.persist(material);
 
             tx.commit();
-            return myClass;
+            return material;
         } catch (Exception e) {
             tx.rollback();
             throw e;
         }
     }
-
-
-
 }

@@ -1,10 +1,12 @@
 package austral.ing.lab1.entity;
 
 import austral.ing.lab1.model.Course;
+import austral.ing.lab1.model.Tag;
 import austral.ing.lab1.model.User;
 import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
+import javax.persistence.Table;
 
 import java.util.List;
 import java.util.Optional;

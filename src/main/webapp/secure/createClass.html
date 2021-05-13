@@ -67,7 +67,7 @@
     <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="/createClass.do">
+<form method="post" action="/createClass.do" enctype='multipart/form-data'>
     <div class="container">
 
 
@@ -76,8 +76,15 @@
             <h1>Create a new class!</h1>
 
             <div class="form-group">
-                <label for="course-name">Class Name</label>
-                <input type="text" name="name" class = "form-control" id= "course-name" placeholder="Name" required/>
+                <label for="name">Class Name</label>
+                <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="file">Material</label>
+                <input type="file" name="file" class = "form-control" id= "file" placeholder="Material" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>

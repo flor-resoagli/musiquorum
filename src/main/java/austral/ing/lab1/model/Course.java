@@ -1,10 +1,13 @@
 package austral.ing.lab1.model;
 
+import austral.ing.lab1.entity.Tags;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "COURSE")
@@ -21,9 +24,6 @@ public class Course {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "TAGS")
-    private String tag;
-
     @Column(name = "PROFESSOR")
     private String professor;
 
@@ -33,14 +33,18 @@ public class Course {
     private Boolean isActive;
 
 //
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Tag> tags = new ArrayList<>();
+//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    private List<Tag> tags = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "courses", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany(mappedBy = "courses")
     private List<User> users = new ArrayList<>();
 //
-//      @OneToMany
-//      private List<Class> classes = new ArrayList<>();
+      @OneToMany(orphanRemoval=true)
+      @JoinColumn(name="COURSE_ID")
+      private List<Class> classes = new ArrayList<>();
 
 
     public int getCourseID() {
@@ -91,19 +95,35 @@ public class Course {
         this.professor = professor;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public Set<Tag> getTags() {
+        return tags;
     }
 
-    //    public List<Tag> getTags() {
-//        return tags;
-//    }
-//
 //    public void addTag(Tag tag) {
-//        this.tags.add(tag);
+//        tags.add(tag);
+//        tag.getCourses().add(this);
 //    }
-//
-//    public void removeTag(Tag tag) {
-//        this.tags.remove(tag);
-//    }
+
+    public void addTag(String tagName) {
+        Tag tag = retrieveTag(tagName);
+        tags.add(tag);
+        tag.getCourses().add(this);
+    }
+
+
+
+    //probablemente no deberia estar en esta clase este metodo
+    public static Tag retrieveTag(String string){
+        Tags tags = new Tags();
+        List<Tag> exisitngTags = tags.listAll();
+        //busca si la tag ya existe
+        //si no existe, la crea, la persiste en la tabla tags y la devuelve
+        if(!exisitngTags.contains(string)) {
+            return Tags.persist(new Tag(string));
+        }
+        //si existe, solo la busca y la devuelve
+        return Tags.findByName(string).get();
+    }
+
+
 }

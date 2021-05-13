@@ -1,6 +1,6 @@
 package austral.ing.lab1.repository;
 
-import austral.ing.lab1.model.Course;
+import austral.ing.lab1.model.Tag;
 import austral.ing.lab1.model.User;
 
 import javax.persistence.EntityManager;
@@ -10,42 +10,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class CourseDB {
+public class TagDB {
 
     private final EntityManager entityManager;
 
-    public CourseDB(EntityManager entityManager) {
+    public TagDB(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public Optional<Course> findById(Long id){
+    public Optional<Tag> findById(String tag){
         return tx(() ->
-                Optional.of(entityManager.find(Course.class, id))
+                Optional.of(entityManager.find(Tag.class, tag))
         );
-    }
-
-    public void deleteById(int id) {
-        // Retrieve the course with this ID
-        Course course = entityManager.find(Course.class, id);
-        if (course != null) {
-            try {
-                // Start a transaction because we're going to change the database
-                entityManager.getTransaction().begin();
-
-                // Remove all references to this course by tags
-                course.getTags().forEach(tag -> {
-                    tag.getCourses().remove(course);
-                });
-
-                // Now remove the course
-                entityManager.remove(course);
-
-                // Commit the transaction
-                entityManager.getTransaction().commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public <R> R tx(Supplier<R> s) {
@@ -79,28 +55,21 @@ public class CourseDB {
         }
     }
 
-    public List<Course> listAll() {
-        return Collections.emptyList();
-    }
 
-    public Course persist(Course course) {
+    public Tag persist(Tag tag) {
         final EntityTransaction tx = entityManager.getTransaction();
 
         try {
             tx.begin();
 
-            entityManager.persist(course);
+            entityManager.persist(tag);
 
             tx.commit();
-            return course;
+            return tag;
         } catch (Exception e) {
             tx.rollback();
             throw e;
         }
     }
-
-
-
-
 
 }

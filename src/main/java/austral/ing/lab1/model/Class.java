@@ -1,9 +1,13 @@
 package austral.ing.lab1.model;
 
+import austral.ing.lab1.entity.Materials;
+
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "CLASS")
@@ -13,21 +17,18 @@ public class Class {
 
     @Id
     @GeneratedValue
+    private int classID;
+
+    @Column(name = "CLASS_NAME")
     private String className;
 
     @Column(name = "CLASS_DURATION")
     private int duration;
 
-    @Column(name = "MATERIAL")
-    private Blob material;
+    @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    private Set<Material> materials = new HashSet<>();
 
-    //un curso tiene muchas clases --> muchas clases perteneces a un mismo curso
-//    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    private List<Course> courses = new ArrayList<>();
-
-//   Una clase tiene un conjunto de materiales o una clase tiene muchos materiales ??
-//   @OneToOne o @OneToMany
-//   private List<Material> materiales = new ArrayList<>();
 
 
     public String getClassName() {
@@ -46,5 +47,18 @@ public class Class {
         this.duration = duration;
     }
 
+    public void addMaterial(Blob data){
+        Material material = new Material(data);
+        material.persist();
+        getMaterials().add(material);
 
+    }
+
+    public int getClassID() {
+        return classID;
+    }
+
+    public Set<Material> getMaterials() {
+        return materials;
+    }
 }
