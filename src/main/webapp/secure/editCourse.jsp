@@ -99,10 +99,9 @@
             <button type="submit" class="btn btn-success btn-block" >Submit</button>
 
         </div>
+        <button onclick="document.location = '${pageContext.request.contextPath}/secure/courses/${course.courseID}'"> Back to course</button>
     </div>
 </form>
-
-<button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
 </body>
 
 </html>

@@ -55,14 +55,14 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
-INSERT INTO COURSE VALUES(1,NULL,TRUE,NULL,'ic@gmail.com',NULL)
-INSERT INTO COURSE VALUES(2,NULL,TRUE,NULL,'ic@gmail.com',NULL)
+INSERT INTO COURSE VALUES(1,NULL,TRUE,'curso','ic@gmail.com','')
+INSERT INTO COURSE VALUES(2,'Curso de musica jazz inicial',TRUE,'Curso de Jazz','ic@gmail.com','tag')
 INSERT INTO COURSE VALUES(3,NULL,TRUE,NULL,'a@a.com',NULL)
 INSERT INTO COURSE VALUES(4,NULL,TRUE,NULL,'1@mail.com',NULL)
 INSERT INTO COURSE VALUES(5,'Description test',TRUE,'Test Course','1@mail.com','tags')
 INSERT INTO USER VALUES(1,'ic@gmail.com','Nombre cambiado',TRUE,'apellido cambiado','123')
 INSERT INTO USER VALUES(2,'aa@a.com','',TRUE,'','')
 INSERT INTO USER VALUES(3,'a@a.com','aaa',TRUE,'aa','aa')
-INSERT INTO USER VALUES(4,'1@mail.com','test ',TRUE,'last','1')
+INSERT INTO USER VALUES(4,'1@mail.com','TestFirst',TRUE,'last','1')
 INSERT INTO USER VALUES(5,'1@m.com','Name',TRUE,'Last Name','1')
 INSERT INTO USER VALUES(6,'1@m.com','TestFirst',TRUE,'TestLast','1')
