@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/secure/classes-list")
+@WebServlet("/secure/listClasses")
 public class ClassesList extends HttpServlet{
 
     @Override

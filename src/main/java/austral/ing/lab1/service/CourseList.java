@@ -20,6 +20,9 @@ public class CourseList extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         final List<Course> courses = Courses.listAll();
+        String professor = req.getRemoteUser();
+
+        courses.removeIf(course -> !course.getProfessor().equals(professor));
 
         req.setAttribute("courses", courses);
 

@@ -81,7 +81,7 @@
 </body>
 
 <script>
-    /*
+                        /*
                         var id = parseInt(courseid);
                         var color;
                         var num = id%4;
