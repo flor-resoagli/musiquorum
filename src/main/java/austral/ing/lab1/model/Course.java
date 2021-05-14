@@ -4,6 +4,7 @@ import austral.ing.lab1.entity.Tags;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -44,7 +45,7 @@ public class Course {
 //
       @OneToMany(orphanRemoval=true)
       @JoinColumn(name="COURSE_ID")
-      private List<Class> classes = new ArrayList<>();
+      private Set<Class> classes = new HashSet<>();
 
 
     public int getCourseID() {
@@ -110,8 +111,6 @@ public class Course {
         tag.getCourses().add(this);
     }
 
-
-
     //probablemente no deberia estar en esta clase este metodo
     public static Tag retrieveTag(String string){
         Tags tags = new Tags();
@@ -125,5 +124,13 @@ public class Course {
         return Tags.findByName(string).get();
     }
 
+    public void addClass(Class myClass){
+        getClasses().add(myClass);
+        myClass.persist();
 
+    }
+
+    public Set<Class> getClasses() {
+        return classes;
+    }
 }

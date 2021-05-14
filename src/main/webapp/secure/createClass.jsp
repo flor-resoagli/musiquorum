@@ -67,7 +67,7 @@
     <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="/createClass.do" enctype='multipart/form-data'>
+<form method="post" action="/secure/createClass.do?courseID=${course.courseID}" enctype='multipart/form-data'>
     <div class="container">
 
 
@@ -78,6 +78,13 @@
             <div class="form-group">
                 <label for="name">Class Name</label>
                 <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" name="duration" class = "form-control" id= "duration" placeholder="Duration" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>

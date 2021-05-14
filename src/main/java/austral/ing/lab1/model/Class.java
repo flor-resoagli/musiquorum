@@ -1,5 +1,6 @@
 package austral.ing.lab1.model;
 
+import austral.ing.lab1.entity.Classes;
 import austral.ing.lab1.entity.Materials;
 
 import javax.persistence.*;
@@ -52,6 +53,10 @@ public class Class {
         material.persist();
         getMaterials().add(material);
 
+    }
+    public void persist(){
+        Classes classes = new Classes();
+        classes.persist(this);
     }
 
     public int getClassID() {

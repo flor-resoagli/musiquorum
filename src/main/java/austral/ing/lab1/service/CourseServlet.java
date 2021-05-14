@@ -52,7 +52,7 @@ public class CourseServlet extends HttpServlet {
             course.setName(req.getParameter("name"));
         }
 
-        course.setTag(req.getParameter("tags"));
+//        course.setTag(req.getParameter("tags"));
 
         if(!req.getParameter("description").isEmpty()) {
             course.setDescription(req.getParameter("description"));
