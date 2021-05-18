@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="jdbc:hsqldb:hsql://localhost/xdb;shutdown=true" uuid="bb3be696-1866-4a0d-a7b1-a56805af4277">
+    <data-source source="LOCAL" name="jdbc:hsqldb:hsql://localhost/xdb;shutdown=true" uuid="e64c789c-82a6-441f-af61-119281bb0134">
       <driver-ref>hsqldb.local</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>

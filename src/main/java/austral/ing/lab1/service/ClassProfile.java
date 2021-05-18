@@ -12,19 +12,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.util.Optional;
 
-@WebServlet("/secure/classes-list")
-public class ClassesList extends HttpServlet{
-
+@WebServlet("/secure/classes/*")
+public class ClassProfile  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String[] paths = req.getRequestURI().split("/");
+        String id = paths[paths.length-1];
 
-        final List<Class> classes = Classes.listAll();
+        Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(id));
+        Class myClass = persistedClass.get();
 
-        req.setAttribute("classes", classes);
+        req.setAttribute("myClass", myClass);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/classesList.jsp");
+
+
+
+
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/classProfile.jsp");
         view.forward(req, resp);
+
     }
 }
