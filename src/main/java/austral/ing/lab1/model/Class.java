@@ -28,8 +28,7 @@ public class Class {
 
     @OneToMany(orphanRemoval=true)
     @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
-    private Set<Material> materials = new HashSet<>();
-
+    private List<Material> materials = new ArrayList<>();
 
 
     public String getClassName() {
@@ -48,8 +47,8 @@ public class Class {
         this.duration = duration;
     }
 
-    public void addMaterial(Blob data){
-        Material material = new Material(data);
+    public void addMaterial(Blob data, String contentType, String fileName){
+        Material material = new Material(data,contentType, fileName);
         material.persist();
         getMaterials().add(material);
 
@@ -63,7 +62,13 @@ public class Class {
         return classID;
     }
 
-    public Set<Material> getMaterials() {
+    public List<Material> getMaterials() {
         return materials;
     }
+
+    public Material getMaterial(int index){
+        return materials.get(index);
+    }
+
+
 }

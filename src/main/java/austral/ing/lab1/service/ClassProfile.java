@@ -12,7 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -27,18 +33,21 @@ public class ClassProfile  extends HttpServlet {
         Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(id));
         Class myClass = persistedClass.get();
 
-        final Set<Material> materials = myClass.getMaterials();
+        final List<Material> materials = myClass.getMaterials();
 
         req.setAttribute("myClass", myClass);
 
-        req.setAttribute("materials", materials);
+        //List<Blob> data = new ArrayList<>();
+        //for(Material m : materials){
+        //   data.add(m.getData());
+        //}
+        //req.setAttribute("materialData", data);
 
-
-
-
-
+        //req.setAttribute("materialsLength", materials.size());
+        //List<Integer> indexes = new ArrayList<>();
+        //for(int i = 1; i < materials.size(); i++){ indexes.add(i);}
+        //req.setAttribute("materialIndexes", indexes);
         final RequestDispatcher view = req.getRequestDispatcher("/secure/classProfile.jsp");
         view.forward(req, resp);
-
     }
 }

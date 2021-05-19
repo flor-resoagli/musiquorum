@@ -68,9 +68,9 @@
                         <h5> ${classs.className} </h5>
                     </div>
                     <div class="card-body" style="background-color: #ffffff">
-                        <p> ${classs.duration} </p>
+                        <p> <b> Duration: </b> ${classs.duration} hours</p>
 
-                        <a href="${pageContext.request.contextPath}/secure/classes/${classs.classID}" class="btn btn-primary">Ver</a>
+                        <a href="${pageContext.request.contextPath}/secure/classes/${classs.classID}" class="btn btn-primary">View</a>
                     </div>
                 </div>
             </div>

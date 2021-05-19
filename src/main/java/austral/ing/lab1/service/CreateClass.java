@@ -64,15 +64,15 @@ public class CreateClass extends HttpServlet {
         byte[] dataBytes = toByteArray(data);
 
         try {
-            myClass.addMaterial(new SerialBlob(dataBytes));
+            myClass.addMaterial(new SerialBlob(dataBytes), filePart.getContentType(), filePart.getSubmittedFileName());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
         course.addClass(myClass);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/courseProfile.jsp");
-
+        //final RequestDispatcher view = req.getRequestDispatcher(("/secure/courses/"+courseID));
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
         view.forward(req, resp);
     }
 
