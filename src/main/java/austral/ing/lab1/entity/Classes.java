@@ -12,9 +12,9 @@ import static austral.ing.lab1.util.Transactions.tx;
 
 public class Classes {
 
-    public static Optional<Class> findByName(String className){
+    public static Optional<Class> findByID(int id){
         return tx(() ->
-                Optional.of(currentEntityManager().find(Class.class, className))
+                Optional.of(currentEntityManager().find(Class.class, id))
         );
     }
 
@@ -24,6 +24,8 @@ public class Classes {
                 checkedList(currentEntityManager().createQuery("SELECT u FROM Class u").getResultList())
         );
     }
+
+
 
 
 

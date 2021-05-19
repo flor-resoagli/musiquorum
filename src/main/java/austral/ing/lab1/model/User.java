@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +34,9 @@ public class User {
 
   @Column(name = "IS_ACTIVE")
   private Boolean isActive;
+
+  @Column(name="profilePicture")
+  private Blob picture;
 
   @Id
   @GeneratedValue(generator = "increment")
@@ -101,5 +109,14 @@ public class User {
 
   public List<Address> getAddresses() {
     return addresses;
+  }
+
+  public Blob getPicture() {
+    return picture;
+  }
+
+
+  public void setPicture(Blob picture) {
+    this.picture = picture;
   }
 }
