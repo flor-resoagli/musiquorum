@@ -100,10 +100,9 @@ public class Course {
         return tags;
     }
 
-//    public void addTag(Tag tag) {
-//        tags.add(tag);
-//        tag.getCourses().add(this);
-//    }
+
+
+
 
     public void addTag(String tagName) {
         Tag tag = retrieveTag(tagName);
@@ -128,6 +127,12 @@ public class Course {
         getClasses().add(myClass);
         myClass.persist();
 
+    }
+
+    public void removeTag(String tagName){
+        Tag tag = retrieveTag(tagName);
+        tags.remove(tag);
+        tag.getCourses().remove(this);
     }
 
     public Set<Class> getClasses() {

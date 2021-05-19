@@ -19,6 +19,9 @@ public class Material {
         this.data = data;
     }
 
+    public Material() {
+    }
+
     public void persist(){
         Materials materials = new Materials();
         materials.persist(this);

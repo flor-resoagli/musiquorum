@@ -28,6 +28,8 @@ public class Classes {
 
 
 
+
+
     public static Class persist(Class myClass) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
 
