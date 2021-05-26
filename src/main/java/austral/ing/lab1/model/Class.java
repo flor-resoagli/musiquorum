@@ -30,6 +30,13 @@ public class Class {
     @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Set<Material> materials = new HashSet<>();
 
+
+    @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    private Set<Entrega> entregas = new HashSet<>();
+
+
+
     public String getClassName() {
         return className;
     }
@@ -46,8 +53,8 @@ public class Class {
         this.duration = duration;
     }
 
-    public void addMaterial(Blob data, String contentType, String fileName){
-        Material material = new Material(data,contentType, fileName);
+    public void addMaterial(Blob data){
+        Material material = new Material(data);
         material.persist();
         getMaterials().add(material);
     }
@@ -63,6 +70,7 @@ public class Class {
     public Set<Material> getMaterials() {
         return materials;
     }
+
 
     public Material getMaterial(int id){
 
