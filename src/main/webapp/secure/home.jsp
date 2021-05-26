@@ -124,7 +124,7 @@
 
             <iframe src="/seeProfile.do" width="425px" height="565px" scrolling="none" style="border-color: transparent"> </iframe>
 
-            <button onclick=" document.location = 'modifyProfile'">Edit Profile</button>
+            <button onclick=" document.location = 'modifyProfile.html'">Edit Profile</button>
 
         </div>
 

@@ -28,7 +28,7 @@ public class Class {
 
     @OneToMany(orphanRemoval=true)
     @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
-    private Set<Material> materials = new HashSet<>();
+    private List<Material> materials = new ArrayList<>();
 
     @OneToMany(orphanRemoval=true)
     @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material

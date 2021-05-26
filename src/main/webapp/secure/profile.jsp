@@ -21,6 +21,28 @@
 <nav>
     <a href="${pageContext.request.contextPath}/secure/seeProfile">Perfil</a>
 
+    <form method="get" action="/secure/seeProfile.do">
+
+        <style>
+            body{
+    out.println("           font-family: 'Century Gothic';");
+    out.println("       }");
+    out.println("  </style>");
+    out.println("  <body>");
+    out.println("       <div class=\"card\" style=\"width:400px\" align= \"center\">");
+        out.println("               <img class=\"card-img-top\" src=\"../images/img_avatar1.png\" style=\"width:100%\" alt=\"Profile Picture\">");
+        out.println("               <div class=\"card-body\">");
+            out.println("                   <h4 class=\"card-title\"> <b>" + notEmpty(user.getFirstName(), "None") + " " + notEmpty(user.getLastName(), "None") +  "</b> </h4>");
+            out.println("                   <p class=\"card-text\" style=\"font-size:15px\"> **User Bio** </p>");
+            out.println("                   <p> <b> Email: </b>" +  notEmpty(user.getEmail(), "None") + "</p>");
+            out.println("       </div");
+                out.println("  </body>");
+    out.println("</html>");
+
+
+
+    </form>
+
 </nav>
 </body>
 </html>

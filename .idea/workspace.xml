@@ -10,16 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b9d8520-b165-4b20-8f55-146dd59bbd8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/mydb.script" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/class4.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/class4.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.lck" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mydb.lobs" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lobs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.script" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classesList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/classesList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +117,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat  9.0.44">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="musiquorum [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -247,6 +269,8 @@
       <workItem from="1619611053611" duration="6463000" />
       <workItem from="1620822058294" duration="20136000" />
       <workItem from="1620927714367" duration="3784000" />
+      <workItem from="1621389054430" duration="9093000" />
+      <workItem from="1621427127265" duration="12206000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1618368906061</created>
