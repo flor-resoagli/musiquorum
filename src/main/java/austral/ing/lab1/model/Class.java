@@ -5,10 +5,10 @@ import austral.ing.lab1.entity.Materials;
 
 import javax.persistence.*;
 import java.sql.Blob;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
+import static austral.ing.lab1.util.EntityManagers.currentEntityManager;
+import static austral.ing.lab1.util.Transactions.tx;
 
 @Entity
 @Table(name = "CLASS")
@@ -28,8 +28,7 @@ public class Class {
 
     @OneToMany(orphanRemoval=true)
     @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
-    private List<Material> materials = new ArrayList<>();
-
+    private Set<Material> materials = new HashSet<>();
 
     public String getClassName() {
         return className;
@@ -51,24 +50,25 @@ public class Class {
         Material material = new Material(data,contentType, fileName);
         material.persist();
         getMaterials().add(material);
-
     }
     public void persist(){
         Classes classes = new Classes();
-        classes.persist(this);
+        Classes.persist(this);
     }
 
     public int getClassID() {
         return classID;
     }
 
-    public List<Material> getMaterials() {
+    public Set<Material> getMaterials() {
         return materials;
     }
 
-    public Material getMaterial(int index){
-        return materials.get(index);
+    public Material getMaterial(int id){
+
+        for (Material material: materials) {
+            if(material.getMaterialID()==id) return material;
+        }
+        return null;
     }
-
-
 }

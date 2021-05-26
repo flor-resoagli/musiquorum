@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/secure/classResources.get")
+@WebServlet("/secure/classResources.do")
 public class ClassResourceServlet extends HttpServlet {
         private final int ARBITARY_SIZE = 1048;
 
@@ -25,18 +26,19 @@ public class ClassResourceServlet extends HttpServlet {
 
 
             String classID = req.getParameter("classID");
-            int materialIndex = Integer.parseInt(req.getParameter("index"));
+            int materialID = Integer.parseInt(req.getParameter("materialID"));
 
             Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(classID));
             Class myClass = persistedClass.get();
 
-            Material material = myClass.getMaterial(materialIndex);
+            Material material = myClass.getMaterial(materialID);
             String fileName = material.getFileName();
 
             resp.setContentType(material.getContentType());
             resp.setHeader("Content-disposition", ("attachment; filename=" + fileName));
 
-            try(InputStream in = req.getServletContext().getResourceAsStream("/classResources/"+ fileName);
+            //try(InputStream in = req.getServletContext().getResourceAsStream("/classResources/"+ fileName);
+            try(InputStream in = material.getData().getBinaryStream();
                 OutputStream out = resp.getOutputStream()) {
 
                 byte[] buffer = new byte[4096];
@@ -45,6 +47,8 @@ public class ClassResourceServlet extends HttpServlet {
                 while ((bytesRead = in.read(buffer)) != -1) {
                     out.write(buffer, 0, bytesRead);
                 }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
 
             final RequestDispatcher view = req.getRequestDispatcher("/secure/classProfile.jsp");

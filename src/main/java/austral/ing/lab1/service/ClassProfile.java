@@ -31,22 +31,13 @@ public class ClassProfile  extends HttpServlet {
         String id = paths[paths.length-1];
 
         Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(id));
-        Class myClass = persistedClass.get();
+        Class classs = persistedClass.get();
 
-        final List<Material> materials = myClass.getMaterials();
+        Set<Material> materials = classs.getMaterials();
 
-        req.setAttribute("myClass", myClass);
+        req.setAttribute("classs", classs);
+        req.setAttribute("materials", materials);
 
-        //List<Blob> data = new ArrayList<>();
-        //for(Material m : materials){
-        //   data.add(m.getData());
-        //}
-        //req.setAttribute("materialData", data);
-
-        //req.setAttribute("materialsLength", materials.size());
-        //List<Integer> indexes = new ArrayList<>();
-        //for(int i = 1; i < materials.size(); i++){ indexes.add(i);}
-        //req.setAttribute("materialIndexes", indexes);
         final RequestDispatcher view = req.getRequestDispatcher("/secure/classProfile.jsp");
         view.forward(req, resp);
     }

@@ -59,14 +59,16 @@ public class CreateClass extends HttpServlet {
         if(!req.getParameter("duration").isEmpty()) {
             myClass.setDuration(Integer.parseInt(req.getParameter("duration")));
         }
+
+
         Part filePart = req.getPart("file");
         InputStream data = filePart.getInputStream();
         byte[] dataBytes = toByteArray(data);
 
         try {
             myClass.addMaterial(new SerialBlob(dataBytes), filePart.getContentType(), filePart.getSubmittedFileName());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
 
         course.addClass(myClass);

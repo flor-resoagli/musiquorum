@@ -1,15 +1,21 @@
-<jsp:useBean id="course" scope="request" type="austral.ing.lab1.model.Course"/>
-<!DOCTYPE html>
-<html lang="en">
+<jsp:useBean id="classs" scope="request" type="austral.ing.lab1.model.Class"/>
+<%--
+  Created by IntelliJ IDEA.
+  User: flopy
+  Date: 26/5/2021
+  Time: 09:32
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Course Creation</title>
+    <title>Edit Class</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-
 
 <style>
     body {
@@ -60,7 +66,6 @@
     }
 </style>
 
-
 <body>
 
 <div class="jumbotron-fluid"
@@ -68,41 +73,28 @@
     <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="${pageContext.request.contextPath}/secure/createClass.do?courseID=${course.courseID}" enctype='multipart/form-data'>
+<form method="post"  action="${pageContext.request.contextPath}/secure/class.do?classID=${classs.classID}" >
     <div class="container">
-
 
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
 
-            <h1>Create a new class!</h1>
+            <h1>Edit your class</h1>
 
             <div class="form-group">
-                <label for="name">Class Name</label>
-                <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <label for="name">New Name</label>
+                <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" />
+
             </div>
 
             <div class="form-group">
                 <label for="duration">Duration</label>
-                <input type="text" name="duration" class = "form-control" id= "duration" placeholder="Duration" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
+                <input type="text" class="form-control" id="duration" name="duration" placeholder="Duration" />
             </div>
 
-            <div class="form-group">
-                <label for="file">Material</label>
-                <input type="file" name="file" class = "form-control" id= "file" placeholder="Material" required/>
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-
-
-            <button type="Create class" class="btn btn-success btn-block">Submit</button>
-            <button class="btn-light btn-block" onclick="document.location = 'courseProfile.jsp'"> Cancel</button>
+            <button type="submit" class="btn btn-success btn-block" >Submit</button>
 
         </div>
+        <button onclick="document.location = '${pageContext.request.contextPath}/secure/classes/${classs.classID}'"> Back to class</button>
     </div>
 </form>
 </body>

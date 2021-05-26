@@ -63,7 +63,7 @@
 </style>
 
 
-<body onload="setId()">
+<body>
 
 <div class="jumbotron-fluid"
      style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >

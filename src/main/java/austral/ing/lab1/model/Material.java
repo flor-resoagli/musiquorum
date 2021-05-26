@@ -7,7 +7,9 @@ import javax.persistence.*;
 import java.sql.Blob;
 
 @Entity
+@Table(name = "MATERIAL")
 public class Material {
+
 
     @Id
     @GeneratedValue

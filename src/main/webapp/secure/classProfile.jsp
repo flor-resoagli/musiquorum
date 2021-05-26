@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -64,7 +65,7 @@
     }
 
     p{
-        font-size: 12px;
+        font-size: 17px;
     }
 </style>
 <body>
@@ -74,13 +75,19 @@
     <h2> Musiquorum </h2>
 </div>
 
-<form method="get" action="/secure/classes/*">
+<form method="get" action="${pageContext.request.contextPath}/secure/classes/*">
     <div class="container">
-        <h1>${myClass.className}</h1>
+        <h1>${classs.className}</h1>
+        <p> <b> Duration: </b> ${classs.duration} hours</p>
         <h4>Material</h4>
-        <c:forEach var="material" items="${myClass.materials}">
-            <a href="${pageContext.request.contextPath}/secure/classResources.get?classID=${myClass.classID}&index=${material.materialID}"> Download Material ${material.materialID}</a>
+        <div>
+        <c:forEach var="material" items="${materials}">
+            <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material ${material.materialID} </a>
         </c:forEach>
+        </div>
+        <a href="${pageContext.request.contextPath}/secure/class.do?classID=${classs.classID}" class="btn btn-primary"> Edit </a>
+        <a href="${pageContext.request.contextPath}/secure/classMaterial.do?classID=${classs.classID}" class="btn btn-primary"> Add Material** </a>
+
     </div>
 </form>
 </body>

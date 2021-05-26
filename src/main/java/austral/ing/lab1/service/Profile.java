@@ -28,10 +28,12 @@ public class Profile extends HttpServlet {
         User user = persistedUser.get(); //internamente ya checkea que este presente o tira excepcion
 
         final PrintWriter out = resp.getWriter();
+        req.setAttribute("user", user);
+        RequestDispatcher rd = req.getRequestDispatcher("/secure/profile.jsp");
+        rd.include(req, resp);
 
-//        RequestDispatcher rd = req.getRequestDispatcher("/secure/home.html");
-//        rd.include(req, resp);
 
+        /*
         out.println("<html>");
         out.println("  <head>");
         out.println("    <title>Perfil</title>");
@@ -59,7 +61,7 @@ public class Profile extends HttpServlet {
         out.println("       </div");
         out.println("  </body>");
         out.println("</html>");
-
+        */
 
 //
 //        out.flush();
