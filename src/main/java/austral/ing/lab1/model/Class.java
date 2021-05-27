@@ -53,8 +53,8 @@ public class Class {
         this.duration = duration;
     }
 
-    public void addMaterial(Blob data){
-        Material material = new Material(data);
+    public void addMaterial(Blob data, String contentType, String fileName){
+        Material material = new Material(data,contentType, fileName);
         material.persist();
         getMaterials().add(material);
     }

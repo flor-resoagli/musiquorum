@@ -10,25 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b9d8520-b165-4b20-8f55-146dd59bbd8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassMaterialServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/addClassMaterial.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/editClass.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.lck" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.lobs" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lobs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mydb.script" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.script" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/createClass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createClass.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +97,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -116,17 +106,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat  9.0.44">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="musiquorum [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -271,7 +250,8 @@
       <workItem from="1621389054430" duration="9093000" />
       <workItem from="1621427127265" duration="12806000" />
       <workItem from="1621967544125" duration="11207000" />
-      <workItem from="1622031665286" duration="8587000" />
+      <workItem from="1622031665286" duration="9955000" />
+      <workItem from="1622041952029" duration="1862000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1618368906061</created>

@@ -92,11 +92,5 @@
 </form>
 </body>
 
-<script>
-    function dataToFile(myBlob){
-        const myFile = new File([myBlob], "material");
-        return myFile
-    }
-
 </script>
 </html>

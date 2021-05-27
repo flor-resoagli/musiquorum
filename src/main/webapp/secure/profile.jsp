@@ -10,7 +10,7 @@
 <body>
 <h1>Perfil</h1>
 
-    <form method="get" action="/seeProfile.do">
+    <form method="get" action="${pageContext.request.contextPath}/seeProfile.do">
 
         <style>
             body{
@@ -18,7 +18,7 @@
                 }
         </style>
 
-            <div class="card" style=\"width:400px\" align= "center">
+            <div class="card" style="width:400px" align= "center">
                 <img class="card-img-top" src="../images/img_avatar1.png" style="width:100%" alt="Profile Picture">
                        <div class="card-body">
                                <h4 class="card-title"> <b> ${user.firstName} ${user.lastName} </b> </h4>

@@ -51,3 +51,20 @@ DISCONNECT
 DISCONNECT
 /*C34*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+INSERT INTO USER VALUES(3,'florReso@test.com','Flor',TRUE,'Reso','flor',NULL)
+COMMIT
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+create table Entrega (entregaID integer not null, CONSIGNA varchar(255), DATA blob(255), DATA_TYPE varchar(255), HANDED_IN varchar(255), CLASS_ID integer, primary key (entregaID))
+create table User_Entrega (users_id bigint not null, entregas_entregaID integer not null)
+alter table Entrega add constraint FK32w5ax64sqhsf5e6gxyowi791 foreign key (CLASS_ID) references CLASS
+alter table User_Entrega add constraint FKto5o1oa2mcdf0i3damwa2o5qc foreign key (entregas_entregaID) references Entrega
+alter table User_Entrega add constraint FKtm1oc9gl9hfrv3pie5ng4fhfp foreign key (users_id) references User
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DISCONNECT
