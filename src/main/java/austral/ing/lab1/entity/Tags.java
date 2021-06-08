@@ -2,6 +2,7 @@ package austral.ing.lab1.entity;
 
 import austral.ing.lab1.model.Course;
 import austral.ing.lab1.model.Tag;
+import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
 
@@ -14,12 +15,16 @@ import static austral.ing.lab1.util.Transactions.tx;
 
 public class Tags {
 
-    public static Optional<Tag> findByName(String tagName){
+    public static Optional<Tag> find(String name){
         return tx(() ->
-                Optional.of(currentEntityManager().find(Tag.class, tagName))
+                Optional.of(currentEntityManager().find(Tag.class, name))
         );
     }
-
+//    public static Optional<Tag> findByName(String name){
+//        return tx(() ->
+//                Optional.of(currentEntityManager().find(Tag.class, id))
+//        );
+//    }
 
 
     public static List<Tag> listAll() {
@@ -44,5 +49,26 @@ public class Tags {
             tx.rollback();
             throw e;
         }
+
+
+    }
+
+
+    public static Tag merge(Tag tag) {
+        final EntityTransaction tx = currentEntityManager().getTransaction();
+
+        try {
+            tx.begin();
+
+            currentEntityManager().merge(tag);
+
+            tx.commit();
+            return tag;
+        } catch (Exception e) {
+            tx.rollback();
+            throw e;
+        }
+
+
     }
 }

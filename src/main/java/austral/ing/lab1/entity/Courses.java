@@ -24,15 +24,16 @@ public class Courses {
         );
     }
 
-    //devuelve una lista con todos los cursos en los que el usuario del parametro es profesor
-    public static Optional<Course> findProfessorCourse(String email, int courseId){
-        return tx(() -> LangUtils.<Course>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Course u WHERE u.professor LIKE :email AND u.courseID = :courseId")
-                .setParameter("email", email)
-                .setParameter("courseId", courseId).getResultList()).stream()
-                .findFirst()
+    public static List<Course> findByName(String name){
+        return tx(() ->
+                LangUtils.<Course>checkedList(currentEntityManager()
+                        .createQuery("SELECT u FROM Course u WHERE u.name LIKE :name")
+                        .setParameter("name", name)
+                        .getResultList())
+
         );
     }
+
 
 
 

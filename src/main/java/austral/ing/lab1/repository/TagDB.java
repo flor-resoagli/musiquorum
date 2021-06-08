@@ -62,7 +62,25 @@ public class TagDB {
         try {
             tx.begin();
 
+
             entityManager.persist(tag);
+
+            tx.commit();
+            return tag;
+        } catch (Exception e) {
+            tx.rollback();
+            throw e;
+        }
+    }
+
+    public Tag merge(Tag tag) {
+        final EntityTransaction tx = entityManager.getTransaction();
+
+        try {
+            tx.begin();
+
+
+            entityManager.merge(tag);
 
             tx.commit();
             return tag;

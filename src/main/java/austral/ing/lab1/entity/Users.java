@@ -31,6 +31,7 @@ public class Users {
   }
 
 
+
   public static List<User> listAll() {
     return tx(() ->
             checkedList(currentEntityManager().createQuery("SELECT u FROM User u").getResultList())

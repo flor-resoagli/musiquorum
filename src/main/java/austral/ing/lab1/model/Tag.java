@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,17 @@ import java.util.Set;
 public class Tag {
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(unique = true, nullable = false)
     private String name;
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private int id;
+//
+//
+//    @Column(name = "TAG_NAME")
+//    private String name;
 
     //NO BORRAR constructor vacio
     public Tag(){}
@@ -21,7 +32,7 @@ public class Tag {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "TAGS_COURSE",
             joinColumns = {@JoinColumn(name = "tags_name")},

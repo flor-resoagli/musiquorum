@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,11 +27,15 @@ public class Profile extends HttpServlet {
         final Optional<User> persistedUser = Users.findByEmail(req.getRemoteUser());
 
         User user = persistedUser.get(); //internamente ya checkea que este presente o tira excepcion
+//        byte[] image = user.getProfilePic();
+//        resp.setContentType("image/jpeg");
+//        ServletOutputStream outputStream = resp.getOutputStream();
+//        outputStream.write(image);
+//        outputStream.close();
 
-        final PrintWriter out = resp.getWriter();
         req.setAttribute("user", user);
         RequestDispatcher rd = req.getRequestDispatcher("/secure/profile.jsp");
-        rd.include(req, resp);
+        rd.forward(req, resp);
 
     }
 

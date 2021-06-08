@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static sun.awt.image.PixelConverter.UshortGray.instance;
+
 @Entity
 @Table(name = "COURSE")
 public class Course {
@@ -37,12 +39,21 @@ public class Course {
 //    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 //    private List<Tag> tags = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "courses", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "courses", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<Tag> tags = new HashSet<>();
-
-    @ManyToMany(mappedBy = "courses")
-    private List<User> users = new ArrayList<>();
 //
+//    @ManyToMany(mappedBy = "courses")
+//    private List<User> users = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "USER_COURSE",
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
+    )
+    private Set<User> users = new HashSet<>();
+
+
+
       @OneToMany(orphanRemoval=true)
       @JoinColumn(name="COURSE_ID")
       private Set<Class> classes = new HashSet<>();
@@ -64,7 +75,7 @@ public class Course {
         return isActive;
     }
 
-    public List<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
@@ -84,9 +95,9 @@ public class Course {
         isActive = active;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+//    public void setUsers(Set<User> users) {
+//        this.users = users;
+//    }
 
     public String getProfessor() {
         return professor;
@@ -120,7 +131,7 @@ public class Course {
             return Tags.persist(new Tag(string));
         }
         //si existe, solo la busca y la devuelve
-        return Tags.findByName(string).get();
+        return Tags.find(string).get() ;
     }
 
     public void addClass(Class myClass){
@@ -134,6 +145,8 @@ public class Course {
         tags.remove(tag);
         tag.getCourses().remove(this);
     }
+
+
 
     public Set<Class> getClasses() {
         return classes;

@@ -1,16 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%--
   Created by IntelliJ IDEA.
   User: isabelaceriani
-  Date: 18/05/2021
-  Time: 00:03
+  Date: 08/06/2021
+  Time: 19:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Class Profile</title>
+    <title>ClassProfileForStudent</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -81,12 +80,11 @@
         <p> <b> Duration: </b> ${classs.duration} hours</p>
         <h4>Material</h4>
         <div>
-        <c:forEach var="material" items="${materials}">
-            <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material ${material.materialID} </a>
-        </c:forEach>
+            <c:forEach var="material" items="${materials}">
+                <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material ${material.materialID} </a>
+            </c:forEach>
         </div>
-        <a href="${pageContext.request.contextPath}/secure/class.do?classID=${classs.classID}" class="btn btn-primary"> Edit </a>
-        <a href="${pageContext.request.contextPath}/secure/classMaterial.do?classID=${classs.classID}" class="btn btn-primary"> Add Material** </a>
+        <a href="" class="btn btn-primary"> Realizar Entrega </a>
 
     </div>
 </form>

@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 
 @Entity
 //@Table(name = "USER", indexes = @Index(name = "EMAIL", columnList = "EMAIL", unique = true))
@@ -44,8 +42,8 @@ public class User {
   private byte[] profilePicture;
 
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<Course> courses = new ArrayList<>();
+  @ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+  private Set<Course> courses = new HashSet<>();
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private List<Entrega> entregas = new ArrayList<>();
@@ -102,7 +100,7 @@ public class User {
     return password;
   }
 
-  public List<Course> getCourses() {
+  public Set<Course> getCourses() {
     return courses;
   }
 
@@ -116,6 +114,11 @@ public class User {
 
   public void setProfilePic(byte[] image) {
     this.profilePicture = image;
+  }
+
+  public void enrollIncourse(Course course) {
+    courses.add(course);
+    course.getUsers().add(this);
   }
 
   //  public Blob getPicture() {
