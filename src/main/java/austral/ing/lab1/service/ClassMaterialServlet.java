@@ -56,7 +56,7 @@ public class ClassMaterialServlet extends HttpServlet {
         byte[] dataBytes = toByteArray(data);
 
         try {
-            classs.addMaterial(new SerialBlob(dataBytes), filePart.getContentType(), filePart.getSubmittedFileName());
+            classs.addMaterial(new SerialBlob(dataBytes), filePart.getContentType());
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }

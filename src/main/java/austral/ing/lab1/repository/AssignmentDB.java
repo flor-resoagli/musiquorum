@@ -1,23 +1,22 @@
 package austral.ing.lab1.repository;
 
-import austral.ing.lab1.model.Entrega;
-import austral.ing.lab1.model.Material;
+import austral.ing.lab1.model.Assignment;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class EntregaDB {
+public class AssignmentDB {
     private final EntityManager entityManager;
 
-    public EntregaDB(EntityManager entityManager) {
+    public AssignmentDB(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public Optional<Entrega> findById(int id){
+    public Optional<Assignment> findById(int id){
         return tx(() ->
-                Optional.of(entityManager.find(Entrega.class, id))
+                Optional.of(entityManager.find(Assignment.class, id))
         );
     }
 
@@ -53,16 +52,16 @@ public class EntregaDB {
     }
 
 
-    public Entrega persist(Entrega entrega) {
+    public Assignment persist(Assignment assignment) {
         final EntityTransaction tx = entityManager.getTransaction();
 
         try {
             tx.begin();
 
-            entityManager.persist(entrega);
+            entityManager.persist(assignment);
 
             tx.commit();
-            return entrega;
+            return assignment;
         } catch (Exception e) {
             tx.rollback();
             throw e;

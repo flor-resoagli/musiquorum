@@ -21,7 +21,8 @@
             <div class="card" style="width:400px" align= "center">
 <%--               <tr><td> <img class="card-img-top" src="user/image.html?id=${user.id}" style="width:100%" alt="Profile Picture"></td></tr>--%>
 <%--                    <img src="user/image.html?id=${user.id}" style="width: 100%" alt="Profile pic"/>--%>
-    <img class="card-img-top" src="../images/img_avatar1.png" style="width:100%" alt="Profile Picture">
+
+    <img class="card-img-top" src="./images/img_avatar1.png" style="width:100%" alt="Profile Picture">
                        <div class="card-body">
                                <h4 class="card-title"> <b> ${user.firstName} ${user.lastName} </b> </h4>
                                <p> <b> Email: </b> ${user.email}  </p>

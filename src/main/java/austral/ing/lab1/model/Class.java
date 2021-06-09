@@ -1,13 +1,11 @@
 package austral.ing.lab1.model;
 
 import austral.ing.lab1.entity.Classes;
-import austral.ing.lab1.entity.Materials;
 
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.*;
 
-import static austral.ing.lab1.util.EntityManagers.currentEntityManager;
 import static austral.ing.lab1.util.Transactions.tx;
 
 @Entity
@@ -32,9 +30,11 @@ public class Class {
 
 
     @OneToMany(orphanRemoval=true)
-    @JoinColumn(name="CLASS_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
-    private Set<Entrega> entregas = new HashSet<>();
+    @JoinColumn(name="CLASS_ID") // como un curso tiene muchas entregas, el id del curso debe estar en la tabla de entrega
+    private Set<Assignment> assignments = new HashSet<>();
 
+    @Column(name = "FILENAME")
+    private String fileName;
 
 
     public String getClassName() {
@@ -53,7 +53,11 @@ public class Class {
         this.duration = duration;
     }
 
-    public void addMaterial(Blob data, String contentType, String fileName){
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void addMaterial(Blob data, String contentType){
         Material material = new Material(data,contentType, fileName);
         material.persist();
         getMaterials().add(material);
@@ -78,5 +82,14 @@ public class Class {
             if(material.getMaterialID()==id) return material;
         }
         return null;
+    }
+
+    public void addAssignment(Assignment assignment) {
+        getAssignments().add(assignment);
+        assignment.persist();
+    }
+
+    public Set<Assignment> getAssignments() {
+        return assignments;
     }
 }

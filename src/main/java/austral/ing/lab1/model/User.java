@@ -4,12 +4,17 @@ package austral.ing.lab1.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 //@Table(name = "USER", indexes = @Index(name = "EMAIL", columnList = "EMAIL", unique = true))
@@ -45,8 +50,8 @@ public class User {
   @ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
   private Set<Course> courses = new HashSet<>();
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<Entrega> entregas = new ArrayList<>();
+  //@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  //private List<Assignment> assignment = new ArrayList<>();
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private List<Address> addresses = new ArrayList<>();

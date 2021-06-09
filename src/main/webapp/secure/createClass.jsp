@@ -91,6 +91,13 @@
             </div>
 
             <div class="form-group">
+                <label for="fileName">File Name</label>
+                <input type="text" name="fileName" class = "form-control" id= "fileName" placeholder="File Name" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
                 <label for="file">Material</label>
                 <input type="file" name="file" class = "form-control" id= "file" placeholder="Material" required/>
                 <div class="valid-feedback">Valid.</div>

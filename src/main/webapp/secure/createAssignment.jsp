@@ -1,8 +1,10 @@
+<jsp:useBean id="class" scope="request" type="austral.ing.lab1.model.Class"/>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Course Creation</title>
+    <title>Assignment Creation</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,8 +20,8 @@
 
     button {
 
-        background-color: cornflowerblue;
-        color: white;
+        background-color: white;
+        color: cornflowerblue;
         padding: 5px 5px;
         text-align: center;
         display: inline-block;
@@ -28,6 +30,11 @@
         border-radius: 8px;
         cursor: pointer;
         margin: 5px;
+    }
+
+    button:hover {
+        background-color: cornflowerblue; /* Green */
+        color: white;
     }
 
     button:active {
@@ -59,45 +66,51 @@
 
 <div class="jumbotron-fluid"
      style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'"> Musiquorum </button>
+    <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="/createCourse.do">
+<form method="post" action="${pageContext.request.contextPath}/secure/createAssignment.do?classID=${class.classID}" enctype='multipart/form-data'>
     <div class="container">
 
 
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
 
-            <h1>Create a new course!</h1>
+            <h1>Create a new Assignment!</h1>
 
             <div class="form-group">
-                <label for="course-name">Course Name</label>
-                <input type="text" name="name" class = "form-control" id= "course-name" placeholder="Name" required/>
+                <label for="title">Assignment Title</label>
+                <input type="text" name="name" class = "form-control" id= "title" placeholder="Title" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
-                <label for="tags">Tags</label>
-                <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" required/>
+                <label for="instructions"> Instructions </label>
+                <input type="text" name="name" class = "form-control" id= "instructions" placeholder="Instructions" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="Description" required/>
+                <label for="fileName">Data Name</label>
+                <input type="text" name="name" class = "form-control" id= "fileName" placeholder="File Name" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
-
             </div>
 
-            <button type="Create course" class="btn btn-success btn-block">Submit</button>
-            <button class="btn-light btn-block" onclick="document.location = 'home.html'"> Cancel</button>
+
+            <div class="form-group">
+                <label for="file">Data</label>
+                <input type="file" name="file" class = "form-control" id= "file" placeholder="Material" required/>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <button type="Create Assignment" class="btn btn-success btn-block">Submit</button>
+            <button class="btn-light btn-block" onclick="document.location = 'classProfile.jsp'"> Cancel</button>
 
         </div>
     </div>
 </form>
 </body>
 </html>
-

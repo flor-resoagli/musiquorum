@@ -1,7 +1,6 @@
 package austral.ing.lab1.entity;
 
-import austral.ing.lab1.model.Entrega;
-import austral.ing.lab1.model.Material;
+import austral.ing.lab1.model.Assignment;
 import austral.ing.lab1.model.Tag;
 
 import javax.persistence.EntityTransaction;
@@ -12,10 +11,10 @@ import static austral.ing.lab1.util.EntityManagers.currentEntityManager;
 import static austral.ing.lab1.util.LangUtils.checkedList;
 import static austral.ing.lab1.util.Transactions.tx;
 
-public class Entregas {
-    public static Optional<Entrega> findByName(int id){
+public class Assignments {
+    public static Optional<Assignment> findByID(int id){
         return tx(() ->
-                Optional.of(currentEntityManager().find(Entrega.class, id))
+                Optional.of(currentEntityManager().find(Assignment.class, id))
         );
     }
 
@@ -23,22 +22,22 @@ public class Entregas {
 
     public static List<Tag> listAll() {
         return tx(() ->
-                checkedList(currentEntityManager().createQuery("SELECT u FROM Entrega u").getResultList())
+                checkedList(currentEntityManager().createQuery("SELECT u FROM Assignment u").getResultList())
         );
     }
 
 
 
-    public static Entrega persist(Entrega entrega) {
+    public static Assignment persist(Assignment assignment) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
 
         try {
             tx.begin();
 
-            currentEntityManager().persist(entrega);
+            currentEntityManager().persist(assignment);
 
             tx.commit();
-            return entrega;
+            return assignment;
         } catch (Exception e) {
             tx.rollback();
             throw e;

@@ -79,15 +79,25 @@
     <div class="container">
         <h1>${classs.className}</h1>
         <p> <b> Duration: </b> ${classs.duration} hours</p>
-        <h4>Material</h4>
         <div>
-        <c:forEach var="material" items="${materials}">
-            <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material ${material.materialID} </a>
-        </c:forEach>
+            <a href="${pageContext.request.contextPath}/secure/class.do?classID=${classs.classID}" class="btn btn-primary"> Edit </a>
         </div>
-        <a href="${pageContext.request.contextPath}/secure/class.do?classID=${classs.classID}" class="btn btn-primary"> Edit </a>
-        <a href="${pageContext.request.contextPath}/secure/classMaterial.do?classID=${classs.classID}" class="btn btn-primary"> Add Material** </a>
 
+                <h4>Material</h4>
+                <div>
+                <c:forEach var="material" items="${materials}">
+                    <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material  </a>
+                </c:forEach>
+                </div>
+
+
+                <h4>Assignments</h4>
+
+                <div>
+                    <a href="${pageContext.request.contextPath}/secure/createAssignment.do?classID=${classs.classID}" class="btn btn-primary"> Create a New Assignment</a>
+                    <a href="${pageContext.request.contextPath}/secure/assignments-list?classID=${classs.classID}" class="btn btn-primary">View Assignments</a>
+                </div>
+            </div>
     </div>
 </form>
 </body>

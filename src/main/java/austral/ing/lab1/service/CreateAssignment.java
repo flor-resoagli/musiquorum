@@ -2,9 +2,9 @@ package austral.ing.lab1.service;
 
 import austral.ing.lab1.entity.Classes;
 import austral.ing.lab1.entity.Courses;
+import austral.ing.lab1.model.Assignment;
 import austral.ing.lab1.model.Class;
 import austral.ing.lab1.model.Course;
-import sun.misc.IOUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,29 +15,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import javax.sql.rowset.serial.SerialBlob;
-import java.awt.*;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
 
 import static com.google.common.io.ByteStreams.toByteArray;
 @MultipartConfig
-@WebServlet("/secure/createClass.do")
-public class CreateClass extends HttpServlet {
+@WebServlet("/secure/createAssignment.do")
+public class CreateAssignment extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String courseID = req.getParameter("courseID");
+        String classID = req.getParameter("classID");
 
-        Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(courseID));
-        Course course = persistedCourse.get();
+        Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(classID));
+        Class classs = persistedClass.get();
 
-        req.setAttribute("course", course);
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/createClass.jsp");
+        req.setAttribute("class", classs);
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/createAssignment.jsp");
 
         view.forward(req, resp);
     }
@@ -45,39 +41,34 @@ public class CreateClass extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final Class myClass = new Class();
+        final Assignment assignment = new Assignment();
 
-        String courseID = req.getParameter("courseID");
+        String classID = req.getParameter("classID");
 
-        Optional<Course> persistedCourse = Courses.findById(Integer.parseInt(courseID));
-        Course course = persistedCourse.get();
+        Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(classID));
+        Class classs = persistedClass.get();
 
+        assignment.setTitle(req.getParameter("title"));
 
-        if(!req.getParameter("name").isEmpty()) {
-            myClass.setClassName(req.getParameter("name"));
-        }
-        if(!req.getParameter("duration").isEmpty()) {
-            myClass.setDuration(Integer.parseInt(req.getParameter("duration")));
-        }
+        assignment.setInstructions(req.getParameter("instructions"));
 
-        if(!req.getParameter("fileName").isEmpty()) {
-            myClass.setFileName(req.getParameter("fileName"));
-        }
+        assignment.setFileName(req.getParameter("fileName"));
 
         Part filePart = req.getPart("file");
         InputStream data = filePart.getInputStream();
         byte[] dataBytes = toByteArray(data);
 
         try {
-            myClass.addMaterial(new SerialBlob(dataBytes), filePart.getContentType());
+            assignment.addFile(new SerialBlob(dataBytes), filePart.getContentType());
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
 
-        course.addClass(myClass);
+        assignment.setStatus("pending");
+
+        classs.addAssignment(assignment);
 
         final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
         view.forward(req, resp);
     }
-
 }
