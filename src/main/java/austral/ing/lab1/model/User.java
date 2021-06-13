@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 
 
+import austral.ing.lab1.entity.Homeworks;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -45,6 +46,10 @@ public class User {
   @Lob
   @Basic(fetch = FetchType.LAZY)
   private byte[] profilePicture;
+
+  @OneToMany(orphanRemoval=true)
+  @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+  private Set<Homework> homeworks = new HashSet<>();
 
 
   @ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
@@ -124,6 +129,25 @@ public class User {
   public void enrollIncourse(Course course) {
     courses.add(course);
     course.getUsers().add(this);
+  }
+
+  public Set<Homework> getHomeworks() {
+    return homeworks;
+  }
+
+
+
+  public byte[] getProfilePicture() {
+    return profilePicture;
+  }
+
+  public void setProfilePicture(byte[] profilePicture) {
+    this.profilePicture = profilePicture;
+  }
+
+  public void addHomework(Homework homework) {
+    this.homeworks.add(homework);
+    Homeworks.persist(homework);
   }
 
   //  public Blob getPicture() {

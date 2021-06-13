@@ -1,5 +1,6 @@
 package austral.ing.lab1.entity;
 
+import austral.ing.lab1.model.Homework;
 import austral.ing.lab1.model.Material;
 import austral.ing.lab1.model.Tag;
 
@@ -21,7 +22,7 @@ public class Materials {
 
 
 
-    public static List<Tag> listAll() {
+    public static List<Homework> listAll() {
         return tx(() ->
                 checkedList(currentEntityManager().createQuery("SELECT u FROM Material u").getResultList())
         );

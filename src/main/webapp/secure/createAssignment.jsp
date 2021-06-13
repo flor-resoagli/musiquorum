@@ -1,4 +1,4 @@
-<jsp:useBean id="class" scope="request" type="austral.ing.lab1.model.Class"/>
+<jsp:useBean id="classs" scope="request" type="austral.ing.lab1.model.Class"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@
     <h2> Musiquorum </h2>
 </div>
 
-<form method="post" action="${pageContext.request.contextPath}/secure/createAssignment.do?classID=${class.classID}" enctype='multipart/form-data'>
+<form method="post" action="${pageContext.request.contextPath}/secure/createAssignment.do?classID=${classs.classID}" enctype='multipart/form-data'>
     <div class="container">
 
 
@@ -79,21 +79,21 @@
 
             <div class="form-group">
                 <label for="title">Assignment Title</label>
-                <input type="text" name="name" class = "form-control" id= "title" placeholder="Title" required/>
+                <input type="text" name="title" class = "form-control" id= "title" placeholder="Title" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
                 <label for="instructions"> Instructions </label>
-                <input type="text" name="name" class = "form-control" id= "instructions" placeholder="Instructions" required/>
+                <input type="text" name="instructions" class = "form-control" id= "instructions" placeholder="Instructions" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
 
             <div class="form-group">
                 <label for="fileName">Data Name</label>
-                <input type="text" name="name" class = "form-control" id= "fileName" placeholder="File Name" required/>
+                <input type="text" name="fileName" class = "form-control" id= "fileName" placeholder="File Name" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>

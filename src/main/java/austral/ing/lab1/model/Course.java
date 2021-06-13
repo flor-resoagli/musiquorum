@@ -112,7 +112,12 @@ public class Course {
     }
 
 
-
+    //cada vez que se crea una nueva assignment en un curso, todos los inscriptos en el curso van a tener un homework que entregar en estado inicial: pending
+    public void giveHomework(){
+        for (User user: getUsers()) {
+            user.addHomework(new Homework());
+        }
+    }
 
 
     public void addTag(String tagName) {

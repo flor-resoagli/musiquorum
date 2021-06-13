@@ -38,6 +38,7 @@ public class Courses {
 
 
 
+
     public static List<Course> listAll() {
         return tx(() ->
                 checkedList(currentEntityManager().createQuery("SELECT u FROM Course u").getResultList())

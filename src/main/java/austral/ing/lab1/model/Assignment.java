@@ -2,13 +2,12 @@ package austral.ing.lab1.model;
 
 import austral.ing.lab1.entity.Assignments;
 import austral.ing.lab1.entity.Classes;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.xml.soap.Text;
 import java.sql.Blob;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 //assignment
 @Entity
@@ -17,7 +16,8 @@ public class Assignment {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private int assignmentID;
 
     @Column(name = "TITLE")
@@ -27,15 +27,18 @@ public class Assignment {
     private String instructions;
 
 
-    @Column(name = "DATA")
-    private Blob data;
+    @Column(name = "TEACHERS_DATA")
+    private Blob teachersData;
+
 
     @Column(name = "FILENAME")
     private String fileName;
 
-    @Column(name = "STATUS")//entregado, delivered
-    private String status; //solo puede ser "pending", "delivered" o "returned"
 
+
+    @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    private Set<Homework> studentsData = new HashSet<>();
 
     //@ManyToMany(mappedBy = "entregas")
     //private List<User> users = new ArrayList<>();
@@ -53,13 +56,12 @@ public class Assignment {
         this.fileName = fileName;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+
+
+    public void addInstructionFile(Blob teachersData, String contentType){
+        this.teachersData = teachersData;
     }
 
-    public void addFile(Blob data, String contentType){
-        this.data = data;
-    }
 
 
     public void persist(){
@@ -67,9 +69,41 @@ public class Assignment {
         Assignments.persist(this);
     }
 
-    //un profesor asigna una tarea
+    public int getAssignmentID() {
+        return assignmentID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public Blob getTeachersData() {
+        return teachersData;
+    }
+
+
+
+    public String getFileName() {
+        return fileName;
+    }
 
 
 
 
+    public Set<Homework> getStudentsData() {
+        return studentsData;
+    }
+
+    public void setStudentsData(Set<Homework> studentsData) {
+        this.studentsData = studentsData;
+    }
+
+
+    public void setTeachersData(Blob teachersData) {
+        this.teachersData = teachersData;
+    }
 }

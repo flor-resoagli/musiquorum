@@ -23,12 +23,19 @@ public class AssignmentsList extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
         String classID = req.getParameter("classID");
+
         Optional<Class> persistedClass = Classes.findByID(Integer.parseInt(classID));
         Class classs = persistedClass.get();
 
+
         Set<Assignment> assignments = classs.getAssignments();
+
+        final List<Assignment> c = Assignments.listAll();
+
+        for(Assignment cc : c){
+            if(!assignments.contains(cc)) assignments.remove(cc);
+        }
 
         req.setAttribute("assignments", assignments);
 

@@ -20,7 +20,7 @@ public class Assignments {
 
 
 
-    public static List<Tag> listAll() {
+    public static List<Assignment> listAll() {
         return tx(() ->
                 checkedList(currentEntityManager().createQuery("SELECT u FROM Assignment u").getResultList())
         );
