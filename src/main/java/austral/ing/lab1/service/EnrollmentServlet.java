@@ -3,6 +3,7 @@ package austral.ing.lab1.service;
 import austral.ing.lab1.entity.Courses;
 import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Course;
+import austral.ing.lab1.model.Homework;
 import austral.ing.lab1.model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -29,7 +30,7 @@ public class EnrollmentServlet  extends HttpServlet {
 
         user.enrollIncourse(course);
 
-
+       course.giveHomeworktoNewStudent(user);
 
         Users.persist(user);
 

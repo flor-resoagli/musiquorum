@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: flopy
@@ -69,12 +70,12 @@
             <div style="padding-bottom: 20px" >
                 <div class="card" style="width:400px; border-color: cornflowerblue">
                     <div class="card-header" id="card-header", style="background-color: cornflowerblue; color: white">
-                        <h5> ${assignment.title} </h5>
+                          <h5> ${assignment.title} </h5>
                     </div>
                     <div class="card-body" style="background-color: #ffffff">
                         <p> <b> Instructions: </b> ${assignment.instructions} </p>
 
-                        <a href="${pageContext.request.contextPath}/secure/assignments/${assignment.assignmentID}" class="btn btn-primary">View</a>
+                        <a href="${pageContext.request.contextPath}/secure/assignmentProfile/${assignment.assignmentID}" class="btn btn-primary">View</a>
                     </div>
                 </div>
             </div>

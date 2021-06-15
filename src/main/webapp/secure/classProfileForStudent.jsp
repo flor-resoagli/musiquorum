@@ -85,6 +85,7 @@
             </c:forEach>
         </div>
         <a href="" class="btn btn-primary"> Realizar Entrega </a>
+<%--        <a href="${pageContext.request.contextPath}/secure/viewPending.do" class="btn btn-primary">View pending</a>--%>
         <a href="${pageContext.request.contextPath}/secure/assignments-list?classID=${classs.classID}" class="btn btn-primary">View Assignments</a>
     </div>
 </form>

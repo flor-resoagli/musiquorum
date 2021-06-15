@@ -2,6 +2,7 @@ package austral.ing.lab1.service;
 
 import austral.ing.lab1.entity.Classes;
 import austral.ing.lab1.entity.Courses;
+import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Assignment;
 import austral.ing.lab1.model.Class;
 import austral.ing.lab1.model.Course;
@@ -71,8 +72,9 @@ public class CreateAssignment extends HttpServlet {
 
         List<Course> courses = Courses.listAll();
 
+
         for (Course course: courses) {
-            if(course.getClasses().contains(classs)) course.giveHomework(); //el curso le da a todos los usuarios incriptos la tarea del assignment
+            if(course.getClasses().contains(classs)) course.giveHomework(assignment); //el curso le da a todos los usuarios incriptos la tarea del assignment
         }
 
 

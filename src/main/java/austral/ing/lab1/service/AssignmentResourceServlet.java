@@ -53,7 +53,7 @@ public class AssignmentResourceServlet extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentStudentProfile.jsp");
         view.forward(req, resp);
     }
 }

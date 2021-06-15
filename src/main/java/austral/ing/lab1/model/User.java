@@ -47,8 +47,7 @@ public class User {
   @Basic(fetch = FetchType.LAZY)
   private byte[] profilePicture;
 
-  @OneToMany(orphanRemoval=true)
-  @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)// como un curso tiene mucho material, el id del curso debe estar en la tabla de material
   private Set<Homework> homeworks = new HashSet<>();
 
 
@@ -136,6 +135,15 @@ public class User {
   }
 
 
+  public List<Homework> viewPending(){
+    List<Homework> pending = new ArrayList<>();
+    for (Homework homework: homeworks) {
+      if(homework.isPending()) pending.add(homework);
+    }
+    return pending;
+  }
+
+
 
   public byte[] getProfilePicture() {
     return profilePicture;
@@ -147,8 +155,18 @@ public class User {
 
   public void addHomework(Homework homework) {
     this.homeworks.add(homework);
-    Homeworks.persist(homework);
+    homework.setUser(this);
+//    Homeworks.persist(homework);
   }
+
+  //devuelve la tarea de un alumno para un Assignment especifico (que incialmente esta incompleta)
+  public Homework getAssignmentHomework(Assignment assignment){
+    for (Homework homework: homeworks) {
+      if (homework.getAssignment().equals(assignment)) return homework;
+    }
+    return null;
+  }
+
 
   //  public Blob getPicture() {
 //    return picture;
