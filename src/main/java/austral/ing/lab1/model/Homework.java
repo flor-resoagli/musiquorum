@@ -1,5 +1,6 @@
 package austral.ing.lab1.model;
 
+
 import austral.ing.lab1.entity.Assignments;
 import austral.ing.lab1.entity.Homeworks;
 import org.hibernate.annotations.GenericGenerator;
@@ -40,8 +41,23 @@ public class Homework {
     @Column(name = "STATUS")//entregado, delivered
     private String status; //solo puede ser "pending", "delivered" o "returned"
 
-    public Homework() {
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="ASSIGNMENT_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    private Assignment assignment;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="USER_ID")
+    private User user;
+
+    public Homework(Assignment assignment) {
+        this.assignment = assignment;
         status="pending";
+        Homeworks.persist(this);
+    }
+
+    // NO BORRAR
+    public Homework() {
     }
 
     public void setContentType(String contentType) {
@@ -69,6 +85,7 @@ public class Homework {
         this.status = status;
     }
 
+
     public void persist() {
         Homeworks homeworks = new Homeworks();
         Homeworks.persist(this);
@@ -79,4 +96,29 @@ public class Homework {
     public String getStudentEmail() { return studentEmail; }
 
     public int getID() { return homeworkID; }
+
+
+    public boolean isPending(){
+        if(status.equals("pending"))return true;
+        return false;
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setAssignment(Assignment assignment) {
+        this.assignment = assignment;
+    }
+
+    public Assignment getAssignment() {
+        return assignment;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 }
+

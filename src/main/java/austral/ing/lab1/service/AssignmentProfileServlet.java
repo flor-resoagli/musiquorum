@@ -35,9 +35,15 @@ public class AssignmentProfileServlet extends HttpServlet {
 
         Assignment assignment = Assignments.findByID(Integer.parseInt(id)).get();
 
+        User user = Users.findByEmail(req.getRemoteUser()).get();
+
+//
+        Homework homework = user.getAssignmentHomework(assignment);
+
+
         req.setAttribute("assignment", assignment);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentStudentProfile.jsp");
 
         view.forward(req, resp);
     }
@@ -61,7 +67,7 @@ public class AssignmentProfileServlet extends HttpServlet {
 
 
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentStudentProfile.jsp");
         view.forward(req, resp);
     }
 }

@@ -35,8 +35,7 @@ public class Assignment {
     private String fileName;
 
 
-    @OneToMany(orphanRemoval=true)
-    @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    @OneToMany(mappedBy = "assignment", cascade = CascadeType.ALL, orphanRemoval = true)// como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Set<Homework> studentsData = new HashSet<>();
 
     //@ManyToMany(mappedBy = "entregas")
@@ -56,10 +55,19 @@ public class Assignment {
     }
 
 
+//    public List<Homework> viewPending(){
+//        List<Homework> pending = new ArrayList<>();
+//        for (Homework homework: studentsData) {
+//            if(homework.isPending()) pending.add(homework);
+//        }
+//        return pending;
+//    }
+
 
     public void addInstructionFile(Blob teachersData, String contentType){
         this.teachersData = teachersData;
     }
+
 
 
 

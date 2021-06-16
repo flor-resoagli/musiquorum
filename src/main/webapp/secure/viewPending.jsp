@@ -1,15 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: flopy
-  Date: 2/6/2021
-  Time: 10:04
+  User: isabelaceriani
+  Date: 13/06/2021
+  Time: 22:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lista de Entregas</title>
+    <title>View pending</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -57,31 +57,30 @@
 
 <body>
 
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >
-    <i class='fas fa-home' style="color: white;font-size:30px "></i> <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'"> Musiquorum </button>
-</div>
+<%--<div class="jumbotron-fluid"--%>
+<%--     style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >--%>
+<%--    <i class='fas fa-home' style="color: white;font-size:30px "></i> <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'">  </button>--%>
+<%--</div>--%>
 
 <div align="center">
-    <h1> Assignments </h1>
+    <h1> Pending Assignments </h1>
 
     <ul>
         <c:forEach var="assignment" items="${assignments}">
             <div style="padding-bottom: 20px" >
                 <div class="card" style="width:400px; border-color: cornflowerblue">
                     <div class="card-header" id="card-header", style="background-color: cornflowerblue; color: white">
-                          <h5> ${assignment.title} </h5>
+                        <h5> ${assignment.title} </h5>
                     </div>
                     <div class="card-body" style="background-color: #ffffff">
-                        <p> <b> Instructions: </b> ${assignment.instructions} </p>
-
                         <a href="${pageContext.request.contextPath}/secure/assignmentProfile/${assignment.assignmentID}" class="btn btn-primary">View</a>
                     </div>
+
+                    </div>
                 </div>
-            </div>
         </c:forEach>
     </ul>
 
 </div>
 </body>
-</html>
+

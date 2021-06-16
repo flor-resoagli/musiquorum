@@ -29,6 +29,7 @@ public class Course {
     @Column(name = "PROFESSOR")
     private String professor;
 
+
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
@@ -109,9 +110,18 @@ public class Course {
 
 
     //cada vez que se crea una nueva assignment en un curso, todos los inscriptos en el curso van a tener un homework que entregar en estado inicial: pending
-    public void giveHomework(){
+    public void giveHomework(Assignment assignment){
         for (User user: getUsers()) {
-            user.addHomework(new Homework());
+            user.addHomework(new Homework(assignment));
+        }
+    }
+
+    //cada vez que un nuevo usuario se inscribe a un curso
+    public void giveHomeworktoNewStudent(User user){
+        for (Class myClass: getClasses()) {
+            for (Assignment assignment: myClass.getAssignments()) {
+                user.addHomework(new Homework(assignment));
+            }
         }
     }
 
