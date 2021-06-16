@@ -16,9 +16,9 @@ public class HomeworkDB {
         this.entityManager = entityManager;
     }
 
-    public Optional<Material> findById(int id){
+    public Optional<Homework> findById(int id){
         return tx(() ->
-                Optional.of(entityManager.find(Material.class, id))
+                Optional.of(entityManager.find(Homework.class, id))
         );
     }
 

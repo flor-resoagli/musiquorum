@@ -74,7 +74,6 @@
         </div>
     </section>
     <ul>
-
         <div class="row">
             <div class="album bg-light" >
                 <c:forEach var="course" items="${courses}">
@@ -95,7 +94,6 @@
                         </div>
                     </li>
                 </c:forEach>
-
             </div>
         </div>
     </ul>

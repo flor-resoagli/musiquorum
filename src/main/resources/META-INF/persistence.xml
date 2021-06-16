@@ -14,6 +14,7 @@
         <class>austral.ing.lab1.model.Class</class>
         <class>austral.ing.lab1.model.Material</class>
         <class>austral.ing.lab1.model.Tag</class>
+        <class>austral.ing.lab1.model.Assignment</class>
         <class>austral.ing.lab1.model.Homework</class>
 
 

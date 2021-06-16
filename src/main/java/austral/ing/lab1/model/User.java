@@ -5,6 +5,7 @@ import austral.ing.lab1.entity.Homeworks;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.sql.rowset.serial.SerialBlob;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -127,22 +128,12 @@ public class User {
 
   public void enrollIncourse(Course course) {
     courses.add(course);
-    course.getUsers().add(this);
+    course.addUser(this);
   }
 
   public Set<Homework> getHomeworks() {
     return homeworks;
   }
-
-
-  public List<Homework> viewPending(){
-    List<Homework> pending = new ArrayList<>();
-    for (Homework homework: homeworks) {
-      if(homework.isPending()) pending.add(homework);
-    }
-    return pending;
-  }
-
 
 
   public byte[] getProfilePicture() {
@@ -160,28 +151,36 @@ public class User {
   }
 
 
-  //devuelve la tarea de un alumno para un Assignment especifico (que incialmente esta incompleta)
-  public Homework getAssignmentHomework(Assignment assignment){
-    for (Homework homework: homeworks) {
-      if (homework.getAssignment().equals(assignment)) return homework;
+  public Homework getHomeworkForAssignment(Assignment assignment) {
+    for(Homework h : homeworks){
+      if(h.getAssignment().equals(assignment)) return h;
     }
     return null;
   }
 
+  public void setParametersForHomework(Homework homework, String contentType, SerialBlob serialBlob) {
+    for(Homework h : homeworks){
+      if(h.equals(homework)){
+        h.setContentType(contentType);
+        h.setData(serialBlob);
+      }
+    }
+  }
 
-  //  public Blob getPicture() {
-//    return picture;
-//  }
-//
-//
-//  public void setPicture(Blob picture) {
-//    this.picture = picture;
-//  }
 
-//  @Transient
-//  public String getBase64Image() {
-//    base64Image = Base64.getEncoder().encodeToString(this.profilePicture);
-//    return base64Image;
-//  }
+  public void deliverHomework(Homework homework) {
+    for(Homework h : homeworks) {
+      if (h.equals(homework)) {
+        h.setStatus("delivered");
+      }
+    }
+  }
 
+  public void completeHomework(Homework homework) {
+    for(Homework h : homeworks) {
+      if (h.equals(homework)) {
+        h.setStatus("delivered");
+      }
+    }
+  }
 }

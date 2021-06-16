@@ -96,11 +96,11 @@
                 %>
                 <h2> completed </h2>
                 <%
-                    } else if("completed".equals(request.getParameter("homeworkStatus"))){
+                } else if("completed".equals(request.getParameter("homeworkStatus"))){
                 %>
-                   <h2> delivered </h2>
+                <h2> delivered </h2>
                 <%
-                }
+                    }
                 %>
 
 

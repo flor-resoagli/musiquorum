@@ -1,12 +1,7 @@
 package austral.ing.lab1.service;
-import austral.ing.lab1.entity.Assignments;
-import austral.ing.lab1.entity.Classes;
-import austral.ing.lab1.entity.Courses;
-import austral.ing.lab1.entity.Homeworks;
-import austral.ing.lab1.model.Assignment;
+import austral.ing.lab1.entity.*;
+import austral.ing.lab1.model.*;
 import austral.ing.lab1.model.Class;
-import austral.ing.lab1.model.Course;
-import austral.ing.lab1.model.Homework;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,11 +39,11 @@ public class HomeworkAsComplete extends HttpServlet{
 
         Assignment assignment = Assignments.findByID(Integer.parseInt(assignmentID)).get();
         Homework homework = assignment.findStudentDataById(studentEmail);
-        Homework h = Homeworks.findByID(homework.getID()).get();
-        h.setStatus("completed");
+        User student = Users.findByEmail(studentEmail).get();
+        student.completeHomework(homework);
 
-        Homeworks.persist(h);
-        Assignments.persist(assignment);
+        homework.persist();
+        //Homeworks.persist(homework);
         final RequestDispatcher view = req.getRequestDispatcher("/secure/homeworkList?assignmentID="+assignmentID);
         view.forward(req, resp);
     }

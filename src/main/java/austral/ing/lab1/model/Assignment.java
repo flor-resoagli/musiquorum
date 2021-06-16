@@ -2,6 +2,7 @@ package austral.ing.lab1.model;
 
 import austral.ing.lab1.entity.Assignments;
 import austral.ing.lab1.entity.Classes;
+import austral.ing.lab1.entity.Homeworks;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -35,7 +36,8 @@ public class Assignment {
     private String fileName;
 
 
-    @OneToMany(mappedBy = "assignment", cascade = CascadeType.ALL, orphanRemoval = true)// como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    @OneToMany(orphanRemoval=true)
+    @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Set<Homework> studentsData = new HashSet<>();
 
     //@ManyToMany(mappedBy = "entregas")
@@ -67,9 +69,6 @@ public class Assignment {
     public void addInstructionFile(Blob teachersData, String contentType){
         this.teachersData = teachersData;
     }
-
-
-
 
     public void persist(){
         Assignments assignments = new Assignments();
@@ -113,7 +112,7 @@ public class Assignment {
 
     public Homework findStudentDataById(String email){
         for(Homework homework: studentsData){
-            if(homework.getStudentEmail().equals(email)) return homework;
+            if(homework.getUser().getEmail().equals(email)) return homework;
         }
         return null;
     }
@@ -123,13 +122,21 @@ public class Assignment {
     }
 
     public void renewHomework(Homework homework) {
-        studentsData.remove(findStudentDataById(homework.getStudentEmail()));
+        studentsData.remove(findStudentDataById(homework.getUser().getEmail()));
         addStudentsData(homework);
     }
 
     public void markStudentAsComplete(String studentEmail) {
         Homework h = findStudentDataById(studentEmail);
         h.setStatus("completed");
-        h.persist();
+//        h.persist();
+    }
+
+    public boolean hasStudentHandedIn(String user) {
+        if(studentsData.isEmpty()) return false;
+        for(Homework homework: studentsData){
+            if(homework.getUser().getEmail().equals(user)) return true;
+        }
+        return false;
     }
 }

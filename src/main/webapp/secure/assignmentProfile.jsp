@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Assignment Student Profile</title>
+    <title>Assignment Profile</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -99,11 +99,11 @@
                 <c:forEach var="homework" items="${homeworks}">
                     <li style="float: left; list-style-type:none;">
                         <div class="container align-content-center">
-                        <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 2px; width: 500px; padding-bottom: 20px;">
-                            <div class="card-body">
-                                <p> <b> Submitted by: </b> ${homework.studentEmail} </p>
-                            </div>
-                            <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}"> See Submission  </a>
+                            <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 2px; width: 500px; padding-bottom: 20px;">
+                                <div class="card-body">
+                                    <p> <b> Submitted by: </b> ${homework.studentEmail} </p>
+                                </div>
+                                <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}"> See Submission  </a>
                             </div>
                             <div class="card-footer">
                                 <p> ${homework.status}</p>

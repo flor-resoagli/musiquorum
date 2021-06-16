@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-<%--    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>--%>
+    <%--    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>--%>
 </head>
 
 <style>
@@ -62,26 +62,26 @@
         </section>
         <ul>
             <c:forEach var="course" items="${courses}">
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
-                            <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 3px; background-color: white">
-                                <div class="card-body">
-                                    <h5> ${course.name} </h5>
-                                    <p class="card-text">${course.description}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="${pageContext.request.contextPath}/secure/enrollToCourse/${course.courseID}" class="btn btn-primary">Enroll for free</a>
+                <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            <div class="col">
+                                <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 3px; background-color: white">
+                                    <div class="card-body">
+                                        <h5> ${course.name} </h5>
+                                        <p class="card-text">${course.description}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <a href="${pageContext.request.contextPath}/secure/enrollToCourse/${course.courseID}" class="btn btn-primary">Enroll for free</a>
+                                            </div>
+                                            <small class="text-muted">Professor: ${course.professor}</small>
                                         </div>
-                                        <small class="text-muted">Professor: ${course.professor}</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </c:forEach>
         </ul>
     </form>

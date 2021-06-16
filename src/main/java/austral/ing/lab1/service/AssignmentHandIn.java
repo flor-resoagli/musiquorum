@@ -1,9 +1,6 @@
 package austral.ing.lab1.service;
 
-import austral.ing.lab1.entity.Assignments;
-import austral.ing.lab1.entity.Classes;
-import austral.ing.lab1.entity.Courses;
-import austral.ing.lab1.entity.Users;
+import austral.ing.lab1.entity.*;
 import austral.ing.lab1.model.*;
 import austral.ing.lab1.model.Class;
 
@@ -31,6 +28,7 @@ import static com.google.common.io.ByteStreams.toByteArray;
 @WebServlet("/secure/assignmentHandIn.do")
 public class AssignmentHandIn extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String assignmentID = req.getParameter("assignmentID");
@@ -45,6 +43,7 @@ public class AssignmentHandIn extends HttpServlet {
     }
 
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = Users.findByEmail(req.getRemoteUser()).get();
@@ -53,8 +52,8 @@ public class AssignmentHandIn extends HttpServlet {
         Optional<Assignment> persistedAssignment = Assignments.findByID(Integer.parseInt(assignmentID));
         Assignment assignment = persistedAssignment.get();
 
-        Homework homework = new Homework();
-        homework.setStudentEmail(user.getEmail());
+        Homework homework = user.getHomeworkForAssignment(assignment);
+
 
         Part filePart = req.getPart("file");
         InputStream data = filePart.getInputStream();
@@ -62,15 +61,15 @@ public class AssignmentHandIn extends HttpServlet {
 
         try {
 
-            homework.setContentType(filePart.getContentType());
-            homework.setData(new SerialBlob(dataBytes));
-            homework.setStatus("delivered");
+            user.setParametersForHomework(homework, filePart.getContentType(), new SerialBlob(dataBytes));
+            user.deliverHomework(homework);
+
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
 
-        assignment.addStudentsData(homework);
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments-student/"+assignmentID);
+        assignment.addStudentsData(user.getHomeworkForAssignment(assignment));
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments-student/"+ assignmentID);
         view.forward(req, resp);
 
     }

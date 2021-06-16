@@ -73,7 +73,7 @@
 
     <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
         <div class="container">
-            <a href="/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
 
         </div>
     </div>

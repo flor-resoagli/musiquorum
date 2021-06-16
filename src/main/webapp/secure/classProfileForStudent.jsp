@@ -74,11 +74,6 @@
             <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
 
         </div>
-
-        <a href="" class="btn btn-primary"> Realizar Entrega </a>
-<%--        <a href="${pageContext.request.contextPath}/secure/viewPending.do" class="btn btn-primary">View pending</a>--%>
-        <a href="${pageContext.request.contextPath}/secure/assignments-list?classID=${classs.classID}" class="btn btn-primary">View Assignments</a>
-
     </div>
 </header>
 

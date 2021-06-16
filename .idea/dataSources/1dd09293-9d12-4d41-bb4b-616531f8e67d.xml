@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="jdbc:hsqldb:hsql://localhost/xdb;shutdown=true">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.20">
+    <root id="1">
+      <ServerVersion>2.4.0</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="ADDRESS"/>
+    <table id="7" parent="4" name="ASSIGNMENT"/>
+    <table id="8" parent="4" name="CLASS"/>
+    <table id="9" parent="4" name="COURSE"/>
+    <table id="10" parent="4" name="HOMEWORK"/>
+    <table id="11" parent="4" name="MATERIAL"/>
+    <table id="12" parent="4" name="TAG"/>
+    <table id="13" parent="4" name="TAGS_COURSE"/>
+    <table id="14" parent="4" name="USER"/>
+    <table id="15" parent="4" name="USER_ADDRESS"/>
+    <table id="16" parent="4" name="USER_COURSE"/>
+    <column id="17" parent="6" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="18" parent="6" name="SYS_IDX_SYS_PK_10095_10096">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="19" parent="6" name="SYS_PK_10095">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="20" parent="7" name="ASSIGNMENTID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="FILENAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="22" parent="7" name="INSTRUCTIONS">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="23" parent="7" name="TEACHERS_DATA">
+      <Position>4</Position>
+      <DataType>BLOB(255)|2004s</DataType>
+    </column>
+    <column id="24" parent="7" name="TITLE">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="25" parent="7" name="CLASS_ID">
+      <Position>6</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <index id="26" parent="7" name="SYS_IDX_SYS_PK_10099_10100">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ASSIGNMENTID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="27" parent="7" name="SYS_IDX_FK6L7X8JF3P3GT6YNHI2A9G9V1B_10144">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CLASS_ID</ColNames>
+    </index>
+    <key id="28" parent="7" name="SYS_PK_10099">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ASSIGNMENTID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="7" name="FK6L7X8JF3P3GT6YNHI2A9G9V1B">
+      <ColNames>CLASS_ID</ColNames>
+      <RefTableName>CLASS</RefTableName>
+      <RefKeyName>SYS_PK_10103</RefKeyName>
+      <RefColNames>CLASSID</RefColNames>
+    </foreign-key>
+    <column id="30" parent="8" name="CLASSID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="8" name="CLASS_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="32" parent="8" name="CLASS_DURATION">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="33" parent="8" name="FILENAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="34" parent="8" name="COURSE_ID">
+      <Position>5</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <index id="35" parent="8" name="SYS_IDX_SYS_PK_10103_10104">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CLASSID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="36" parent="8" name="SYS_IDX_FK8JYL9ED4AW8PSPV1H7NC2A4GA_10147">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSE_ID</ColNames>
+    </index>
+    <key id="37" parent="8" name="SYS_PK_10103">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CLASSID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="8" name="FK8JYL9ED4AW8PSPV1H7NC2A4GA">
+      <ColNames>COURSE_ID</ColNames>
+      <RefTableName>COURSE</RefTableName>
+      <RefKeyName>SYS_PK_10107</RefKeyName>
+      <RefColNames>COURSEID</RefColNames>
+    </foreign-key>
+    <column id="39" parent="9" name="COURSEID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="9" name="DESCRIPTION">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="41" parent="9" name="IS_ACTIVE">
+      <Position>3</Position>
+      <DataType>BOOLEAN|16s</DataType>
+    </column>
+    <column id="42" parent="9" name="COURSE_NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="43" parent="9" name="PROFESSOR">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="44" parent="9" name="SYS_IDX_SYS_PK_10107_10108">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSEID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="9" name="SYS_PK_10107">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSEID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="10" name="HOMEWORKID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="10" name="CONTENTTYPE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="48" parent="10" name="STUDENT_DATA">
+      <Position>3</Position>
+      <DataType>BLOB(255)|2004s</DataType>
+    </column>
+    <column id="49" parent="10" name="STATUS">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="50" parent="10" name="STUDENT">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="51" parent="10" name="ASSIGNMENT_ID">
+      <Position>6</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="52" parent="10" name="USER_ID">
+      <Position>7</Position>
+      <DataType>BIGINT|-5s</DataType>
+    </column>
+    <index id="53" parent="10" name="SYS_IDX_SYS_PK_10111_10112">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>HOMEWORKID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="54" parent="10" name="SYS_IDX_FK7LE181ELXTCLX8KEENS8AY7AE_10150">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ASSIGNMENT_ID</ColNames>
+    </index>
+    <index id="55" parent="10" name="SYS_IDX_FKEG2GF0KHP1FVDGY89TB8GCCXG_10153">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <key id="56" parent="10" name="SYS_PK_10111">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>HOMEWORKID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="10" name="FK7LE181ELXTCLX8KEENS8AY7AE">
+      <ColNames>ASSIGNMENT_ID</ColNames>
+      <RefTableName>ASSIGNMENT</RefTableName>
+      <RefKeyName>SYS_PK_10099</RefKeyName>
+      <RefColNames>ASSIGNMENTID</RefColNames>
+    </foreign-key>
+    <foreign-key id="58" parent="10" name="FKEG2GF0KHP1FVDGY89TB8GCCXG">
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10129</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="59" parent="11" name="MATERIALID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="11" name="CONTENTTYPE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="61" parent="11" name="DATA">
+      <Position>3</Position>
+      <DataType>BLOB(255)|2004s</DataType>
+    </column>
+    <column id="62" parent="11" name="FILENAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="63" parent="11" name="CLASS_ID">
+      <Position>5</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <index id="64" parent="11" name="SYS_IDX_SYS_PK_10115_10116">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MATERIALID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="65" parent="11" name="SYS_IDX_FKQO8W7GTYO78X5KTT1KFM1GTF9_10156">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CLASS_ID</ColNames>
+    </index>
+    <key id="66" parent="11" name="SYS_PK_10115">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MATERIALID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="11" name="FKQO8W7GTYO78X5KTT1KFM1GTF9">
+      <ColNames>CLASS_ID</ColNames>
+      <RefTableName>CLASS</RefTableName>
+      <RefKeyName>SYS_PK_10103</RefKeyName>
+      <RefColNames>CLASSID</RefColNames>
+    </foreign-key>
+    <column id="68" parent="12" name="NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="69" parent="12" name="SYS_IDX_SYS_PK_10119_10120">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="70" parent="12" name="SYS_PK_10119">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="71" parent="13" name="TAGS_NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="13" name="COURSE_ID">
+      <Position>2</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="73" parent="13" name="SYS_IDX_SYS_PK_10124_10125">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TAGS_NAME
+COURSE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="74" parent="13" name="SYS_IDX_FK10UY3H01O4GVQNNF1M4K4SC4T_10163">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TAGS_NAME</ColNames>
+    </index>
+    <index id="75" parent="13" name="SYS_IDX_FKMJSCQXXS0S5CB76SR4MSVKY5X_10159">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSE_ID</ColNames>
+    </index>
+    <key id="76" parent="13" name="SYS_PK_10124">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TAGS_NAME
+COURSE_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="13" name="FK10UY3H01O4GVQNNF1M4K4SC4T">
+      <ColNames>TAGS_NAME</ColNames>
+      <RefTableName>TAG</RefTableName>
+      <RefKeyName>SYS_PK_10119</RefKeyName>
+      <RefColNames>NAME</RefColNames>
+    </foreign-key>
+    <foreign-key id="78" parent="13" name="FKMJSCQXXS0S5CB76SR4MSVKY5X">
+      <ColNames>COURSE_ID</ColNames>
+      <RefTableName>COURSE</RefTableName>
+      <RefKeyName>SYS_PK_10107</RefKeyName>
+      <RefColNames>COURSEID</RefColNames>
+    </foreign-key>
+    <column id="79" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="14" name="EMAIL">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="81" parent="14" name="FIRST_NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="82" parent="14" name="IS_ACTIVE">
+      <Position>4</Position>
+      <DataType>BOOLEAN|16s</DataType>
+    </column>
+    <column id="83" parent="14" name="LAST_NAME">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="84" parent="14" name="PASSWORD">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="85" parent="14" name="PROFILEPICTURE">
+      <Position>7</Position>
+      <DataType>BLOB(255)|2004s</DataType>
+    </column>
+    <index id="86" parent="14" name="SYS_IDX_SYS_PK_10129_10130">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="87" parent="14" name="SYS_PK_10129">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="88" parent="15" name="USERS_ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="15" name="ADDRESSES_ID">
+      <Position>2</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="90" parent="15" name="SYS_IDX_FKFIIE5434H91U12CB45SA7Y3XC_10171">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USERS_ID</ColNames>
+    </index>
+    <index id="91" parent="15" name="SYS_IDX_FK99MVWGXAKO4NPUNI7QJ8JI0GY_10167">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ADDRESSES_ID</ColNames>
+    </index>
+    <foreign-key id="92" parent="15" name="FKFIIE5434H91U12CB45SA7Y3XC">
+      <ColNames>USERS_ID</ColNames>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10129</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="93" parent="15" name="FK99MVWGXAKO4NPUNI7QJ8JI0GY">
+      <ColNames>ADDRESSES_ID</ColNames>
+      <RefTableName>ADDRESS</RefTableName>
+      <RefKeyName>SYS_PK_10095</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="94" parent="16" name="COURSE_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="16" name="USER_ID">
+      <Position>2</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="96" parent="16" name="SYS_IDX_SYS_PK_10139_10140">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSE_ID
+USER_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="97" parent="16" name="SYS_IDX_FKPAQAIUFBKLR333K2VRQT16VG_10179">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSE_ID</ColNames>
+    </index>
+    <index id="98" parent="16" name="SYS_IDX_FKVBMS7145DI22HBYM1ET0R6GY_10175">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <key id="99" parent="16" name="SYS_PK_10139">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>COURSE_ID
+USER_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="100" parent="16" name="FKPAQAIUFBKLR333K2VRQT16VG">
+      <ColNames>COURSE_ID</ColNames>
+      <RefTableName>COURSE</RefTableName>
+      <RefKeyName>SYS_PK_10107</RefKeyName>
+      <RefColNames>COURSEID</RefColNames>
+    </foreign-key>
+    <foreign-key id="101" parent="16" name="FKVBMS7145DI22HBYM1ET0R6GY">
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10129</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -10,56 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b9d8520-b165-4b20-8f55-146dd59bbd8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentHandIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentProfileForStudentServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentResourceSubmissionServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentsListForStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceStudentServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/HomeworkAsComplete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/HomeworkList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfileForStudent.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/handInHomework.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3bab8346-3737-417e-8ad4-e871bb4806de.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3bab8346-3737-417e-8ad4-e871bb4806de.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.lck" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.lobs" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.lobs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.log" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/mydb.script" beforeDir="false" afterPath="$PROJECT_DIR$/db/mydb.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/entity/Assignments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/entity/Assignments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/Homework.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/repository/HomeworkDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/repository/HomeworkDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentHandIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentHandIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentProfileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentResourceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentResourceServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/AssignmentsList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassResourceServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ClassesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CourseList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/StudentClassesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/StudentClassesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/CreateClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/HomeworkAsComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/HomeworkAsComplete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ViewPendingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/austral/ing/lab1/service/ViewPendingServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/assignmentsList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/assignmentsList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/Profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfileForStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfileForStudent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/assignmentStudentProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/assignmentProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/assignmentsList.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/classProfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classProfileForStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/classProfileForStudent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseCreation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/classesList.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseProfile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/courseProfileForStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/courseProfileForStudent.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/coursesSearchedForList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/coursesSearchedForList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/createAssignment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createAssignment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/createClass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/createClass.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/editCourse.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/enrolledCourses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/enrolledCourses.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/modifyProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/modifyProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/studentClassesList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/secure/viewPending.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/secure/viewPending.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +112,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../musiquorum BACKUP/BACKUP 13-06/src/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../musiquorum BACKUP/BACKUP 15-06/main" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -306,7 +292,7 @@
       <workItem from="1621967544125" duration="11207000" />
       <workItem from="1622031665286" duration="9955000" />
       <workItem from="1622041952029" duration="1862000" />
-      <workItem from="1623781537709" duration="15205000" />
+      <workItem from="1623781537709" duration="30073000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1618368906061</created>

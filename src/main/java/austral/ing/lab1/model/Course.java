@@ -5,10 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Blob;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static sun.awt.image.PixelConverter.UshortGray.instance;
 
@@ -54,6 +51,8 @@ public class Course {
       @OneToMany(orphanRemoval=true)
       @JoinColumn(name="COURSE_ID")
       private Set<Class> classes = new HashSet<>();
+
+
 
 
     public int getCourseID() {
@@ -109,10 +108,11 @@ public class Course {
     }
 
 
+
     //cada vez que se crea una nueva assignment en un curso, todos los inscriptos en el curso van a tener un homework que entregar en estado inicial: pending
     public void giveHomework(Assignment assignment){
         for (User user: getUsers()) {
-            user.addHomework(new Homework(assignment));
+            user.addHomework(new Homework(assignment, user));
         }
     }
 
@@ -120,7 +120,7 @@ public class Course {
     public void giveHomeworktoNewStudent(User user){
         for (Class myClass: getClasses()) {
             for (Assignment assignment: myClass.getAssignments()) {
-                user.addHomework(new Homework(assignment));
+                user.addHomework(new Homework(assignment, user));
             }
         }
     }
@@ -162,4 +162,13 @@ public class Course {
     public Set<Class> getClasses() {
         return classes;
     }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public boolean hasUser(User user){
+        return users.contains(user);
+    }
+
 }

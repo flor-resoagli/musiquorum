@@ -1,9 +1,12 @@
 package austral.ing.lab1.service;
 
+import austral.ing.lab1.entity.Assignments;
 import austral.ing.lab1.entity.Classes;
 import austral.ing.lab1.entity.Courses;
 import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Assignment;
+import austral.ing.lab1.model.Class;
+import austral.ing.lab1.model.Course;
 import austral.ing.lab1.model.Homework;
 import austral.ing.lab1.model.User;
 
@@ -26,18 +29,14 @@ public class ViewPendingServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         User user = Users.findByEmail(req.getRemoteUser()).get();
+        List<Assignment> pendingA = new ArrayList<>();
 
+        for(Homework h: user.getHomeworks())
+            if(h.getStatus().equals("pending")) {
+                pendingA.add(h.getAssignment());
+            }
 
-        List<Homework> homeworks = user.viewPending();
-
-        List<Assignment> assignments = new ArrayList<>();
-
-        for (Homework homework: homeworks) {
-            assignments.add(homework.getAssignment());
-        }
-
-
-        req.setAttribute("assignments", assignments);
+        req.setAttribute("pendingA", pendingA);
 
         final RequestDispatcher view = req.getRequestDispatcher("/secure/viewPending.jsp");
         view.forward(req, resp);

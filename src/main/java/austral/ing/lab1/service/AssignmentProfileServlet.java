@@ -26,8 +26,6 @@ import static com.google.common.io.ByteStreams.toByteArray;
 @MultipartConfig
 public class AssignmentProfileServlet extends HttpServlet {
 
-
-    //el doGet recibe lo que el estudiante llena en el jsp
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String[] paths = req.getRequestURI().split("/");
@@ -35,39 +33,23 @@ public class AssignmentProfileServlet extends HttpServlet {
 
         Assignment assignment = Assignments.findByID(Integer.parseInt(id)).get();
 
-        User user = Users.findByEmail(req.getRemoteUser()).get();
-
-//
-        Homework homework = user.getAssignmentHomework(assignment);
-
-
         req.setAttribute("assignment", assignment);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentStudentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
 
         view.forward(req, resp);
     }
 
-
-//    //el doPost del servlet le manda al jsp los datos de este assignement
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String[] paths = req.getRequestURI().split("/");
         String id = paths[paths.length-1];
 
-
-
-
         Assignment  assignment = Assignments.findByID(Integer.parseInt(id)).get();
-
-
         req.setAttribute("assignment", assignment);
 
-
-
-
-
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentStudentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
         view.forward(req, resp);
     }
 }
+

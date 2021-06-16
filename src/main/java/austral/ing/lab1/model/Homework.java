@@ -50,10 +50,12 @@ public class Homework {
     @JoinColumn(name="USER_ID")
     private User user;
 
-    public Homework(Assignment assignment) {
+    public Homework(Assignment assignment, User user) {
         this.assignment = assignment;
+        this.user = user;
+        studentEmail = user.getEmail();
         status="pending";
-        Homeworks.persist(this);
+        //Homeworks.persist(this);
     }
 
     // NO BORRAR
@@ -87,8 +89,8 @@ public class Homework {
 
 
     public void persist() {
-        Homeworks homeworks = new Homeworks();
-        Homeworks.persist(this);
+      Homeworks homeworks = new Homeworks();
+      Homeworks.persist(this);
     }
 
     public void setStudentEmail(String email) { this.studentEmail = email; }
@@ -102,7 +104,6 @@ public class Homework {
         if(status.equals("pending"))return true;
         return false;
     }
-
 
     public void setUser(User user) {
         this.user = user;

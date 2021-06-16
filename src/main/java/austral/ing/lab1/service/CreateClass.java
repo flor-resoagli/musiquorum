@@ -75,7 +75,6 @@ public class CreateClass extends HttpServlet {
         }
 
         course.addClass(myClass);
-
         final RequestDispatcher view = req.getRequestDispatcher("/secure/home.html");
         view.forward(req, resp);
     }
