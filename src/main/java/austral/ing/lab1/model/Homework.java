@@ -1,5 +1,7 @@
 package austral.ing.lab1.model;
 
+import austral.ing.lab1.entity.Assignments;
+import austral.ing.lab1.entity.Homeworks;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -28,6 +30,8 @@ public class Homework {
     @Column(name = "STUDENT_DATA")
     private Blob data;
 
+    @Column(name = "STUDENT")
+    private String studentEmail;
 
     @Column(name = "CONTENTTYPE")
     private String contentType;
@@ -64,4 +68,15 @@ public class Homework {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public void persist() {
+        Homeworks homeworks = new Homeworks();
+        Homeworks.persist(this);
+    }
+
+    public void setStudentEmail(String email) { this.studentEmail = email; }
+
+    public String getStudentEmail() { return studentEmail; }
+
+    public int getID() { return homeworkID; }
 }

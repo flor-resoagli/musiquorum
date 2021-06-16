@@ -52,32 +52,52 @@
 
 <body>
 
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >
-    <i class='fas fa-home' style="color: white;font-size:30px "></i> <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'"> Musiquorum </button>
-</div>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+        </div>
+    </div>
+</header>
 
-<div align="center">
-    <h1> My learning </h1>
-
-    <ul>
-        <c:forEach var="course" items="${courses}">
-            <div style="padding-bottom: 20px" >
-                <div class="card" style="width:400px; border-color: cornflowerblue">
-                    <div class="card-header" id="card-header", style="background-color: cornflowerblue; color: white">
-                        <h5> ${course.name} </h5>
-                    </div>
-                    <div class="card-body" style="background-color: #ffffff">
-                        <p> ${course.description} </p>
-
-                        <a href="${pageContext.request.contextPath}/secure/courseProfileForStudent/${course.courseID}" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
+<main id="main">
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">My Learning</h1>
+                <p class="lead text-muted"> Courses you are currently enrolled in! </p>
+                <p>
+                    <a href="${pageContext.request.contextPath}/secure/searchForCourse.html" class="btn btn-primary my-2"> Search for a course </a>
+                    <a href="${pageContext.request.contextPath}/secure/home.html" class="btn btn-secondary my-2"> Back to home</a>
+                </p>
             </div>
-        </c:forEach>
+        </div>
+    </section>
+    <ul>
+        <div class="row">
+            <div class="album bg-light" >
+                <c:forEach var="course" items="${courses}">
+                    <li style="float: left; list-style-type:none; padding-bottom: 20px">
+                        <div class="container">
+                            <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 3px; background-color: white">
+                                <div class="card-body">
+                                    <h5> ${course.name} </h5>
+                                    <p class="card-text">${course.description}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="${pageContext.request.contextPath}/secure/studentClasses-list?courseID=${course.courseID}" class="btn btn-primary">View course</a>
+                                        </div>
+                                        <small class="text-muted">Professor: ${course.professor}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </div>
+        </div>
     </ul>
-
-</div>
+</main>
 </body>
 
 <script>

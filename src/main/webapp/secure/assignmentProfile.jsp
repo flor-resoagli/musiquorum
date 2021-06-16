@@ -69,32 +69,54 @@
 </style>
 <body>
 
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <h2> Musiquorum </h2>
-</div>
-
-<form method="post" action="/secure/assignmentProfile/${assignment.assignmentID}" enctype='multipart/form-data'>
-    <div class="container">
-        <h1>${assignment.title}</h1>
-        <h2>Consigna:</h2>
-        <h3>${assignment.instructions}</h3>
-
-        <div>
-        <h4>Material</h4>
-                <a href="${pageContext.request.contextPath}/secure/assignmentResources.do?assignmentID=${assignment.assignmentID}"> Download material  </a>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
         </div>
-
-        <div class="form-group">
-            <label for="file">Hand in</label>
-            <input type="file" name="file" class = "form-control" id= "file" placeholder="Your work" required/>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-
-
-
     </div>
+</header>
+
+<form method="post" action="/secure/assignments/${assignment.assignmentID}" enctype='multipart/form-data'>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">${assignment.title}</h1>
+                <p class="lead text-muted"> <b> Consigna: </b> ${assignment.instructions} </p>
+                <p>
+                    <!-- <a href="${pageContext.request.contextPath}/secure/assignment.do?classID=${assignment.assignmentID}" class="btn btn-primary my-2"> Edit </a> -->
+                </p>
+                <div>
+                    <a href="${pageContext.request.contextPath}/secure/assignmentResources.do?assignmentID=${assignment.assignmentID}"> Download material  </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-center container">
+        <form method="post" action="${pageContext.request.contextPath}/secure/homeworkList?assignmentID=${assignment.assignmentID}" enctype="multipart/form-data">
+            <ul>
+                <c:forEach var="homework" items="${homeworks}">
+                    <li style="float: left; list-style-type:none;">
+                        <div class="container align-content-center">
+                        <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 2px; width: 500px; padding-bottom: 20px;">
+                            <div class="card-body">
+                                <p> <b> Submitted by: </b> ${homework.studentEmail} </p>
+                            </div>
+                            <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}"> See Submission  </a>
+                            </div>
+                            <div class="card-footer">
+                                <p> ${homework.status}</p>
+                                <a href="${pageContext.request.contextPath}/secure/markHomeworkAsComplete.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}" class="btn btn-outline-success">  Mark as Completed </a>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
+        </form>
+    </section>
+
+
 </form>
 </body>
 

@@ -39,7 +39,7 @@ public class AssignmentsList extends HttpServlet {
 
         req.setAttribute("assignments", assignments);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentsList.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/classes/"+classID);
         view.forward(req, resp);
     }
 }

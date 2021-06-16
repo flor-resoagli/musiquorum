@@ -102,50 +102,44 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" id="close">&times;</a>
     <a href="/secure/enrolledCoursesList">Enrolled In Courses</a>
-    <a href="/secure/listCourses">My Courses</a>
-    <a href="courseCreation.html"> New Course</a>
+    <a href="/secure/courses-list">My Courses</a>
     <a href="/secure/searchForCourse.html"> Search for Course</a>
     <a href="/logout.do" id="logout">Logout </a>
 </div>
 
-<div id="main">
-    <div class="jumbotron-fluid"
-         style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;  Musiquorum  </span>
+<div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+    <div class="container">
+        <span style="font-size:30px;cursor:pointer; color:white" onclick="openNav()">&#9776;  Musiquorum  </span>
     </div>
-    <h1 align="center"> Welcome!</h1>
+</div>
+
+<div id="main">
+    <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light"> Welcome! </h1>
+            <p class="lead text-muted"> </p>
+        </div>
+    </div>
+</section>
 
     <div class="row">
-
         <div class="col-sm-1">
-
         </div>
-
         <div class="col-sm-4" align="center">
-
             <iframe src="/seeProfile.do" width="425px" height="570p" scrolling="none" style="border-color: transparent"> </iframe>
-
             <button onclick=" document.location = 'modifyProfile.html'">Edit Profile</button>
-
         </div>
-
         <div class="col-sm-2" align="center"> </div>
-
         <div class="col-sm-4" align="center">
             <div class="container" style="background-color: #e5edfb">
                 <h3> Pending Homework </h3>
                 <p> ** falta implementacion ** </p>
-
-                <button onclick=""> See Calendar </button>
             </div>
         </div>
-
     </div>
-
 </div>
-
 </body>
-
 <script>
 
     function openNav() {

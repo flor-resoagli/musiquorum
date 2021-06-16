@@ -65,41 +65,34 @@
 
 <body>
 
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <h2> Musiquorum </h2>
-</div>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+        </div>
+    </div>
+</header>
 
-
-<form method="post"  action="/secure/editCourse.do?courseID=${course.courseID}" >
-
+<form method="post"  action="${pageContext.request.contextPath}/secure/editCourse.do?courseID=${course.courseID}" >
     <div class="container">
-
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
-
             <h1>Edit your course</h1>
-
             <div class="form-group">
                 <label for="name">New Name</label>
                 <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" />
-
             </div>
-
+            <!--
             <div class="form-group">
                 <label for="tags">New tags</label>
                 <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter tags" />
-
             </div>
-
+            -->
             <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" class="form-control" id="description" name="description" placeholder="Description" />
             </div>
-
             <button type="submit" class="btn btn-success btn-block" >Submit</button>
-
         </div>
-        <button onclick="document.location = '${pageContext.request.contextPath}/secure/courses/${course.courseID}'"> Back to course</button>
     </div>
 </form>
 </body>

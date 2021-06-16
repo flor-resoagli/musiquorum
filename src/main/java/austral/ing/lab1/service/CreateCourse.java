@@ -25,7 +25,7 @@ public class CreateCourse  extends HttpServlet{
 
             course.setName(req.getParameter("name"));
             course.setDescription(req.getParameter("description"));
-            course.addTag(req.getParameter("tags"));
+            //course.addTag(req.getParameter("tags"));
             course.setActive(true);
             course.setProfessor(req.getRemoteUser());
             Courses.persist(course);

@@ -68,25 +68,65 @@
     }
 </style>
 <body>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
 
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <h2> Musiquorum </h2>
-</div>
-
-<form method="get" action="${pageContext.request.contextPath}/secure/classes/*">
-    <div class="container">
-        <h1>${classs.className}</h1>
-        <p> <b> Duration: </b> ${classs.duration} hours</p>
-        <h4>Material</h4>
-        <div>
-            <c:forEach var="material" items="${materials}">
-                <a href="${pageContext.request.contextPath}/secure/classResources.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material ${material.materialID} </a>
-            </c:forEach>
         </div>
-        <a href="" class="btn btn-primary"> Realizar Entrega </a>
-        <a href="${pageContext.request.contextPath}/secure/assignments-list?classID=${classs.classID}" class="btn btn-primary">View Assignments</a>
     </div>
+</header>
+
+<form method="get" action="${pageContext.request.contextPath}/secure/classProfileForStudent/*">
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">${classs.className}</h1>
+                <p class="lead text-muted"> <b> Duration: </b> ${classs.duration} hours </p>
+                <p>
+                    <a href="${pageContext.request.contextPath}/secure/courseProfileForStudent//${course.courseID}" class="btn btn-secondary my-2">Back to Course</a>
+                </p>
+                <h3 class="fw-light">Material</h3>
+                <div class="text-center container" style="padding-bottom: 10px">
+                    <ul>
+                        <c:forEach var="material" items="${materials}">
+                            <div>
+                                <li style="float: none; list-style-type:none; padding-bottom: 20px">
+                                    <a href="${pageContext.request.contextPath}/secure/classResourcesForStudent.do?classID=${classs.classID}&materialID=${material.materialID}"> Download material  </a>
+                                </li>
+                            </div>
+                        </c:forEach>
+                    </ul>
+                </div>
+                <h3 class="fw-light">Assignments</h3>
+                <p class="lead text-muted"> </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <form method="post" action="${pageContext.request.contextPath}/secure/assignments-list-student?classID=${classs.classID}">
+        <ul>
+            <c:forEach var="assignment" items="${aList}">
+                <li style="float: left; list-style-type:none; padding-bottom: 20px">
+                    <div class="container">
+                        <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 3px; background-color: white">
+                            <div class="card-body">
+                                <h5> ${assignment.title} </h5>
+
+                                <p> <b> Instructions: </b> ${assignment.instructions} </p>
+
+                                <a href="${pageContext.request.contextPath}/secure/assignments-student/${assignment.assignmentID}" class="btn btn-primary"> View assignment</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </c:forEach>
+        </ul>
+    </form>
+
 </form>
 </body>
 

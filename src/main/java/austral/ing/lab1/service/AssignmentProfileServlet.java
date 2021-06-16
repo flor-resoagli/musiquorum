@@ -22,7 +22,7 @@ import java.util.Set;
 
 import static com.google.common.io.ByteStreams.toByteArray;
 
-@WebServlet("/secure/assignmentProfile/*")
+@WebServlet("/secure/assignments/*")
 @MultipartConfig
 public class AssignmentProfileServlet extends HttpServlet {
 
@@ -34,31 +34,6 @@ public class AssignmentProfileServlet extends HttpServlet {
         String id = paths[paths.length-1];
 
         Assignment assignment = Assignments.findByID(Integer.parseInt(id)).get();
-        User user = Users.findByEmail(req.getRemoteUser()).get();
-
-//
-//        Homework homework = new Homework();
-//
-//
-//        Part filePart = req.getPart("file");
-//        InputStream data = filePart.getInputStream();
-//        byte[] dataBytes = toByteArray(data);
-//
-//
-//
-//        try {
-//            //se podria crear en homework un metodo "handIn" que haga todo esto de una
-//            homework.setContentType(filePart.getContentType());
-//            homework.setData(new SerialBlob(dataBytes));
-//            homework.setStatus("delivered");
-//        } catch (SQLException throwable) {
-//            throwable.printStackTrace();
-//        }
-
-
-
-
-
 
         req.setAttribute("assignment", assignment);
 

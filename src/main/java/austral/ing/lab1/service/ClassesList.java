@@ -34,9 +34,9 @@ public class ClassesList extends HttpServlet{
             if(!classes.contains(cc)) classes.remove(cc);
         }
 
-        req.setAttribute("classes", classes);
+        req.setAttribute("classList", classes);
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/classesList.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/courses/"+courseID);
         view.forward(req, resp);
     }
 }

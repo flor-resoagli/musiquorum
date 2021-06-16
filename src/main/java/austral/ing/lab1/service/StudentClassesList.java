@@ -27,16 +27,16 @@ public class StudentClassesList  extends HttpServlet {
         Course course = persistedCourse.get();
 
         Set<Class> classes = course.getClasses();
-//
-//        final List<Class> c = Classes.listAll();
-//
-//        for(Class cc : c){
-//            if(!classes.contains(cc)) classes.remove(cc);
-//        }
 
-        req.setAttribute("classes", classes);
+        final List<Class> c = Classes.listAll();
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/studentClassesList.jsp");
+        for(Class cc : c){
+            if(!classes.contains(cc)) classes.remove(cc);
+        }
+
+        req.setAttribute("classList", classes);
+
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/courseProfileForStudent/"+courseID);
         view.forward(req, resp);
     }
 }

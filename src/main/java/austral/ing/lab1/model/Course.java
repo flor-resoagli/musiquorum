@@ -23,19 +23,15 @@ public class Course {
     @Column(name = "COURSE_NAME")
     private String name;
 
-
     @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "PROFESSOR")
     private String professor;
 
-
-
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
-//
 //    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 //    private List<Tag> tags = new ArrayList<>();
 

@@ -52,47 +52,58 @@
 
 <body>
 
-    <div class="jumbotron-fluid"
-         style="background-color: cornflowerblue; color: white; margin-bottom: 40px; padding: 20px" >
-        <i class='fas fa-home' style="color: white;font-size:30px "></i> <button style="font-size:30px;cursor:pointer;color:white" onclick="document.location = 'home.html'"> Musiquorum </button>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+
+        </div>
     </div>
+</header>
 
-    <div align="center">
-        <h1> My Courses </h1>
+<main id="main">
 
-        <ul>
-            <c:forEach var="course" items="${courses}">
-                <div style="padding-bottom: 20px" >
-                <div class="card" style="width:400px; border-color: cornflowerblue">
-                    <div class="card-header" id="card-header", style="background-color: cornflowerblue; color: white">
-                        <h5> ${course.name} </h5>
-                    </div>
-                    <div class="card-body" style="background-color: #ffffff">
-                        <p> ${course.description} </p>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">My Courses</h1>
+                <p class="lead text-muted"> Courses you have created! </p>
+                <p>
+                    <a href="${pageContext.request.contextPath}/secure/courseCreation.html" class="btn btn-primary my-2"> New </a>
+                    <a href="${pageContext.request.contextPath}/secure/home.html" class="btn btn-secondary my-2"> Back to home</a>
+                </p>
+            </div>
+        </div>
+    </section>
 
-                        <a href="${pageContext.request.contextPath}/secure/courses/${course.courseID}" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
-                </div>
-            </c:forEach>
-        </ul>
+    <ul>
+        <div class="row">
+            <div class="album bg-light" >
+                <c:forEach var="course" items="${courses}">
+                    <li style="float: left; list-style-type:none; padding-bottom: 20px">
+                        <div class="container">
+                            <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 3px; background-color: white">
+                                <div class="card-body">
+                                    <h5> ${course.name} </h5>
+                                    <p class="card-text">${course.description}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="${pageContext.request.contextPath}/secure/classes-list?courseID=${course.courseID}" class="btn btn-primary">View course</a>
+                                        </div>
+                                        <small class="text-muted">Professor: ${course.professor}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </div>
+        </div>
+    </ul>
+</main>
 
-    </div>
 </body>
 
-<script>
-                        /*
-                        var id = parseInt(courseid);
-                        var color;
-                        var num = id%4;
-                        if(num === 0) {color = "#519358";}
-                        else if(num === 0.25) {color = "#e5c959";}
-                        else if(num === 0.5) {color = "#c95a5d";}
-                        else {color = "#6f86ba"}
-
-                        document.getElementById("card-header").style.setProperty("background-color", color);
-                        */
-</script>
 
 
 </html>

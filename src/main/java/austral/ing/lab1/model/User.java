@@ -150,18 +150,4 @@ public class User {
     Homeworks.persist(homework);
   }
 
-  //  public Blob getPicture() {
-//    return picture;
-//  }
-//
-//
-//  public void setPicture(Blob picture) {
-//    this.picture = picture;
-//  }
-
-//  @Transient
-//  public String getBase64Image() {
-//    base64Image = Base64.getEncoder().encodeToString(this.profilePicture);
-//    return base64Image;
-//  }
 }

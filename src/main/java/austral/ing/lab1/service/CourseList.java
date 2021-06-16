@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/secure/listCourses")
+@WebServlet("/secure/courses-list")
 public class CourseList extends HttpServlet {
 
 
@@ -22,7 +22,7 @@ public class CourseList extends HttpServlet {
         final List<Course> courses = Courses.listAll();
         String professor = req.getRemoteUser();
 
-        courses.removeIf(course -> !course.getProfessor().equals(professor));
+        boolean b = courses.removeIf(course -> !professor.equals(course.getProfessor()));
 
         req.setAttribute("courses", courses);
 

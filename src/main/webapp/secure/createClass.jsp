@@ -62,53 +62,44 @@
 
 
 <body>
-
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <h2> Musiquorum </h2>
-</div>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+        </div>
+    </div>
+</header>
 
 <form method="post" action="${pageContext.request.contextPath}/secure/createClass.do?courseID=${course.courseID}" enctype='multipart/form-data'>
     <div class="container">
-
-
         <div class="shadow-sm p-3 mb-5 bg-white rounded">
-
             <h1>Create a new class!</h1>
-
             <div class="form-group">
                 <label for="name">Class Name</label>
                 <input type="text" name="name" class = "form-control" id= "name" placeholder="Name" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-
             <div class="form-group">
                 <label for="duration">Duration</label>
                 <input type="text" name="duration" class = "form-control" id= "duration" placeholder="Duration" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-
             <div class="form-group">
                 <label for="fileName">File Name</label>
                 <input type="text" name="fileName" class = "form-control" id= "fileName" placeholder="File Name" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-
             <div class="form-group">
                 <label for="file">Material</label>
                 <input type="file" name="file" class = "form-control" id= "file" placeholder="Material" required/>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-
-
-
             <button type="Create class" class="btn btn-success btn-block">Submit</button>
             <button class="btn-light btn-block" onclick="document.location = 'courseProfile.jsp'"> Cancel</button>
-
         </div>
     </div>
 </form>

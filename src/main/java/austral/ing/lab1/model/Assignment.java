@@ -35,7 +35,6 @@ public class Assignment {
     private String fileName;
 
 
-
     @OneToMany(orphanRemoval=true)
     @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Set<Homework> studentsData = new HashSet<>();
@@ -86,13 +85,15 @@ public class Assignment {
     }
 
 
-
     public String getFileName() {
         return fileName;
     }
 
 
-
+    public void addStudentsData(Homework homework) {
+        getStudentsData().add(homework);
+        homework.persist();
+    }
 
     public Set<Homework> getStudentsData() {
         return studentsData;
@@ -102,8 +103,25 @@ public class Assignment {
         this.studentsData = studentsData;
     }
 
+    public Homework findStudentDataById(String email){
+        for(Homework homework: studentsData){
+            if(homework.getStudentEmail().equals(email)) return homework;
+        }
+        return null;
+    }
 
     public void setTeachersData(Blob teachersData) {
         this.teachersData = teachersData;
+    }
+
+    public void renewHomework(Homework homework) {
+        studentsData.remove(findStudentDataById(homework.getStudentEmail()));
+        addStudentsData(homework);
+    }
+
+    public void markStudentAsComplete(String studentEmail) {
+        Homework h = findStudentDataById(studentEmail);
+        h.setStatus("completed");
+        h.persist();
     }
 }

@@ -63,11 +63,13 @@
 
 
 <body>
-
-<div class="jumbotron-fluid"
-     style="background-color: cornflowerblue; color: white; margin-bottom: 20px; padding: 20px" >
-    <h2> Musiquorum </h2>
-</div>
+<header>
+    <div class="navbar navbar-dark shadow-sm" style="background-color: cornflowerblue">
+        <div class="container">
+            <a href="${pageContext.request.contextPath}/secure/home.html" class="navbar-brand d-flex align-items-left" style="font-size: 30px"> Musiquorum </a>
+        </div>
+    </div>
+</header>
 
 <form method="post" action="${pageContext.request.contextPath}/secure/createAssignment.do?classID=${classs.classID}" enctype='multipart/form-data'>
     <div class="container">
