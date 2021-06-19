@@ -38,13 +38,14 @@ public class Homework {
     private String contentType;
 
 
-    @Column(name = "STATUS")//entregado, delivered
-    private String status; //solo puede ser "pending", "delivered" o "returned"
+    @Column(name = "STATUS")
+    private String status; //solo puede ser "pending", "delivered" o "completed"
 
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="ASSIGNMENT_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Assignment assignment;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="USER_ID")
@@ -59,8 +60,7 @@ public class Homework {
     }
 
     // NO BORRAR
-    public Homework() {
-    }
+    public Homework() { }
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
@@ -74,10 +74,7 @@ public class Homework {
         return data;
     }
 
-    public void setData(Blob data) {
-        this.data = data;
-    }
-
+    public void setData(Blob data) { this.data = data; }
 
     public String getStatus() {
         return status;
@@ -86,7 +83,6 @@ public class Homework {
     public void setStatus(String status) {
         this.status = status;
     }
-
 
     public void persist() {
       Homeworks homeworks = new Homeworks();
@@ -98,7 +94,6 @@ public class Homework {
     public String getStudentEmail() { return studentEmail; }
 
     public int getID() { return homeworkID; }
-
 
     public boolean isPending(){
         if(status.equals("pending"))return true;

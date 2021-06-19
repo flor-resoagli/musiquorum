@@ -27,21 +27,15 @@ public class Assignment {
     @Column(name = "INSTRUCTIONS")
     private String instructions;
 
-
     @Column(name = "TEACHERS_DATA")
     private Blob teachersData;
-
 
     @Column(name = "FILENAME")
     private String fileName;
 
-
     @OneToMany(orphanRemoval=true)
-    @JoinColumn(name="USER_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+    @JoinColumn(name="USER_ID")
     private Set<Homework> studentsData = new HashSet<>();
-
-    //@ManyToMany(mappedBy = "entregas")
-    //private List<User> users = new ArrayList<>();
 
     public void setTitle(String title) {
         this.title = title;
@@ -51,11 +45,9 @@ public class Assignment {
         this.instructions = instructions;
     }
 
-
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
-
 
 //    public List<Homework> viewPending(){
 //        List<Homework> pending = new ArrayList<>();
@@ -98,7 +90,7 @@ public class Assignment {
 
 
     public void addStudentsData(Homework homework) {
-        getStudentsData().add(homework);
+        studentsData.add(homework);
         homework.persist();
     }
 
@@ -112,7 +104,7 @@ public class Assignment {
 
     public Homework findStudentDataById(String email){
         for(Homework homework: studentsData){
-            if(homework.getUser().getEmail().equals(email)) return homework;
+            if(homework.getStudentEmail().equals(email)) return homework;
         }
         return null;
     }
@@ -122,7 +114,7 @@ public class Assignment {
     }
 
     public void renewHomework(Homework homework) {
-        studentsData.remove(findStudentDataById(homework.getUser().getEmail()));
+        studentsData.remove(findStudentDataById(homework.getStudentEmail()));
         addStudentsData(homework);
     }
 
@@ -135,7 +127,7 @@ public class Assignment {
     public boolean hasStudentHandedIn(String user) {
         if(studentsData.isEmpty()) return false;
         for(Homework homework: studentsData){
-            if(homework.getUser().getEmail().equals(user)) return true;
+            if(homework.getStudentEmail().equals(user)) return true;
         }
         return false;
     }

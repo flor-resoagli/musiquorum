@@ -70,14 +70,10 @@ public class CreateAssignment extends HttpServlet {
             throwable.printStackTrace();
         }
 
-        List<Course> courses = Courses.listAll();
-
-
-        for (Course course: courses) {
-            if(course.getClasses().contains(classs)) course.giveHomework(assignment); //el curso le da a todos los usuarios incriptos la tarea del assignment
-        }
-
-
+        //List<Course> courses = Courses.listAll();
+        //for (Course course: courses) {
+        //    if(course.getClasses().contains(classs)) course.giveHomework(assignment); //el curso le da a todos los usuarios incriptos la tarea del assignment
+        //}
 
         classs.addAssignment(assignment);
 

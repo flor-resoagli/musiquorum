@@ -1,9 +1,6 @@
 package austral.ing.lab1.service;
 
-import austral.ing.lab1.entity.Assignments;
-import austral.ing.lab1.entity.Classes;
-import austral.ing.lab1.entity.Courses;
-import austral.ing.lab1.entity.Users;
+import austral.ing.lab1.entity.*;
 import austral.ing.lab1.model.Assignment;
 import austral.ing.lab1.model.Class;
 import austral.ing.lab1.model.Course;
@@ -31,10 +28,11 @@ public class ViewPendingServlet extends HttpServlet {
         User user = Users.findByEmail(req.getRemoteUser()).get();
         List<Assignment> pendingA = new ArrayList<>();
 
-        for(Homework h: user.getHomeworks())
-            if(h.getStatus().equals("pending")) {
-                pendingA.add(h.getAssignment());
+        for(Course c : user.getCourses()){
+            for(Assignment a : c.getAllAssignments()){
+                if(user.isAssignmentPending(a)) pendingA.add(a);
             }
+        }
 
         req.setAttribute("pendingA", pendingA);
 

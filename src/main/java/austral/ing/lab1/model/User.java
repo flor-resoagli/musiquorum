@@ -30,6 +30,9 @@ public class User {
   @Column(name = "PASSWORD")
   private String password;
 
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  private List<Address> addresses = new ArrayList<>();
+
   @Column(name = "FIRST_NAME")
   private String firstName;
 
@@ -48,20 +51,13 @@ public class User {
   @Basic(fetch = FetchType.LAZY)
   private byte[] profilePicture;
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)// como un curso tiene mucho material, el id del curso debe estar en la tabla de material
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
   private Set<Homework> homeworks = new HashSet<>();
-
 
   @ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
   private Set<Course> courses = new HashSet<>();
 
-  //@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  //private List<Assignment> assignment = new ArrayList<>();
-
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<Address> addresses = new ArrayList<>();
-
-
+  //FIRST NAME
   public String getFirstName() {
     return firstName;
   }
@@ -70,6 +66,7 @@ public class User {
     this.firstName = firstName;
   }
 
+  //LAST NAME
   public String getLastName() {
     return lastName;
   }
@@ -78,6 +75,7 @@ public class User {
     this.lastName = lastName;
   }
 
+  //EMAIL
   public String getEmail() {
     return email;
   }
@@ -86,6 +84,7 @@ public class User {
     this.email = email;
   }
 
+  //ID
   public Long getId() {
     return id;
   }
@@ -94,6 +93,7 @@ public class User {
     this.id = id;
   }
 
+  //ACTIVE
   public Boolean getActive() {
     return isActive;
   }
@@ -102,6 +102,7 @@ public class User {
     isActive = active;
   }
 
+  //PASSWORD
   public void setPassword(String password) {
     this.password = password;
   }
@@ -110,14 +111,17 @@ public class User {
     return password;
   }
 
+  //COURSES
   public Set<Course> getCourses() {
     return courses;
   }
 
-  public List<Address> getAddresses() {
-    return addresses;
+  public void addCourse(Course course){
+    courses.add(course);
+    course.addUser(this);
   }
 
+  //PROFILE PIC
   public byte[] getProfilePic() {
     return profilePicture;
   }
@@ -126,34 +130,31 @@ public class User {
     this.profilePicture = image;
   }
 
-  public void enrollIncourse(Course course) {
-    courses.add(course);
-    course.addUser(this);
+  //PENDING ASSIGNMENTS
+  public boolean isAssignmentPending(Assignment assignment){
+    for(Homework h : homeworks){
+      if(h.getAssignment().equals(assignment)) return false;
+    }
+    return true;
   }
 
+  //DELIVERED HOMEWORKS
   public Set<Homework> getHomeworks() {
     return homeworks;
   }
 
-
-  public byte[] getProfilePicture() {
-    return profilePicture;
-  }
-
-  public void setProfilePicture(byte[] profilePicture) {
-    this.profilePicture = profilePicture;
-  }
-
   public void addHomework(Homework homework) {
     this.homeworks.add(homework);
-    homework.setUser(this);
-//    Homeworks.persist(homework);
+    homework.setStudentEmail(this.email);
   }
 
+  public void removeHomework(Homework homework) {
+    homeworks.remove(homework);
+  }
 
   public Homework getHomeworkForAssignment(Assignment assignment) {
     for(Homework h : homeworks){
-      if(h.getAssignment().equals(assignment)) return h;
+      if(h.getAssignment().getAssignmentID() == (assignment.getAssignmentID())) return h;
     }
     return null;
   }
@@ -167,19 +168,40 @@ public class User {
     }
   }
 
-
-  public void deliverHomework(Homework homework) {
-    for(Homework h : homeworks) {
-      if (h.equals(homework)) {
-        h.setStatus("delivered");
-      }
-    }
+  //COMPLETED HOMEWORKS
+  /*
+  public Set<Homework> getHomeworksCompleted() {
+    return homeworksCompleted;
   }
 
-  public void completeHomework(Homework homework) {
-    for(Homework h : homeworks) {
-      if (h.equals(homework)) {
-        h.setStatus("delivered");
+  public void addCompletedHomework(Homework homework) {
+    this.homeworksCompleted.add(homework);
+    homework.setStudentEmail(this.email);
+  }
+
+  public Homework getCompletedHomeworkForAssignment(Assignment assignment) {
+    for(Homework h : homeworksCompleted){
+      if(h.getAssignment().getAssignmentID() == (assignment.getAssignmentID())) return h;
+    }
+    return null;
+  }
+   */
+
+  //ENROLL IN COURSE
+  public void enrollInCourse(Course course) {
+    addCourse(course);
+    //add assignmentsPending
+
+  }
+
+  public void markAsCompleted(Assignment assignment) {
+    for(Homework h : homeworks){
+      if(h.getAssignment().getAssignmentID() == (assignment.getAssignmentID())){
+        Homework hw = h;
+        hw.setStatus("completed");
+        homeworks.remove(h);
+        homeworks.add(hw);
+        hw.persist();
       }
     }
   }

@@ -4,6 +4,7 @@ import austral.ing.lab1.model.*;
 import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
+import java.sql.Blob;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,5 +45,29 @@ public class Homeworks {
             tx.rollback();
             throw e;
         }
+    }
+
+    public static void updateBlob(Homework homework, Blob blob) {
+        // Retrieve the course with this
+
+        final EntityTransaction tx = currentEntityManager().getTransaction();
+
+        if (homework != null) {
+            try {
+                // Start a transaction because we're going to change the database
+                tx.begin();
+
+                // Remove all references to this course by tags
+                homework.setData(blob);
+
+                // Now remove the course
+
+                // Commit the transaction
+                tx.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        persist(homework);
     }
 }

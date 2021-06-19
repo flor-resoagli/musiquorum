@@ -42,8 +42,46 @@ public class AssignmentHandIn extends HttpServlet {
         view.forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //GET USER
+        User user = Users.findByEmail(req.getRemoteUser()).get();
+
+        //GET ASSIGNMENT
+        String assignmentID = req.getParameter("assignmentID");
+        Optional<Assignment> persistedAssignment = Assignments.findByID(Integer.parseInt(assignmentID));
+        Assignment assignment = persistedAssignment.get();
+
+        //CREATE NEW HOMEWORK
+        Homework homework = new Homework(assignment, user);
+
+        Part filePart = req.getPart("file");
+        InputStream data = filePart.getInputStream();
+        byte[] dataBytes = toByteArray(data);
+
+        try {
+            homework.setStatus("delivered");
+            homework.setContentType(filePart.getContentType());
+            homework.setData(new SerialBlob(dataBytes));
+            //ADD DELIVERED HOMEWORK
+            user.addHomework(homework);
+            //REMOVE FROM PENDING
+            //user.removeAssignmentPending(assignment);
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+
+        //Homeworks.persist(homework);
+        //ADDS HOMEWORK DATA TO ASSIGNMENT
+        assignment.addStudentsData(homework);
+
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments-student/"+ assignmentID);
+        view.forward(req, resp);
+    }
 
 
+/**
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = Users.findByEmail(req.getRemoteUser()).get();
@@ -53,6 +91,8 @@ public class AssignmentHandIn extends HttpServlet {
         Assignment assignment = persistedAssignment.get();
 
         Homework homework = user.getHomeworkForAssignment(assignment);
+        //Homework h = new Homework();
+
 
 
         Part filePart = req.getPart("file");
@@ -61,6 +101,9 @@ public class AssignmentHandIn extends HttpServlet {
 
         try {
 
+            //h.setContentType(filePart.getContentType());
+            //h.setData(new SerialBlob(dataBytes));
+            //h.setStatus("delivered");
             user.setParametersForHomework(homework, filePart.getContentType(), new SerialBlob(dataBytes));
             user.deliverHomework(homework);
 
@@ -69,9 +112,12 @@ public class AssignmentHandIn extends HttpServlet {
         }
 
         assignment.addStudentsData(user.getHomeworkForAssignment(assignment));
+        //user.renewHomework(h);
+        //assignment.addStudentsData(h);
         final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments-student/"+ assignmentID);
         view.forward(req, resp);
 
     }
+    */
 
 }

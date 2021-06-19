@@ -16,6 +16,8 @@ import java.util.Set;
 @WebServlet("/secure/markHomeworkAsComplete.do")
 public class HomeworkAsComplete extends HttpServlet{
 
+
+    /*
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
@@ -32,19 +34,31 @@ public class HomeworkAsComplete extends HttpServlet{
         view.forward(req, resp);
     }
 
+     */
+
+
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //GET ASSIGNMENT
         String assignmentID = req.getParameter("assignmentID");
-        String studentEmail = req.getParameter("studentEmail");
-
         Assignment assignment = Assignments.findByID(Integer.parseInt(assignmentID)).get();
-        Homework homework = assignment.findStudentDataById(studentEmail);
-        User student = Users.findByEmail(studentEmail).get();
-        student.completeHomework(homework);
 
-        homework.persist();
-        //Homeworks.persist(homework);
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/homeworkList?assignmentID="+assignmentID);
+        //GET STUDENT
+        String studentEmail = req.getParameter("studentEmail");
+        User student = Users.findByEmail(studentEmail).get();
+
+        student.markAsCompleted(assignment);
+
+        //FIND DELIVERED HOMEWORK
+        //Homework homework = assignment.findStudentDataById(studentEmail);
+
+        //COMPLETE HOMEWORK
+        //homework.setStatus("completed");
+
+
+        //"/secure/homeworkList?assignmentID="+assignmentID
+        final RequestDispatcher view = req.getRequestDispatcher("home.html");
         view.forward(req, resp);
     }
 }

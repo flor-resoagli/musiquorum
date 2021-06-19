@@ -107,23 +107,29 @@ public class Course {
         return tags;
     }
 
+    public List<Assignment> getAllAssignments(){
+        List<Assignment> assignments = new ArrayList<>();
+        for(Class c : getClasses())
+            assignments.addAll(c.getAssignments());
 
+        return assignments;
+    }
 
     //cada vez que se crea una nueva assignment en un curso, todos los inscriptos en el curso van a tener un homework que entregar en estado inicial: pending
-    public void giveHomework(Assignment assignment){
-        for (User user: getUsers()) {
-            user.addHomework(new Homework(assignment, user));
-        }
-    }
+    //public void giveHomework(Assignment assignment){
+    //    for (User user: getUsers()) {
+    //        user.addAssignmentPending(assignment);
+    //    }
+    //}
 
     //cada vez que un nuevo usuario se inscribe a un curso
-    public void giveHomeworktoNewStudent(User user){
-        for (Class myClass: getClasses()) {
-            for (Assignment assignment: myClass.getAssignments()) {
-                user.addHomework(new Homework(assignment, user));
-            }
-        }
-    }
+    //public void giveHomeworktoNewStudent(User user){
+    //    for (Class myClass: getClasses()) {
+    //        for (Assignment assignment: myClass.getAssignments()) {
+    //            user.addAssignmentPending(assignment);
+    //        }
+    //    }
+    //}
 
 
     public void addTag(String tagName) {
