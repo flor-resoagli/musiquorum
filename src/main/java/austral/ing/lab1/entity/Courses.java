@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Table;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import static austral.ing.lab1.util.EntityManagers.currentEntityManager;
@@ -27,10 +28,9 @@ public class Courses {
     public static List<Course> findByName(String name){
         return tx(() ->
                 LangUtils.<Course>checkedList(currentEntityManager()
-                        .createQuery("SELECT u FROM Course u WHERE u.name LIKE :name")
-                        .setParameter("name", name)
+                        .createQuery("SELECT u FROM Course u WHERE LOWER( u.name) LIKE :name")
+                        .setParameter("name", "%" + name + "%")
                         .getResultList())
-
         );
     }
 

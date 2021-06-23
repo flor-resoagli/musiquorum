@@ -54,7 +54,7 @@ public class AssignmentHandIn extends HttpServlet {
         Assignment assignment = persistedAssignment.get();
 
         //CREATE NEW HOMEWORK
-        Homework homework = new Homework(assignment, user);
+        Homework homework = new Homework(assignment);
 
         Part filePart = req.getPart("file");
         InputStream data = filePart.getInputStream();

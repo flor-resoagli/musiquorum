@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRefs;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @WebServlet("/searchForCourse.do")
@@ -21,17 +22,11 @@ public class CourseSearchServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-
-
-        List<Course> courses = Courses.findByName(req.getParameter("name"));
+        List<Course> courses = Courses.findByName(req.getParameter("name").toLowerCase(Locale.ROOT));
 
 //        Course course = persistedCourse.get();
 
         req.setAttribute("courses", courses);
-
-
-
-
 
         final RequestDispatcher view = req.getRequestDispatcher("/secure/coursesSearchedForList.jsp");
         view.forward(req, resp);

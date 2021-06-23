@@ -144,8 +144,9 @@ public class User {
   }
 
   public void addHomework(Homework homework) {
-    this.homeworks.add(homework);
+    homeworks.add(homework);
     homework.setStudentEmail(this.email);
+    homework.setUser(this);
   }
 
   public void removeHomework(Homework homework) {
@@ -197,11 +198,11 @@ public class User {
   public void markAsCompleted(Assignment assignment) {
     for(Homework h : homeworks){
       if(h.getAssignment().getAssignmentID() == (assignment.getAssignmentID())){
-        Homework hw = h;
-        hw.setStatus("completed");
-        homeworks.remove(h);
-        homeworks.add(hw);
-        hw.persist();
+        //Homework hw = h;
+        h.setStatus("completed");
+        h.persist();
+        //homeworks.remove(h);
+        //homeworks.add(hw);
       }
     }
   }

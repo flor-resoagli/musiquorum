@@ -113,11 +113,6 @@ public class Assignment {
         this.teachersData = teachersData;
     }
 
-    public void renewHomework(Homework homework) {
-        studentsData.remove(findStudentDataById(homework.getStudentEmail()));
-        addStudentsData(homework);
-    }
-
     public void markStudentAsComplete(String studentEmail) {
         Homework h = findStudentDataById(studentEmail);
         h.setStatus("completed");

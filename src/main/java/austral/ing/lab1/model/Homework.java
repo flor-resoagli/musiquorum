@@ -27,7 +27,6 @@ public class Homework {
     @GenericGenerator(name = "increment", strategy = "increment")
     private int homeworkID;
 
-
     @Column(name = "STUDENT_DATA")
     private Blob data;
 
@@ -37,25 +36,24 @@ public class Homework {
     @Column(name = "CONTENTTYPE")
     private String contentType;
 
+    //@Column(name = "COMPLETED")
+    //private boolean isCompleted;
 
     @Column(name = "STATUS")
     private String status; //solo puede ser "pending", "delivered" o "completed"
-
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="ASSIGNMENT_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Assignment assignment;
 
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="USER_ID")
     private User user;
 
-    public Homework(Assignment assignment, User user) {
+    public Homework(Assignment assignment) {
         this.assignment = assignment;
-        this.user = user;
-        studentEmail = user.getEmail();
-        status="pending";
+        this.status="pending";
+        //this.isCompleted = false;
         //Homeworks.persist(this);
     }
 
@@ -76,6 +74,10 @@ public class Homework {
 
     public void setData(Blob data) { this.data = data; }
 
+    //public boolean isCompleted() { return isCompleted; }
+
+    //public void setCompleted() { isCompleted = true; }
+
     public String getStatus() {
         return status;
     }
@@ -95,10 +97,7 @@ public class Homework {
 
     public int getID() { return homeworkID; }
 
-    public boolean isPending(){
-        if(status.equals("pending"))return true;
-        return false;
-    }
+    public boolean isPending(){ return status.equals("pending"); }
 
     public void setUser(User user) {
         this.user = user;
