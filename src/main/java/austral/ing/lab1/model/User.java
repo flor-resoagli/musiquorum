@@ -141,6 +141,7 @@ public class User {
 
   //PENDING ASSIGNMENTS
   public boolean isAssignmentPending(Assignment assignment){
+    if(assignmentsCompleted.contains(assignment)) return false;
     for(Homework h : homeworks){
       if(h.getAssignment().equals(assignment)) return false;
     }

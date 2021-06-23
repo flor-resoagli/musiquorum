@@ -128,12 +128,14 @@ public class Assignment {
         return null;
     }
 
-    /*
+
     public Set<Homework> getDeliveredHomeworks() {
-        Set<Homework> deliveredHomeworks = studentsData;
-        deliveredHomeworks.removeAll(getCompletedHomeworks());
+        Set<Homework> deliveredHomeworks = new HashSet<>();
+        for(Homework h : studentsData){
+            if(!completedStudents.contains(h.getUser())) deliveredHomeworks.add(h);
+        }
         return deliveredHomeworks;
     }
 
-     */
+
 }

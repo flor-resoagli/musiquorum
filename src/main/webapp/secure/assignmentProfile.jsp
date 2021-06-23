@@ -94,45 +94,46 @@
         </div>
     </section>
 
-    <section class="py-5 text-center container">
-        <ul>
-            <c:forEach var="homework" items="${assignment.studentsData}">
-                <li style="float: left; list-style-type:none;">
-                    <div class="container align-content-center">
-                        <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 2px; width: 500px; padding-bottom: 20px;">
-                            <div class="card-body">
-                                <p> <b> Submitted by: </b> ${homework.studentEmail} </p>
-                            </div>
-                            <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}"> See Submission  </a>
-                        </div>
-                        <div class="card-footer">
-                            <p> ${homework.status}</p>
-                            <a href="${pageContext.request.contextPath}/secure/markHomeworkAsComplete.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}" class="btn btn-outline-success">  Mark as Completed </a>
-                        </div>
-                    </div>
-                </li>
-            </c:forEach>
-        </ul>
-    </section>
-    
-        <form method="get" action="${pageContext.request.contextPath}/secure/homeworkList?assignmentID=${assignment.assignmentID}" enctype="multipart/form-data">
-            <section class="container shadow-none border-success">
-            <h3> Completed Assignments </h3>
+    <form method="get" action="${pageContext.request.contextPath}/secure/homeworkList?assignmentID=${assignment.assignmentID}" enctype="multipart/form-data">
+
+        <section class="py-5 text-center container">
             <ul>
-                <c:forEach var="hw" items="${completedHomeworks}">
+                <c:forEach var="homework" items="${deliveredHomeworks}">
                     <li style="float: left; list-style-type:none;">
                         <div class="container align-content-center">
-                            <div class="card shadow-sm" style="border-color: green; border-width: 2px; width: 500px; padding-bottom: 20px;">
+                            <div class="card shadow-sm" style="border-color: cornflowerblue; border-width: 2px; width: 500px; padding-bottom: 20px;">
                                 <div class="card-body">
-                                    <p> <b> Submitted by: </b> ${hw.studentEmail} </p>
+                                    <p> <b> Submitted by: </b> ${homework.studentEmail} </p>
                                 </div>
-                                <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${hw.studentEmail}"> See Submission  </a>
+                                <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}"> See Submission  </a>
+                            </div>
+                            <div class="card-footer">
+                                <p> ${homework.status}</p>
+                                <a href="${pageContext.request.contextPath}/secure/markHomeworkAsComplete.do?assignmentID=${assignment.assignmentID}&studentEmail=${homework.studentEmail}" class="btn btn-outline-success">  Mark as Completed </a>
                             </div>
                         </div>
                     </li>
                 </c:forEach>
             </ul>
-            </section>
+        </section>
+
+        <section class="container shadow-none border-success">
+        <h3> Completed Assignments </h3>
+        <ul>
+            <c:forEach var="hw" items="${completedHomeworks}">
+                <li style="float: left; list-style-type:none;">
+                    <div class="container align-content-center">
+                        <div class="card shadow-sm" style="border-color: green; border-width: 2px; width: 500px; padding-bottom: 20px;">
+                            <div class="card-body">
+                                <p> <b> Submitted by: </b> ${hw.studentEmail} </p>
+                            </div>
+                            <a href="${pageContext.request.contextPath}/secure/homeworkResources.do?assignmentID=${assignment.assignmentID}&studentEmail=${hw.studentEmail}"> See Submission  </a>
+                        </div>
+                    </div>
+                </li>
+            </c:forEach>
+        </ul>
+        </section>
         </form>
     
 </form>

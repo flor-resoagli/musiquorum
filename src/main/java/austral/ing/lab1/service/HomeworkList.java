@@ -28,7 +28,7 @@ public class HomeworkList extends HttpServlet {
         Optional<Assignment> persistedAssignment = Assignments.findByID(Integer.parseInt(assignmentID));
         Assignment assignment = persistedAssignment.get();
         Set<Homework> completedHomeworks = assignment.getCompletedHomeworks();
-        //Set<Homework> deliveredHomeworks = assignment.getDeliveredHomeworks();
+        Set<Homework> deliveredHomeworks = assignment.getDeliveredHomeworks();
 
         //Set<Homework> homeworkSetD = assignment.getStudentsData();
         //Set<Homework> homeworkSetC = assignment.getStudentsData();
@@ -44,7 +44,7 @@ public class HomeworkList extends HttpServlet {
          */
         //homeworkSetD.removeIf(homework -> homework.getStatus().equals("completed"));
 
-        // req.setAttribute("deliveredHomeworks", homeworkSetD);
+        req.setAttribute("deliveredHomeworks", deliveredHomeworks);
         req.setAttribute("completedHomeworks", completedHomeworks);
 
         final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments/"+assignmentID);
