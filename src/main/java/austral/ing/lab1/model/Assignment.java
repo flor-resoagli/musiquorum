@@ -37,6 +37,14 @@ public class Assignment {
     @JoinColumn(name="USER_ID")
     private Set<Homework> studentsData = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "USER_ASSIGNMENT",
+            joinColumns = {@JoinColumn(name = "assignment_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
+    )
+    private Set<User> completedStudents = new HashSet<>();
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -57,6 +65,21 @@ public class Assignment {
 //        return pending;
 //    }
 
+
+    public Set<Homework> getCompletedHomeworks(){
+        Set<Homework> completedHomeworks = new HashSet<>();
+        for(User u : completedStudents){
+            completedHomeworks.add(u.getHomeworkForAssignment(this));
+        }
+        return completedHomeworks;
+    }
+
+
+    public Set<User> getCompletedStudents() { return completedStudents; }
+
+    public void addCompletedStudent(User student){
+        completedStudents.add(student);
+    }
 
     public void addInstructionFile(Blob teachersData, String contentType){
         this.teachersData = teachersData;
@@ -98,10 +121,6 @@ public class Assignment {
         return studentsData;
     }
 
-    public void setStudentsData(Set<Homework> studentsData) {
-        this.studentsData = studentsData;
-    }
-
     public Homework findStudentDataById(String email){
         for(Homework homework: studentsData){
             if(homework.getStudentEmail().equals(email)) return homework;
@@ -109,21 +128,12 @@ public class Assignment {
         return null;
     }
 
-    public void setTeachersData(Blob teachersData) {
-        this.teachersData = teachersData;
+    /*
+    public Set<Homework> getDeliveredHomeworks() {
+        Set<Homework> deliveredHomeworks = studentsData;
+        deliveredHomeworks.removeAll(getCompletedHomeworks());
+        return deliveredHomeworks;
     }
 
-    public void markStudentAsComplete(String studentEmail) {
-        Homework h = findStudentDataById(studentEmail);
-        h.setStatus("completed");
-//        h.persist();
-    }
-
-    public boolean hasStudentHandedIn(String user) {
-        if(studentsData.isEmpty()) return false;
-        for(Homework homework: studentsData){
-            if(homework.getStudentEmail().equals(user)) return true;
-        }
-        return false;
-    }
+     */
 }

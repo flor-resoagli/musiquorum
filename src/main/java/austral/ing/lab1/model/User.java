@@ -45,17 +45,26 @@ public class User {
   @Column(name = "IS_ACTIVE")
   private Boolean isActive;
 
+  @ManyToMany(mappedBy = "completedStudents", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+  private Set<Assignment> assignmentsCompleted;
+
 //  @Column(name="picture")
 //  private Blob picture;
   @Lob
   @Basic(fetch = FetchType.LAZY)
   private byte[] profilePicture;
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
   private Set<Homework> homeworks = new HashSet<>();
 
   @ManyToMany(mappedBy = "users", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
   private Set<Course> courses = new HashSet<>();
+
+  public Set<Assignment> getAssignmentsCompleted() { return assignmentsCompleted; }
+
+  public void addAssignmentsCompleted(Assignment assignment){
+    assignmentsCompleted.add(assignment);
+  }
 
   //FIRST NAME
   public String getFirstName() {
@@ -205,5 +214,13 @@ public class User {
         //homeworks.add(hw);
       }
     }
+  }
+
+  public List<Assignment> getPendingAssignments() {
+    List<Assignment> assignments = new ArrayList<>();
+    for(Homework h : homeworks){
+      if(!assignmentsCompleted.contains(h.getAssignment())) assignments.add(h.getAssignment());
+    }
+    return assignments;
   }
 }

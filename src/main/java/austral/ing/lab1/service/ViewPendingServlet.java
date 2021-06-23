@@ -28,11 +28,13 @@ public class ViewPendingServlet extends HttpServlet {
         User user = Users.findByEmail(req.getRemoteUser()).get();
         List<Assignment> pendingA = new ArrayList<>();
 
+
         for(Course c : user.getCourses()){
             for(Assignment a : c.getAllAssignments()){
                 if(user.isAssignmentPending(a)) pendingA.add(a);
             }
         }
+
 
         req.setAttribute("pendingA", pendingA);
 

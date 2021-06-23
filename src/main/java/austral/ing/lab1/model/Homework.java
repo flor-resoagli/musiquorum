@@ -46,7 +46,7 @@ public class Homework {
     @JoinColumn(name="ASSIGNMENT_ID") // como un curso tiene mucho material, el id del curso debe estar en la tabla de material
     private Assignment assignment;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="USER_ID")
     private User user;
 

@@ -57,7 +57,7 @@ public class AssignmentProfileForStudentServlet extends HttpServlet {
         req.setAttribute("assignment", assignment);
         req.setAttribute("homeworkStatus", homework.getStatus());
 
-        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfile.jsp");
+        final RequestDispatcher view = req.getRequestDispatcher("/secure/assignmentProfileForStudent.jsp");
         view.forward(req, resp);
     }
 }

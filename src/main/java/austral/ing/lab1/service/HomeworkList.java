@@ -3,10 +3,8 @@ package austral.ing.lab1.service;
 import austral.ing.lab1.entity.Assignments;
 import austral.ing.lab1.entity.Classes;
 import austral.ing.lab1.entity.Courses;
-import austral.ing.lab1.model.Assignment;
+import austral.ing.lab1.model.*;
 import austral.ing.lab1.model.Class;
-import austral.ing.lab1.model.Course;
-import austral.ing.lab1.model.Homework;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -28,12 +27,25 @@ public class HomeworkList extends HttpServlet {
 
         Optional<Assignment> persistedAssignment = Assignments.findByID(Integer.parseInt(assignmentID));
         Assignment assignment = persistedAssignment.get();
+        Set<Homework> completedHomeworks = assignment.getCompletedHomeworks();
+        //Set<Homework> deliveredHomeworks = assignment.getDeliveredHomeworks();
 
+        //Set<Homework> homeworkSetD = assignment.getStudentsData();
+        //Set<Homework> homeworkSetC = assignment.getStudentsData();
 
-        Set<Homework> homeworkSet = assignment.getStudentsData();
-        homeworkSet.removeIf(homework -> homework.getStatus().equals("completed"));
+        //homeworkSetD.removeIf(h -> completedUsers.contains(h.getUser()));
+        //homeworkSetC.removeAll(homeworkSetD);
+        //homeworkSetC.removeIf(h -> !completedUsers.contains(h.getUser()));
+        /*
+        for(Homework h : homeworkSetD){
+            if(completedUsers.contains(h.getUser())) homeworkSetC.add(h);
+        }
 
-        req.setAttribute("homeworks", homeworkSet);
+         */
+        //homeworkSetD.removeIf(homework -> homework.getStatus().equals("completed"));
+
+        // req.setAttribute("deliveredHomeworks", homeworkSetD);
+        req.setAttribute("completedHomeworks", completedHomeworks);
 
         final RequestDispatcher view = req.getRequestDispatcher("/secure/assignments/"+assignmentID);
         view.forward(req, resp);
